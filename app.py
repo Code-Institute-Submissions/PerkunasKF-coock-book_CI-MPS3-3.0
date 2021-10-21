@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+import random
 if os.path.exists("env.py"):
     import env
 
@@ -21,7 +22,13 @@ mongo = PyMongo(app)
 @app.route("/get_recipes")
 def get_recipes():
     recipes = mongo.db.recipes.find()
-    return render_template("recipes.html", recipes=recipes)
+    recipe_list = []
+    for recipe in recipes:
+        recipe_list.append(recipe)
+    random_recipe = random.choices(recipe_list)
+    return render_template(
+        "recipes.html", recipes=recipes,
+        random_recipe=random_recipe)
 
 
 if __name__ == "__main__":

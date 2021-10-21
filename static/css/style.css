@@ -1,0 +1,19 @@
+/* Testing styles */
+
+.container {
+    border: 3px solid black;
+
+    width: 100%;
+}
+
+.row {
+    border: 2px solid red;
+}
+
+.col {
+    border: 2px solid blue;
+}
+
+footer {
+    border: 3px solid yellow;
+}
