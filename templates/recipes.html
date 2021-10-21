@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Book|Recipes</title>
+</head>
+<body>
+
+    {% for recipe in recipes %}
+        <h3>{{ recipe.recipe_name.upper() }}</h3>
+        <h4>Ingredients</h4>
+        <ul>
+            {% for ingredient in recipe.recipe_ingredients%}
+                <li>{{ ingredient.capitalize() }}</li>
+            {% endfor %}
+        </ul>
+        <h4>Directions</h4>
+        <ol>
+            {% for direction in recipe.recipe_directions %}
+                <li>
+                    {{ direction }}
+                </li>
+            {% endfor %}
+        </ol>
+    {% endfor %}
+    
+</body>
+</html>
