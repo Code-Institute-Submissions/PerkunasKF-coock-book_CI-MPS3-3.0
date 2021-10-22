@@ -45,6 +45,19 @@
         </ul>
     </header>
 
+    <!-- section to display flash messages -->
+    <section>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flash-message">
+                        <h5>{{ message }}</h5>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
+
     <main class="container">
         {% block content %}
         {% endblock %}
