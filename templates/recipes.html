@@ -1,27 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <!-- Materialized model code block -->
     <div class="container">
         <div class="row">
             {% for recipe in random_recipe %}
-                <h4>
-                    {{ recipe.recipe_name.upper() }}
-                </h4>
-                <Ul>
-                    {% for ingredient in recipe.recipe_ingredients %}
-                        <li>
-                            {{ ingredient.capitalize() }}
-                        </li>
-                    {% endfor %}
-                </Ul>
-                <ol>
-                    {% for direction in recipe.recipe_directions %}
-                        <li>
-                            {{ direction.capitalize() }}
-                        </li>
-                    {% endfor %}
-                </ol>
+                <!-- Modal Trigger -->
+                <a class="waves-effect waves-light modal-trigger" href="#modal1">
+                    <h4>
+                        {{ recipe.recipe_name.upper() }}
+                    </h4>
+                </a>
+
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>
+                            {{ recipe.recipe_name.upper() }}
+                        </h4>
+                        <div class="row">
+                            <div class="col s4">
+                                <Ul>
+                                    {% for ingredient in recipe.recipe_ingredients %}
+                                        <li>
+                                            {{ ingredient.capitalize() }}
+                                        </li>
+                                    {% endfor %}
+                                </Ul>
+                            </div>
+                            <div class="col s8">
+                                <ol>
+                                    {% for direction in recipe.recipe_directions %}
+                                        <li>
+                                            {{ direction.capitalize() }}
+                                        </li>
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                    </div>
+                </div>
             {% endfor %}
+            <!-- End of Materialized model code block -->
         </div>
     </div>
 
