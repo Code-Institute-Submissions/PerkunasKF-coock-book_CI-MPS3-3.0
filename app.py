@@ -26,8 +26,12 @@ def get_recipes():
     for recipe in recipes:
         recipe_list.append(recipe)
     random_recipe = random.choices(recipe_list)
+    recipes_01 = mongo.db.recipes.find()
+    recipes_02 = mongo.db.recipes.find()
+    recipes_03 = mongo.db.recipes.find()
     return render_template(
-        "recipes.html", recipes=recipes,
+        "recipes.html", recipes_01=recipes_01,
+        recipes_02=recipes_02, recipes_03=recipes_03,
         random_recipe=random_recipe)
 
 

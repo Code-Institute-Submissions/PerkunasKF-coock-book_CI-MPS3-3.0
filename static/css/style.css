@@ -17,3 +17,16 @@
 footer {
     border: 3px solid yellow;
 }
+
+/* Recipe page styles */
+
+.collapsible {
+    height: 450px;
+    overflow: scroll;
+}
+
+.collapsible-body {
+    max-height: 400px;
+}
+
+/* End of Recipe page styles */
