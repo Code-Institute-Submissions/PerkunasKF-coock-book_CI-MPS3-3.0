@@ -22,17 +22,10 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
-    recipes = mongo.db.recipes.find()
-    recipe_list = []
-    for recipe in recipes:
-        recipe_list.append(recipe)
-    random_recipe = random.choices(recipe_list)
-    recipes_01 = mongo.db.recipes.find()
-    recipes_02 = mongo.db.recipes.find()
-    recipes_03 = mongo.db.recipes.find()
+    recipes = list(mongo.db.recipes.find())
+    random_recipe = random.choices(recipes)
     return render_template(
-        "recipes.html", recipes_01=recipes_01,
-        recipes_02=recipes_02, recipes_03=recipes_03,
+        "recipes.html", recipes=recipes,
         random_recipe=random_recipe)
 
 
@@ -96,7 +89,7 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    recipes = mongo.db.recipes.find()
+    recipes = list(mongo.db.recipes.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     email = mongo.db.users.find_one(
@@ -112,6 +105,11 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/add_recipe")
+def add_recipe():
+    return render_template("add_recipe.html")
 
 
 if __name__ == "__main__":

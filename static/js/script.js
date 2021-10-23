@@ -1,6 +1,6 @@
 // Code for Materialize features
 $(document).ready(function(){
-    $('.sidenav').sidenav();
+    $('.sidenav').sidenav({edge: "right"});
     $('.modal').modal();
     $('.tabs').tabs();
     $('.collapsible').collapsible();

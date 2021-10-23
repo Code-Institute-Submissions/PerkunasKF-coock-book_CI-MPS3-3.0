@@ -60,7 +60,7 @@
             </div>
             <div id="test1" class="col s12">
                 <ul class="collapsible">
-                    {% for recipe in recipes_01 %}
+                    {% for recipe in recipes %}
                         {% if recipe.meal_tipe|lower == "breakfast" %}
                             <li>
                                 <div class="collapsible-header">{{ recipe.recipe_name.upper() }}</div>
@@ -87,7 +87,7 @@
             </div>
             <div id="test2" class="col s12">
                 <ul class="collapsible">
-                    {% for recipe in recipes_02 %}
+                    {% for recipe in recipes %}
                         {% if recipe.meal_tipe|lower == "lunch" %}
                             <li>
                                 <div class="collapsible-header">{{ recipe.recipe_name.upper() }}</div>
@@ -114,7 +114,7 @@
             </div>
             <div id="test3" class="col s12">
                 <ul class="collapsible">
-                    {% for recipe in recipes_03 %}
+                    {% for recipe in recipes %}
                         {% if recipe.meal_tipe|lower == "dinner" %}
                         <li>
                             <div class="collapsible-header">{{ recipe.recipe_name.upper() }}</div>
