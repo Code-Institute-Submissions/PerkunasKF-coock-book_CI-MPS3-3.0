@@ -3,10 +3,10 @@
 
     <!-- Code block from Materialized -->
     <div class="row">
-        <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('register') }}">
+        <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('login') }}">
             <div class="card">
                 <div class="card-content">
-                    <h3 class="card-title center-align">Register</h3>
+                    <h3 class="card-title center-align">Log In</h3>
                     <!-- username -->
                     <div class="input-field row">
                         <input id="username" name="username" type="text" class="validate" minlength="5"
@@ -19,21 +19,11 @@
                         maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
                         <label for="password">Password</label>
                     </div>
-                    <!-- Confirm password -->
-                    <div class="input-field row">
-                        <input id="password_confirm" name="password_confirm" type="password" class="validate" minlength="5"
-                            maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
-                        <label for="password_confirm">Confirm Password</label>
-                    </div>
-                    <!-- email -->
-                    <div class="input-field row">
-                        <input id="email" name="email" type="email" class="validate" required>
-                        <label for="email">Email</label>
-                    </div>
-                    <!-- register button -->
+                    <!-- login button -->
                     <div class="card-action row right-align">
-                        <a class="black-text" href="{{ url_for('login') }}">Already a user? Log In</a>
-                        <button type="submit" class="btn-large">Register</button>
+                        <a class="black-text" href="#">Forgot your password?</a>
+                        <a class="black-text" href="{{ url_for('register') }}">Don't have ann account? Register here</a>
+                        <button type="submit" class="btn-large">Log In</button>
                     </div>
                 </div>
             </div>
