@@ -58,87 +58,87 @@
                     <li class="tab col s4"><a href="#test3">Dinner Recipes</a></li>
                 </ul>
             </div>
-                <div id="test1" class="col s12">
-                    <ul class="collapsible">
-                        {% for recipe in recipes_01 %}
-                            {% if recipe.meal_tipe|lower == "breakfast" %}
-                                <li>
-                                    <div class="collapsible-header">{{ recipe.recipe_name.upper() }}</div>
-                                    <div class="collapsible-body">
-                                        <Ul>
-                                            {% for ingredient in recipe.recipe_ingredients %}
+            <div id="test1" class="col s12">
+                <ul class="collapsible">
+                    {% for recipe in recipes_01 %}
+                        {% if recipe.meal_tipe|lower == "breakfast" %}
+                            <li>
+                                <div class="collapsible-header">{{ recipe.recipe_name.upper() }}</div>
+                                <div class="collapsible-body">
+                                    <Ul>
+                                        {% for ingredient in recipe.recipe_ingredients %}
                                             <li>
                                                 {{ ingredient.capitalize() }}
                                             </li>
-                                            {% endfor %}
-                                        </Ul>
-                                        <ol>
-                                            {% for direction in recipe.recipe_directions %}
+                                        {% endfor %}
+                                    </Ul>
+                                    <ol>
+                                        {% for direction in recipe.recipe_directions %}
                                             <li>
                                                 {{ direction.capitalize() }}
                                             </li>
-                                            {% endfor %}
-                                        </ol>
-                                    </div>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div id="test2" class="col s12">
-                    <ul class="collapsible">
-                        {% for recipe in recipes_02 %}
-                            {% if recipe.meal_tipe|lower == "lunch" %}
-                                <li>
-                                    <div class="collapsible-header">{{ recipe.recipe_name.upper() }}</div>
-                                    <div class="collapsible-body">
-                                        <Ul>
-                                            {% for ingredient in recipe.recipe_ingredients %}
+                                        {% endfor %}
+                                    </ol>
+                                </div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="test2" class="col s12">
+                <ul class="collapsible">
+                    {% for recipe in recipes_02 %}
+                        {% if recipe.meal_tipe|lower == "lunch" %}
+                            <li>
+                                <div class="collapsible-header">{{ recipe.recipe_name.upper() }}</div>
+                                <div class="collapsible-body">
+                                    <Ul>
+                                        {% for ingredient in recipe.recipe_ingredients %}
                                             <li>
                                                 {{ ingredient.capitalize() }}
                                             </li>
-                                            {% endfor %}
-                                        </Ul>
-                                        <ol>
-                                            {% for direction in recipe.recipe_directions %}
+                                        {% endfor %}
+                                    </Ul>
+                                    <ol>
+                                        {% for direction in recipe.recipe_directions %}
                                             <li>
                                                 {{ direction.capitalize() }}
                                             </li>
-                                            {% endfor %}
-                                        </ol>
-                                    </div>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
-                <div id="test3" class="col s12">
-                    <ul class="collapsible">
-                        {% for recipe in recipes_03 %}
-                            {% if recipe.meal_tipe|lower == "dinner" %}
-                                <li>
-                                    <div class="collapsible-header">{{ recipe.recipe_name.upper() }}</div>
-                                    <div class="collapsible-body">
-                                        <Ul>
-                                            {% for ingredient in recipe.recipe_ingredients %}
-                                            <li>
-                                                {{ ingredient.capitalize() }}
-                                            </li>
-                                            {% endfor %}
-                                        </Ul>
-                                        <ol>
-                                            {% for direction in recipe.recipe_directions %}
-                                            <li>
-                                                {{ direction.capitalize() }}
-                                            </li>
-                                            {% endfor %}
-                                        </ol>
-                                    </div>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </div>
+                                        {% endfor %}
+                                    </ol>
+                                </div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="test3" class="col s12">
+                <ul class="collapsible">
+                    {% for recipe in recipes_03 %}
+                        {% if recipe.meal_tipe|lower == "dinner" %}
+                        <li>
+                            <div class="collapsible-header">{{ recipe.recipe_name.upper() }}</div>
+                            <div class="collapsible-body">
+                                <Ul>
+                                    {% for ingredient in recipe.recipe_ingredients %}
+                                        <li>
+                                            {{ ingredient.capitalize() }}
+                                        </li>
+                                    {% endfor %}
+                                </Ul>
+                                <ol>
+                                    {% for direction in recipe.recipe_directions %}
+                                        <li>
+                                            {{ direction.capitalize() }}
+                                        </li>
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
         <!-- End of Code block from Materialized -->
     </div>
