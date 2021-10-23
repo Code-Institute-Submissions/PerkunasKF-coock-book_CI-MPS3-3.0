@@ -18,8 +18,7 @@
                         </h4>
                         <div class="row">
                             <div class="col s4">Username</div>
-                            <div class="col s6">{{ username }}</div>
-                            <div class="col s2"><button class="btn-small">Edit</button></div>
+                            <div class="col s8">{{ username }}</div>
                         </div>
                         <div class="row">
                             <div class="col s4">User email</div>
@@ -43,14 +42,14 @@
                     {% for recipe in recipes %}
                         <li>
                             <div class="collapsible-header">
-                                <div class="col s10">
-                                    <h5>{{ recipe.recipe_name.upper() }}</h5>
-                                </div>
-                                <div class="col s2"><button class="btn-small">Edit</button></div>
-                                <div class="col s2"><button class="btn-small">Delete</button></div>
+                                <h5>{{ recipe.recipe_name.upper() }}</h5>
                             </div>
                             <div class="collapsible-body">
-                                <Ul>
+                                <div class="row">
+                                    <div class="col s2 offset-m8"><button class="btn-small">Edit</button></div>
+                                    <div class="col s2 "><button class="btn-small">Delete</button></div>
+                                </div>
+                                <ul>
                                     {% for ingredient in recipe.recipe_ingredients %}
                                         <li>
                                             {{ ingredient.capitalize() }}
