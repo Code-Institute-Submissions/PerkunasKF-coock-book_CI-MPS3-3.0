@@ -116,8 +116,14 @@ def logout():
 def add_recipe():
     if request.method == "POST":
         recipe = {
-            
+            "recipe_name": request.form.get("recipe_name"),
+            "recipe_ingredients": request.form.getlist("recipe_ingredient"),
+            "recipe_directions": request.form.getlist("recipe_direction"),
+            "meal_type": request.form.get("meal_type"),
+            "author": session["user"],
+            "recipe_img": request.form.get("recipe_img")
         }
+        mongo.db.recipes.insert_one(recipe)
     return render_template("add_recipe.html")
 
 

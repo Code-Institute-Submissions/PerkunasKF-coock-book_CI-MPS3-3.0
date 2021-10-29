@@ -4,7 +4,7 @@
     <h4>Add Recipe</h4>
 
     <div class="row">
-        <form class="col s12" method="POST" sction="">
+        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
             <div class="row">
                 <div class="input-field col s12">
                     <input id="recipe_name" name="recipe_name" type="text" class="validate" maxlength="50" required>
@@ -24,6 +24,34 @@
             
                     </ul>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col s4">
+                    <p>
+                        <label>
+                            <input name="meal_type" type="radio" value="breakfast" required />
+                            <span>Breakfast</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="col s4">
+                    <p>
+                        <label>
+                            <input name="meal_type" type="radio" value="lunch" />
+                            <span>Lunch</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="col s4">
+                    <p>
+                        <label>
+                            <input name="meal_type" type="radio" value="dinner" />
+                            <span>Dinner</span>
+                        </label>
+                    </p>
+                </div>
+            </div>
+            <div class="row">
             </div>
             <div class="row">
                 <button type="submit" class="btn-large">Add Recipy</button>
