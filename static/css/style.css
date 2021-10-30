@@ -30,3 +30,19 @@ footer {
 }
 
 /* End of Recipe page styles */
+
+/* Global styles */
+
+.recipe-images {
+    max-height: 250px;
+    display: flex;
+}
+
+.recipe-images img {
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* End of Global styles */
