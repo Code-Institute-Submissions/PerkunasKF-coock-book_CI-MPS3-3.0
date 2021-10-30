@@ -117,7 +117,7 @@ def logout():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-    cloudinary.uploader.upload("Screenshot (5).png")
+    # cloudinary.uploader.upload(request.form.getimg("img_dish"))
     if request.method == "POST":
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
@@ -125,7 +125,7 @@ def add_recipe():
             "recipe_directions": request.form.getlist("recipe_direction"),
             "meal_type": request.form.get("meal_type"),
             "author": session["user"],
-            "recipe_img": request.form.get("recipe_img")
+            "recipe_image": request.form.get("recipe_image")
         }
         mongo.db.recipes.insert_one(recipe)
     return render_template("add_recipe.html")

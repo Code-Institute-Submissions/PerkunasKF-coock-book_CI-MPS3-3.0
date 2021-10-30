@@ -6,11 +6,19 @@
         <div class="row">
             {% for recipe in random_recipe %}
                 <!-- Modal Trigger -->
-                <a class="waves-effect waves-light modal-trigger" href="#modal1">
-                    <h4>
-                        {{ recipe.recipe_name.upper() }}
-                    </h4>
-                </a>
+                <div class="row">
+                    <div class="col s5">
+                        <img src="{{ recipe.recipe_image }}" alt="">
+                    </div>
+                    <div class="col s7">
+                        <a class="waves-effect waves-light modal-trigger" href="#modal1">
+                            <h4>
+                                {{ recipe.recipe_name.upper() }}
+                            </h4>
+                        </a>
+                    </div>
+                </div>
+                
 
                 <!-- Modal Structure -->
                 <div id="modal1" class="modal">
