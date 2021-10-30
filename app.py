@@ -6,6 +6,10 @@ from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 import random
+
+import cloudinary
+from cloudinary.uploader import upload
+
 if os.path.exists("env.py"):
     import env
 
@@ -113,6 +117,7 @@ def logout():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    cloudinary.uploader.upload("Screenshot (5).png")
     if request.method == "POST":
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
