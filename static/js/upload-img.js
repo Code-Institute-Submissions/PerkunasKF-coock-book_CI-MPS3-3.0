@@ -1,3 +1,5 @@
+// Cloudinary widjet script for proping a field for
+// image upload
 var myWidget = cloudinary.applyUploadWidget(
     document.getElementById('opener'), 
     { cloudName: "silorak", uploadPreset: "e6rwssw9", folder: "coock_book-img" }, (error, result) => { 

@@ -103,7 +103,9 @@ def profile(username):
     email = mongo.db.users.find_one(
         {"username": session["user"]})["email"]
     if session["user"]:
-        return render_template("profile.html", recipes=recipes, username=username, email=email)
+        return render_template(
+            "profile.html", recipes=recipes,
+            username=username, email=email)
 
     return redirect(url_for("login"))
 
@@ -128,6 +130,8 @@ def add_recipe():
             "recipe_image": request.form.get("recipe_image")
         }
         mongo.db.recipes.insert_one(recipe)
+        flash("Recipy added Successfully")
+        return redirect(url_for("profile", username=session["user"]))
     return render_template("add_recipe.html")
 
 
