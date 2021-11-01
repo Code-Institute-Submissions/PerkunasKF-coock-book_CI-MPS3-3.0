@@ -26,7 +26,9 @@ function addIngredients() {
 
   ingredientList.appendChild(ingredientItem);
 
-  ingredientItem.setAttribute("class", "input-field")
+  ingredientItem.setAttribute("class", "ing-input-field");
+  ingredientItem.setAttribute("id", `ingredient-list-item-${ingredient}`);
+  ingredientItem.setAttribute("number", `${ingredient}`);
   ingredientItem.appendChild(ingredientRow);
 
   ingredientRow.setAttribute("class", "row");
@@ -46,6 +48,11 @@ function addIngredients() {
   ingredientInput.setAttribute("required", "");
 
   remuveBtnCol.setAttribute("class", "col s3 remuve");
+  remuveBtnCol.setAttribute("id", `ingredient-list-item-remuve-${ingredient}`);
+  remuveBtnCol.setAttribute("number", `${ingredient}`);
+  // ???
+  // var test1 = document.getElementById()
+  // ???
   remuveBtnCol.appendChild(remuveBtnText);
 
   remuveBtnText.appendChild(document.createTextNode("Remuve"));
@@ -69,27 +76,16 @@ function enterIngredient () {
 
 
 function removeIngredient () {
-  var note = document.getElementsByClassName('remuve');
-  var listItem = document.getElementsByClassName('input-field');
-  var allList = document.getElementById("add_ingredients");
+  var removeBtns = document.getElementsByClassName("remuve");
 
-  console.log(note.length);
-  if (note.length > 1) {
-    for (var i = 0; i < note.length; i++) {
-      note[i].addEventListener("click", function () {
-
-        // console.log(listItem[i]);
-        allList.removeChild(listItem[i]);
-        // console.log(note[i].parentNode.parentNode);
-        // note[i].parentNode.parentNode.remove();
-        if (startOwer == true) {
-          startOwer = false;
-          return
-        }
-      });
-    }
+  for (var i = 0; i < removeBtns.length; i++) {
+    var parent = document.getElementById(`ingredient-list-item-${i}`);
+    var btns = document.getElementById(`ingredient-list-item-remuve-${i}`);
+    var btnsAttribut = removeBtns[i].getAttribute("number");
   }
-  return
+  btns.addEventListener("click", () => {
+    parent.remove(parent);
+});
 }
 // ---
 
@@ -108,7 +104,7 @@ function addDirections() {
 
   directiontList.appendChild(directionItem);
 
-  directionItem.setAttribute("class", "input-field")
+  directionItem.setAttribute("class", "dir-input-field")
   directionItem.appendChild(directiontRow);
 
   directiontRow.setAttribute("class", "row");
