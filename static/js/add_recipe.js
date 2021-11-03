@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
   addDirections();
   enterDirections();
   removeIngredient();
+  removeDirection();
 });
 
 
@@ -19,7 +20,6 @@ function addIngredients() {
   var ingredientItem = document.createElement("li");
   var ingredientRow = document.createElement("div");
   var ingredientImputCol = document.createElement("div");
-  // var ingredientLabel = document.createElement("label");
   var ingredientInput = document.createElement("input");
   var remuveBtnCol = document.createElement("div");
   var remuveBtnText = document.createElement("p");
@@ -37,17 +37,13 @@ function addIngredients() {
   
   ingredientImputCol.setAttribute("class", "col s9");
   ingredientImputCol.appendChild(ingredientInput);
-  // ingredientImputCol.appendChild(ingredientLabel);
-
-  // ingredientLabel.setAttribute("for", "recipe_ingredient");
-  // ingredientLabel.appendChild(document.createTextNode("Add ingredient"));
 
   ingredientInput.setAttribute("name", "recipe_ingredient");
   ingredientInput.setAttribute("type", "text");
   ingredientInput.setAttribute("class", "recipe_ing");
   ingredientInput.setAttribute("required", "");
 
-  remuveBtnCol.setAttribute("class", "col s3 remuve");
+  remuveBtnCol.setAttribute("class", "col s3");
   remuveBtnCol.setAttribute("id", `ingredient-list-item-remuve-${ingredient}`);
   remuveBtnCol.setAttribute("number", `${ingredient}`);
   
@@ -99,15 +95,17 @@ function addDirections() {
   var directionItem = document.createElement("li");
   var directiontRow = document.createElement("div");
   var directiontImputCol = document.createElement("div");
-  // var ingredientLabel = document.createElement("label");
   var directiontInput = document.createElement("input");
   var remuveBtnCol = document.createElement("div");
   var remuveBtnText = document.createElement("p");
 
   directiontList.appendChild(directionItem);
 
-  directionItem.setAttribute("class", "dir-input-field")
+  directionItem.setAttribute("class", "dir-input-field");
+  directionItem.setAttribute("id", `directions-list-item-${direction}`);
+  directionItem.setAttribute("number", `${direction}`);
   directionItem.appendChild(directiontRow);
+
 
   directiontRow.setAttribute("class", "row");
   directiontRow.appendChild(directiontImputCol);
@@ -115,10 +113,6 @@ function addDirections() {
   
   directiontImputCol.setAttribute("class", "col s9");
   directiontImputCol.appendChild(directiontInput);
-  // ingredientImputCol.appendChild(ingredientLabel);
-
-  // ingredientLabel.setAttribute("for", "recipe_ingredient");
-  // ingredientLabel.appendChild(document.createTextNode("Add ingredient"));
 
   directiontInput.setAttribute("name", "recipe_direction");
   directiontInput.setAttribute("type", "text");
@@ -126,35 +120,13 @@ function addDirections() {
   directiontInput.setAttribute("required", "");
 
   remuveBtnCol.setAttribute("class", "col s3");
+  remuveBtnCol.setAttribute("id", `direction-list-item-remuve-${direction}`);
   remuveBtnCol.appendChild(remuveBtnText);
 
   remuveBtnText.appendChild(document.createTextNode("Remuve"));
 
   direction++;
   return
-
-// Not nessiserty
-  // var directiontList = document.getElementById("add-directions");
-  // var directionItem = document.createElement("li");
-  // var directionInput = document.createElement("input");
-  // var directionLabel = document.createElement("label");
-
-  // directionLabel.setAttribute("for", "recipe_directions");
-  // directionLabel.setAttribute("class", "direction-holder");
-  // directionLabel.appendChild(document.createTextNode("Add direction"));
-
-  // // ingredientInput.setAttribute("id", "recipe_ingredient")
-  // directionInput.setAttribute("name", "recipe_direction");
-  // directionInput.setAttribute("type", "text");
-  // directionInput.setAttribute("class", "recipe_dir");
-  // directionInput.setAttribute("required", "");
-
-  // directionItem.setAttribute("class", "input-field")
-  // directionItem.appendChild(directionInput);
-  // directionItem.appendChild(directionLabel);
-
-  // directiontList.appendChild(directionItem);
-  // return
 }
 
 
@@ -164,7 +136,26 @@ function enterDirections () {
   document.querySelector('#add-directions').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
       addDirections();
+      removeDirection();
     }
   });
+}
+
+function removeDirection() {
+  var removeBtns = document.querySelectorAll(".dir-input-field");
+  var num;
+
+  var num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
+  console.log(num);
+
+    for (var i = 0; i < num; ++i) {
+      var parent = document.getElementById(`directions-list-item-${i}`);
+      var btns = document.getElementById(`direction-list-item-remuve-${i}`);
+    }
+    btns.addEventListener("click", () => {
+      parent.remove(parent);
+    });
+  
+  return
 }
 // ---
