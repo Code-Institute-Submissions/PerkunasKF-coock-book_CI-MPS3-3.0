@@ -4,7 +4,7 @@
     <h4>Edit Recipe</h4>
 
     <div class="row">
-        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+        <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe_select._id) }}">
             <div class="row">
                 {% for recipe in recipes_list %}
                     {% if recipe.recipe_name == recipe_select.recipe_name %}
@@ -13,7 +13,7 @@
                         </div>
                         <div class="input-field col s8">
                             <input id="recipe_name" name="recipe_name" type="text" class="validate" maxlength="50"
-                            value="{{ recipe.recipe_name }}" required>
+                            value="{{ recipe.recipe_name.capitalize()  }}" required>
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -53,7 +53,7 @@
                                             <div class="col s9">
                                                 <textarea name="recipe_direction" type="text" class="recipe_dir"
                                                 required="">
-                                                {{ direction }}
+                                                {{- direction -}}
                                             </textarea>
                                             </div>
                                             <div class="col s3" id="edit-direction-list-item-remuve-{{ count.value }}">
@@ -113,11 +113,12 @@
                 <div id="upload_widget" class="cloudinary-button">Change Image</div>
             </div>
             <div class="row" style="display: none;">
-                <input id="recipe_image" name="recipe_image" type="text">
+                <input id="recipe_image" name="recipe_image" type="text" value="{{ recipe_select.recipe_image }}">
                 <label for="recipe_image"></label>
             </div>
             <div class="row">
-                <button type="submit" class="btn-large">Edit Recipy</button>
+                <div class="col s6"><button type="submit" class="btn-large">Edit Recipy</button></div>
+                <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn-large">Cancel</a></div>
             </div>
         </form>
     </div>
