@@ -20,21 +20,27 @@
     <header>
         <!-- Navigation bar -->
         <nav class="nav-extended">
-            <div class="nav-wrapper">
-                <a href="{{ url_for('home') }}" class="brand-logo left">Logo</a>
+            <div class="nav-wrapper main-navbar">
+                <a href="{{ url_for('home') }}" class="brand-logo left"><i class="fas fa-apple-alt main-logo"></i></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user'], email=session['user']) }}">User</a></li>
+                        <li><a class="main-navtext" href="{{ url_for('profile', username=session['user'], email=session['user']) }}">User</a></li>
+                        <li class="nav-br">|</li>
                     {% endif %}
-                        <li><a href="#">Products</a></li>
-                        <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
-                        <li><a href="#">Find Something New</a></li>
+                        <li><a class="main-navtext" href="#">Products</a></li>
+                        <li class="nav-br">|</li>
+                        <li><a class="main-navtext" href="{{ url_for('get_recipes') }}">Recipes</a></li>
+                        <li class="nav-br">|</li>
+                        <li><a class="main-navtext" href="#">Find Something New</a></li>
+                        <li class="nav-br">|</li>
                     {% if session.user %}
-                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                        <li><a class="main-navtext" href="{{ url_for('logout') }}">Logout</a></li>
+                        <li class="nav-br">|</li>
                     {% else %}
-                        <li><a href="{{ url_for('login') }}">Log In</a></li>
-                        <li><a href="{{ url_for('register') }}">Register</a></li>
+                        <li><a class="main-navtext" href="{{ url_for('login') }}">Log In</a></li>
+                        <li class="nav-br">|</li>
+                        <li><a class="main-navtext" href="{{ url_for('register') }}">Register</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -43,16 +49,16 @@
         <!-- Mobile navigations -->
         <ul class="sidenav" id="mobile-demo">
             {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user'], email=session['user']) }}">User</a></li>
+                <li><a class="main-navtext" href="{{ url_for('profile', username=session['user'], email=session['user']) }}">User</a></li>
             {% endif %}
-                <li><a href="#">Products</a></li>
-                <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
-                <li><a href="#">Find Something New</a></li>
+                <li><a class="main-navtext" href="#">Products</a></li>
+                <li><a class="main-navtext" href="{{ url_for('get_recipes') }}">Recipes</a></li>
+                <li><a class="main-navtext" href="#">Find Something New</a></li>
             {% if session.user %}
-                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                <li><a class="main-navtext" href="{{ url_for('logout') }}">Logout</a></li>
             {% else %}
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a class="main-navtext" href="{{ url_for('login') }}">Log In</a></li>
+                <li><a class="main-navtext" href="{{ url_for('register') }}">Register</a></li>
             {% endif %}
         </ul>
     </header>
