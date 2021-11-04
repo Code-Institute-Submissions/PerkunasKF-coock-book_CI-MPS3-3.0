@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ceviche+One&family=Lobster&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 /* Testing styles */
 
@@ -33,50 +33,68 @@ footer {
 }
 /* End of Recipe page styles */
 
-/* ----------------------------------------------------------------- */
-/* Global styles */
-/* ----------------------------------------------------------------- */
+
+
+/* ------------------------------------- Global styles ------------------------------------- */
 
 
 /* Main Navigation Bar */
 
-.main-navbar {
-    background-color: #38B000;
-}
+    .main-navbar {
+        background-color: #38B000;
+        margin-bottom: 15px;
+    }
 
-.main-logo {
-    font-size : 50px;
-    margin-left: 20%;
-}
+    .main-logo {
+        font-size : 50px;
+        margin-left: 20%;
+    }
 
-.main-navtext {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-}
+    .main-navtext {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+    }
 
-.nav-br {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    font-size: 20px;
-}
+    .nav-br {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+    }
 
 /* End of Navigation Bar */
 
-.recipe-images {
-    max-height: 250px;
-    display: flex;
-}
+    .recipe-images {
+        max-height: 250px;
+        display: flex;
+    }
 
-.recipe-images img {
-    max-height: 100%;
-    max-width: 100%;
-    display: block;
-    object-fit: cover;
-}
+    .recipe-images img {
+        max-height: 100%;
+        max-width: 100%;
+        display: block;
+        object-fit: cover;
+    }
 
-/* End of Global styles */
-/* ----------------------------------------------------------------- */
+/* --------------------------- End of Global styles ---------------------------------------------------- */
+
+
+
+/* ---------------------------- Home page styles -------------------------------------------------------- */
+
+    .carousel-item {
+        background-color: #38B000;
+    }
+
+    .recipe-name-text {
+        font-family: 'Lobster', cursive;
+        color: white;
+    }
+
+
+/* ---------------------------- End of Home page styles ------------------------------------------------ */
+
+
 
 /* User Recipes */
 

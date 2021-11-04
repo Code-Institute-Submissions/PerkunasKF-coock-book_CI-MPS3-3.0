@@ -24,7 +24,12 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    recipes = list(mongo.db.recipes.find())
+    random_recipe = random.sample(recipes, 3)
+    products = list(mongo.db.products.find())
+    return render_template(
+        "home.html", recipes=recipes,
+        random_recipe=random_recipe, products=products)
 
 
 @app.route("/get_recipes")
@@ -126,7 +131,8 @@ def add_recipe():
             "recipe_directions": request.form.getlist("recipe_direction"),
             "meal_type": request.form.get("meal_type"),
             "author": session["user"],
-            "recipe_image": request.form.get("recipe_image")
+            "recipe_image": request.form.get("recipe_image"),
+            "recipe_sug": request.form.get("recipe_sug")
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipy added Successfully")
