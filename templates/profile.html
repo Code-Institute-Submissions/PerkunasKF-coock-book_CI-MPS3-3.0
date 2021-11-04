@@ -45,10 +45,10 @@
                             <div class="collapsible-header">
                                 <h5>{{ recipe.recipe_name.upper() }}</h5>
                             </div>
-                            <div class="collapsible-body">
+                            <div class="collapsible-body user-recipe">
                                 <div class="row">
-                                    <div class="col s2 offset-m8"><button class="btn-small">Edit</button></div>
-                                    <div class="col s2 "><button class="btn-small">Delete</button></div>
+                                    <div class="col s2 offset-m8"><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a></div>
+                                    <div class="col s2 "><a class="btn-small">Delete</a></div>
                                 </div>
                                 <ul>
                                     {% for ingredient in recipe.recipe_ingredients %}
@@ -69,6 +69,7 @@
                     {% endfor %}
                 </ul>
             </div>
+            
             <div id="test2" class="col s12">
                 <ul class="collapsible">
                     {% for recipe in recipes %}
@@ -81,13 +82,13 @@
                                     <div class="col s2 offset-m8"><button class="btn-small">Edit</button></div>
                                     <div class="col s2 "><button class="btn-small">Delete</button></div>
                                 </div>
-                                <ul>
+                                <ul class="user-recipe">
                                     {% for ingredient in recipe.recipe_ingredients %}
                                         <li>
                                             {{ ingredient.capitalize() }}
                                         </li>
                                     {% endfor %}
-                                </Ul>
+                                </Ul class="user-recipe">
                                 <ol>
                                     {% for direction in recipe.recipe_directions %}
                                         <li>

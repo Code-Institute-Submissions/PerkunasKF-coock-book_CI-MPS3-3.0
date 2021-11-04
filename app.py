@@ -47,7 +47,8 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        if request.form.get("password") != request.form.get("password_confirm"):
+        if request.form.get("password") != request.form.get(
+            "password_confirm"):
             flash("Password does not match!")
             return redirect(url_for('register'))
 
@@ -119,7 +120,6 @@ def logout():
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
-    # cloudinary.uploader.upload(request.form.getimg("img_dish"))
     if request.method == "POST":
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
@@ -133,6 +133,15 @@ def add_recipe():
         flash("Recipy added Successfully")
         return redirect(url_for("profile", username=session["user"]))
     return render_template("add_recipe.html")
+
+
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    recipes_list = list(mongo.db.recipes.find())
+    recipe_select = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template(
+        "edit_recipe.html",
+        recipe_select=recipe_select, recipes_list=recipes_list)
 
 
 if __name__ == "__main__":

@@ -1,21 +1,61 @@
 var ingredient = 0;
-var direction = 0;
 
-// Start nessesary functions after the page content loads
 document.addEventListener('DOMContentLoaded', function () {
-  addIngredients ();
-  addDirections();
-  enterIngredient ();
-  enterDirections();
+  callForRemuve();
+
+  enterIngredientEdit ();
+  enterDirectionsEdit();
   removeIngredient();
   removeDirection();
 });
 
 
-// ---
+// ------------------------------------------------------
+// Remove function block fro old ingredient adn directions list
+
+// Gets the length of the ingredient and directions list
+// Seds request for remove function to delete specifict item
+function callForRemuve() {
+  var list = document.getElementsByClassName("edit-ing-input-field");
+  var directionList = document.getElementsByClassName("edit-dir-input-field");
+
+  for (var i = 0; i < list.length; i++) {
+    var parent = document.getElementById(`edit-ingredient-list-item-${i}`);
+    var btn = document.getElementById(`edit-ingredient-list-item-remuve-${i}`);
+    remuve(parent, btn);
+  }
+
+  for (var i = 0; i < directionList.length; i++) {
+    var parent02 = document.getElementById(`edit-directions-list-item-${i}`);
+    var btn02 = document.getElementById(`edit-direction-list-item-remuve-${i}`);
+    remuve02(parent02, btn02);
+  }
+} 
+
+
+// Removes old ingredients list
+function remuve(parent, btn) {
+    btn.addEventListener("click", () => {
+      parent.remove(parent);
+    });
+  return
+}
+
+
+// Removes old directions list
+function remuve02(parent, btn) {
+  btn.addEventListener("click", () => {
+    parent.remove(parent);
+  });
+return
+}
+// ------------------------------------------------------
+
+
+// ------------------------------------------------------
 // Generates a list item for recipe ingredients
-function addIngredients() {
-  var ingredientList = document.getElementById("add_ingredients");
+function addIngredientsEdit () {
+  var ingredientList = document.getElementById("edit_ingredients");
   var ingredientItem = document.createElement("li");
   var ingredientRow = document.createElement("div");
   var ingredientImputCol = document.createElement("div");
@@ -57,11 +97,11 @@ function addIngredients() {
 
 // Generates a list after pressing enter after user input
 // in add_recipe.html ingredient list
-function enterIngredient () {
-  document.querySelector('#add_ingredients').addEventListener('keypress', function (e) {
+function enterIngredientEdit () {
+  document.querySelector('#edit_ingredients').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
-      addIngredients();
-      removeIngredient ();
+      addIngredientsEdit ();
+      removeIngredient();
     }
   });
 }
@@ -83,13 +123,13 @@ function removeIngredient() {
   
   return
 }
-// ---
+// ------------------------------------------------------
 
 
-// ---
+// ------------------------------------------------------
 // Generates a list item for recipe directions
-function addDirections() {
-  var directiontList = document.getElementById("add-directions");
+function addDirectionsEdit () {
+  var directiontList = document.getElementById("edit-directions");
   var directionItem = document.createElement("li");
   var directiontRow = document.createElement("div");
   var directiontImputCol = document.createElement("div");
@@ -130,10 +170,10 @@ function addDirections() {
 
 // Generates a list after pressing enter after user input
 // in add_recipe.html directions list
-function enterDirections () {
-  document.querySelector('#add-directions').addEventListener('keypress', function (e) {
+function enterDirectionsEdit () {
+  document.querySelector('#edit-directions').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
-      addDirections();
+      addDirectionsEdit();
       removeDirection();
     }
   });
@@ -155,4 +195,4 @@ function removeDirection() {
   
   return
 }
-// ---
+// ------------------------------------------------------
