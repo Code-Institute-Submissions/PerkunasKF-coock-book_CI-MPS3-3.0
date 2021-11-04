@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h4>Add Recipe</h4>
+    <h4>Edit Recipe</h4>
 
     <div class="row">
         <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
             <div class="row">
                 {% for recipe in recipes_list %}
                     {% if recipe.recipe_name == recipe_select.recipe_name %}
-                        <div class="input-field col s12">
+                        <div class="col s4 recipe-images">
+                            <img src="{{ recipe_select.recipe_image }}" alt="">
+                        </div>
+                        <div class="input-field col s8">
                             <input id="recipe_name" name="recipe_name" type="text" class="validate" maxlength="50"
                             value="{{ recipe.recipe_name }}" required>
-                            <label for="recipe_name">Recipe Name</label>
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -70,37 +72,52 @@
                 <div class="col s4">
                     <p>
                         <label>
-                            <input name="meal_type" type="radio" value="breakfast" required />
-                            <span>Breakfast</span>
+                            {% if recipe_select.meal_type == "breakfast" %}
+                                <input name="meal_type" type="radio" value="breakfast" require checked/>
+                                <span>Breakfast</span>
+                            {% else %}
+                                <input name="meal_type" type="radio" value="breakfast" require/>
+                                <span>Breakfast</span>
+                            {% endif %}
                         </label>
                     </p>
                 </div>
                 <div class="col s4">
                     <p>
                         <label>
-                            <input name="meal_type" type="radio" value="lunch" />
-                            <span>Lunch</span>
+                            {% if recipe_select.meal_type == "lunch" %}
+                                <input name="meal_type" type="radio" value="lunch" checked/>
+                                <span>Lunch</span>
+                            {% else %}
+                                <input name="meal_type" type="radio" value="lunch" />
+                                <span>Lunch</span>
+                            {% endif %}
                         </label>
                     </p>
                 </div>
                 <div class="col s4">
                     <p>
                         <label>
-                            <input name="meal_type" type="radio" value="dinner" />
-                            <span>Dinner</span>
+                            {% if recipe_select.meal_type == "dinner" %}
+                                <input name="meal_type" type="radio" value="dinner" checked/>
+                                <span>Dinner</span>
+                            {% else %}
+                                <input name="meal_type" type="radio" value="dinner" />
+                                <span>Dinner</span>
+                            {% endif %}
                         </label>
                     </p>
                 </div>
             </div>
             <div class="row">
-                <div id="upload_widget" class="cloudinary-button">Upload files</div>
+                <div id="upload_widget" class="cloudinary-button">Change Image</div>
             </div>
             <div class="row" style="display: none;">
                 <input id="recipe_image" name="recipe_image" type="text">
                 <label for="recipe_image"></label>
             </div>
             <div class="row">
-                <button type="submit" class="btn-large">Add Recipy</button>
+                <button type="submit" class="btn-large">Edit Recipy</button>
             </div>
         </form>
     </div>
