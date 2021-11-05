@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <!-- Materialized model code block -->
+    <div class="container">
+        <div class="row">
+            {% for product in random_products %}
+                <!-- Modal Trigger -->
+                <div class="row">
+                    <div class="col s5 recipe-images">
+                        <img src="{{ product.product_image }}" alt="">
+                    </div>
+                    <div class="col s7">
+                        <a class="waves-effect waves-light modal-trigger" href="#modal1">
+                            <h4>
+                                {{ product.product_name.upper() }}
+                            </h4>
+                        </a>
+                    </div>
+                </div>
+                
+
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <h4>
+                            {{ product.product_name.upper() }}
+                        </h4>
+                        <div class="row">
+                            <div class="col s4">
+                                <Ul>
+                                    {% for feauter in product.product_description %}
+                                        <li>
+                                            {{ feauter.capitalize() }}
+                                        </li>
+                                    {% endfor %}
+                                </Ul>
+                            </div>
+                            <div class="col s8">
+                                <p class="small-title center">Price : {{ product.product_price }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                    </div>
+                </div>
+            {% endfor %}
+            <!-- End of Materialized model code block -->
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Code block from Materialized -->
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s6"><a class="active" href="#utensils">Utensils</a></li>
+                    <li class="tab col s6"><a href="#potspans">Pots & Pans</a></li>
+                </ul>
+            </div>
+            <div id="utensils" class="col s12">
+                <ul class="collapsible">
+                    {% for product in products %}
+                        {% if product.product_type|lower == "utensils" %}
+                            <li>
+                                <div class="collapsible-header">
+                                    <h4 class="awarege-title">{{ product.product_name.upper() }}</h4>
+                                </div>
+                                <div class="collapsible-body">
+                                    <p class="small-title center">Description</p>
+                                    <Ul>
+                                        {% for feauter in product.product_description %}
+                                            <li>
+                                                {{ feauter.capitalize() }}
+                                            </li>
+                                        {% endfor %}
+                                    </Ul>
+                                    <p class="small-title center">Price : {{ product.product_price }}</p>
+                                </div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="potspans" class="col s12">
+                <ul class="collapsible">
+                    {% for product in products %}
+                        {% if product.product_type|lower == "potspans" %}
+                            <li>
+                                <div class="collapsible-header">{{ product.product_name.upper() }}</div>
+                                <div class="collapsible-body">
+                                    <Ul>
+                                        {% for feauter in product.product_description %}
+                                            <li>
+                                                {{ feauter.capitalize() }}
+                                            </li>
+                                        {% endfor %}
+                                    </Ul>
+                                    <p class="small-title center">Price : {{ product.product_price }}</p>
+                                </div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <!-- End of Code block from Materialized -->
+    </div>
+
+
+{% endblock %}

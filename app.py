@@ -43,6 +43,15 @@ def get_recipes():
         random_recipe=random_recipe)
 
 
+@app.route("/get_products")
+def get_products():
+    products = list(mongo.db.products.find())
+    random_products = random.choices(products)
+    return render_template(
+        "products.html", products=products,
+        random_products=random_products)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
