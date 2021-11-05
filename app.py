@@ -37,7 +37,7 @@ def home():
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
-    random_recipe = random.choices(recipes)
+    random_recipe = random.sample(recipes, 3)
     return render_template(
         "recipes.html", recipes=recipes,
         random_recipe=random_recipe)
