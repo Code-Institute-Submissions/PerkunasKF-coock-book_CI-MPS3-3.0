@@ -80,6 +80,61 @@ footer {
         object-fit: cover;
     }
 
+    .awarege-text {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    .awarege-title {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 1000;
+        font-size: 30px;
+    }
+
+    .instructions-field {
+        border: 3px solid #38B000;
+        border-radius: 20px;
+        background-color: antiquewhite;
+        padding: 5%;
+    }
+
+    ol { 
+        padding-left: 15px; 
+    }
+
+    ul.cyrcle {
+        padding-left: 0px;
+    }
+
+    .ingredient-list {
+        border-top: 2px solid black;
+        border-bottom: 5px double black;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        line-height: 30px;
+    }
+
+    .directions-list {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .direction-item {
+        margin-top: 15px;
+    }
+
+    .ingredient-item {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .small-title {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
 /* --------------------------- End of Global styles ---------------------------------------------------- */
 
 
@@ -87,29 +142,33 @@ footer {
 /* ---------------------------- Home page styles -------------------------------------------------------- */
 
     .carousle-container {
-        border: 5px solid #38B000;
         border-radius: 20px;
+        border: 5px solid #38B000;
     }
 
     .carousel-item {
-        border-right: 3px solid white;
-    }
-
-    .image-container {
+        border-right: 1.5px solid white;
+        border-left: 1.5px solid white;
         background-color: black;
-        height: 100%;
-        border-right: 2px solid white;
     }
 
     .carusel-img {
         max-height: 100%;
         max-width: 100%;
-        object-fit: contain;
     }
 
     .recipe-name-text {
         font-family: 'Lobster', cursive;
         color: white;
+    }
+
+    .home-modal {
+        width: 75%;
+        height: 75%;
+
+        border: 5px solid black;
+        border-radius: 20px;
+        background-color: #FFE8AD;
     }
 
 

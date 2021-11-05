@@ -61,18 +61,21 @@
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s4"><a class="active" href="#test1">Breakfast Recipes</a></li>
+                    <li class="tab col s4"><a class="active" href="#breakfast-recipes">Breakfast Recipes</a></li>
                     <li class="tab col s4"><a href="#test2">Lunch Recipes</a></li>
                     <li class="tab col s4"><a href="#test3">Dinner Recipes</a></li>
                 </ul>
             </div>
-            <div id="test1" class="col s12">
+            <div id="breakfast-recipes" class="col s12">
                 <ul class="collapsible">
                     {% for recipe in recipes %}
                         {% if recipe.meal_tipe|lower == "breakfast" %}
                             <li>
-                                <div class="collapsible-header">{{ recipe.recipe_name.upper() }}</div>
+                                <div class="collapsible-header">
+                                    <h4 class="awarege-title">{{ recipe.recipe_name.upper() }}</h4>
+                                </div>
                                 <div class="collapsible-body">
+                                    <p class="small-title center">Ingredients</p>
                                     <Ul>
                                         {% for ingredient in recipe.recipe_ingredients %}
                                             <li>
@@ -80,6 +83,7 @@
                                             </li>
                                         {% endfor %}
                                     </Ul>
+                                    <p class="small-title center">Directions</p>
                                     <ol>
                                         {% for direction in recipe.recipe_directions %}
                                             <li>
