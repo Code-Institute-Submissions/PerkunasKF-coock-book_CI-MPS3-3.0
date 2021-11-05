@@ -191,16 +191,25 @@ footer {
 
     .product-catalog-body {
         background-color: black;
+        border: 3px solid #38B000;
+        border-radius: 20px;
     }
 
     .products-collapsible-header {
         border: 3px solid #38B000;
-        margin: 3px;
+        margin: 7px;
     }
 
     .product-catalog-image {
         border: 2px solid #38B000;
         border-radius: 20px;
+    }
+
+    .productas-catalog-navigation {
+        border: 3px solid #38B000;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        background-color: white;
     }
  
 /* ---------------------------- Product page styles ---------------------------------------------------- */
