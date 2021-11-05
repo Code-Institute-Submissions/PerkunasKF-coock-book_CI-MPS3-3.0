@@ -2,7 +2,7 @@
 
 /* Testing styles */
 
-.container {
+/* .container {
     border: 3px solid black;
 
     width: 100%;
@@ -18,7 +18,7 @@
 
 footer {
     border: 3px solid yellow;
-}
+} */
 
 /* Recipe page styles */
 
@@ -64,6 +64,10 @@ footer {
 
 /* End of Navigation Bar */
 
+    body {
+        background-color: #FFE8AD;
+    }
+
     .recipe-images {
         max-height: 250px;
         display: flex;
@@ -82,8 +86,25 @@ footer {
 
 /* ---------------------------- Home page styles -------------------------------------------------------- */
 
+    .carousle-container {
+        border: 5px solid #38B000;
+        border-radius: 20px;
+    }
+
     .carousel-item {
-        background-color: #38B000;
+        border-right: 3px solid white;
+    }
+
+    .image-container {
+        background-color: black;
+        height: 100%;
+        border-right: 2px solid white;
+    }
+
+    .carusel-img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
     }
 
     .recipe-name-text {

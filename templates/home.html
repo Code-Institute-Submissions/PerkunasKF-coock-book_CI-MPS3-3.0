@@ -2,31 +2,22 @@
 {% block content %}
 
 <div class="row">
-    <div class="col s8">
-        <div class="carousel">
-            <div class="carousel carousel-slider">
-                {% for recipe in random_recipe %}
-                    <a class="carousel-item center" href="#one!">
+    <div class="carousel">
+        <div class="carousel carousel-slider carousle-container">
+            {% for recipe in random_recipe %}
+                <a class="carousel-item center" href="#one!">
+                    <div class="col s8 image-container">
                         <h2 class="recipe-name-text">{{ recipe.recipe_name.capitalize() }}</h2>
-                        <img src="{{ recipe.recipe_image }}">
-                    </a>
-                {% endfor %}
-            </div>
+                        <img class="carusel-img" src="{{ recipe.recipe_image }}">
+                    </div>
+                    <div class="col s4 image-container">
+                        <h2 class="recipe-name-text">{{ recipe.recipe_name.capitalize() }}</h2>
+                        <img class="carusel-img" src="{{ recipe.recipe_image }}">
+                    </div>
+                </a>
+            {% endfor %}
         </div>
     </div>
-    <div class="col s4">
-        <div class="carousel">
-            <div class="carousel carousel-slider">
-                {% for product in products %}
-                    <a class="carousel-item center" href="#one!">
-                        <h2 class="recipe-name-text">{{ product.product_name.capitalize() }}</h2>
-                        <img src="{{ product.recipe_image }}">
-                    </a>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    
 </div>
 
 {% endblock %}
