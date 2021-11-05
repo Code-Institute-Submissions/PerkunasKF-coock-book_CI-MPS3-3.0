@@ -154,6 +154,7 @@ footer {
     .carousle-container {
         border-radius: 20px;
         border: 5px solid #38B000;
+        min-height: 275px;
     }
 
     .carousel-item {
@@ -184,6 +185,25 @@ footer {
 
 /* ---------------------------- End of Home page styles ------------------------------------------------ */
 
+
+
+/* ---------------------------- Product page styles ---------------------------------------------------- */
+
+    .product-catalog-body {
+        background-color: black;
+    }
+
+    .products-collapsible-header {
+        border: 3px solid #38B000;
+        margin: 3px;
+    }
+
+    .product-catalog-image {
+        border: 2px solid #38B000;
+        border-radius: 20px;
+    }
+ 
+/* ---------------------------- Product page styles ---------------------------------------------------- */
 
 
 /* User Recipes */

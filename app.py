@@ -47,9 +47,11 @@ def get_recipes():
 def get_products():
     products = list(mongo.db.products.find())
     random_products = random.choices(products)
+    products_onsale = random.sample(products, 2)
     return render_template(
         "products.html", products=products,
-        random_products=random_products)
+        random_products=random_products,
+        products_onsale=products_onsale)
 
 
 @app.route("/register", methods=["GET", "POST"])

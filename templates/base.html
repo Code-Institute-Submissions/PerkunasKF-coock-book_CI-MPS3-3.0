@@ -51,7 +51,7 @@
             {% if session.user %}
                 <li><a class="main-navtext" href="{{ url_for('profile', username=session['user'], email=session['user']) }}">User</a></li>
             {% endif %}
-                <li><a class="main-navtext" href="#">Products</a></li>
+                <li><a class="main-navtext" href="{{ url_for('get_products') }}">Products</a></li>
                 <li><a class="main-navtext" href="{{ url_for('get_recipes') }}">Recipes</a></li>
                 <li><a class="main-navtext" href="#">Find Something New</a></li>
             {% if session.user %}
