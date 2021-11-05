@@ -28,9 +28,10 @@ def home():
     recipes = list(mongo.db.recipes.find())
     random_recipe = random.sample(recipes, 3)
     products = list(mongo.db.products.find())
+    products_onsale = random.sample(products, 2)
     return render_template(
         "home.html", recipes=recipes,
-        random_recipe=random_recipe, products=products)
+        random_recipe=random_recipe, products_onsale=products_onsale)
 
 
 @app.route("/get_recipes")

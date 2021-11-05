@@ -135,6 +135,16 @@ footer {
         font-size: 20px;
     }
 
+    .title-container {
+        border-bottom: 5px dashed black;
+        width: 95%;
+    }
+
+    .section-title {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 1000;
+        font-size: 40px;
+    }
 /* --------------------------- End of Global styles ---------------------------------------------------- */
 
 

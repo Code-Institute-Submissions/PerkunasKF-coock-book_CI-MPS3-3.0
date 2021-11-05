@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
+
+<!-- Carusel for feautered recepies -->
+<div class="row title-container center">
+    <h2 class="section-title">Try Out Something New</h2>
+</div>
 <div class="row">
     <div class="carousel">
         <div class="carousel carousel-slider carousle-container">
@@ -15,7 +20,7 @@
     </div>
 </div>
 
-<!-- Modul pop up content -->
+<!-- Modul pop up content for recipes -->
 {% for recipe in random_recipe %}
 <div class="row">
     <div id="{{ recipe.recipe_name }}" class="modal home-modal">
@@ -43,5 +48,48 @@
     </div>
 </div>
 {% endfor %}
+<!-- End of carusel of recipes -->
+
+
+<!-- Carusel for products on sale -->
+<div class="row title-container center">
+    <h2 class="section-title">Our Products On Sale !!!</h2>
+</div>
+<div class="row">
+    <div class="carousel">
+        <div class="carousel carousel-slider carousle-container">
+            {% for product in products_onsale %}
+                <!-- Carusel producs -->
+                <a class="carousel-item center modal-trigger" href="#{{ product.product_name }}">
+                    <h2 class="recipe-name-text">{{ product.product_name.capitalize() }}</h2>
+                    <img class="carusel-img valign-wrapper" src="{{ product.product_image }}">
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Modul pop up content for products -->
+{% for product in products_onsale %}
+<div class="row">
+    <div id="{{ product.product_name }}" class="modal home-modal">
+        <div class="modal-content">
+            <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
+            <div class="row instructions-field">
+                <p class="small-title center">Description</p>
+                <ul class="ingredient-list">
+                    {% for feauter in product.product_description %}
+                        <li class="awarege-text ingredient-item">
+                            - {{ feauter.capitalize() }}
+                        </li>
+                    {% endfor %}
+                </ul>
+                <p class="small-title center">Price : {{ product.product_price }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+<!-- End of product section -->
 
 {% endblock %}
