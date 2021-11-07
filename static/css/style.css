@@ -227,6 +227,54 @@ footer {
 
 
 
+/* ---------------------------- LogIn page -------------------------------------------------------------------- */
+
+    .form-container {
+        border: 5px solid #38B000;
+        border-radius: 20px;
+    }
+
+    .form-title {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        font-size: 36px;
+    }
+
+    .small-link {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        color: black;
+    }
+
+    .small-link:hover {
+        border-bottom: 2px solid #38B000;
+    }
+
+    .forum-submit-btn {
+        background-color: #38B000;
+
+        border: 3px solid black;
+        width: 75%;
+        height: 45px;
+
+        border-radius: 20px;
+
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        color: white;
+    }
+
+    .forum-submit-btn:hover {
+        border-color: #38B000;
+        background-color: black;
+    }
+
+/* ---------------------------- End of: LogIn page ------------------------------------------------------------ */
+
+
+
 
 /* User Recipes */
 

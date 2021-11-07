@@ -2,11 +2,10 @@
 {% block content %}
 
     <!-- Code block from Materialized -->
-    <div class="row">
         <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('register') }}">
-            <div class="card">
+            <div class="card form-container center">
                 <div class="card-content">
-                    <h3 class="card-title center-align">Register</h3>
+                    <h3 class="form-title center-align">Register</h3>
                     <!-- username -->
                     <div class="input-field row">
                         <input id="username" name="username" type="text" class="validate" minlength="5"
@@ -31,13 +30,15 @@
                         <label for="email">Email</label>
                     </div>
                     <!-- register button -->
+                    <div class="row">
+                        <button type="submit" class="btn forum-submit-btn">Register</button>
+                    </div>
                     <div class="card-action row right-align">
-                        <a class="black-text" href="{{ url_for('login') }}">Already a user? Log In</a>
-                        <button type="submit" class="btn-large">Register</button>
+                        <a class="small-link black-text" href="{{ url_for('login') }}">Already a user? Log In</a>
+                        
                     </div>
                 </div>
             </div>
         </form>
-    </div>
 
 {% endblock %}
