@@ -120,10 +120,13 @@ def profile(username):
         {"username": session["user"]})["username"]
     email = mongo.db.users.find_one(
         {"username": session["user"]})["email"]
+    user_image =  mongo.db.users.find_one(
+        {"username": session["user"]})["user_image"]
     if session["user"]:
         return render_template(
             "profile.html", recipes=recipes,
-            username=username, email=email)
+            username=username, email=email,
+            user_image=user_image)
 
     return redirect(url_for("login"))
 

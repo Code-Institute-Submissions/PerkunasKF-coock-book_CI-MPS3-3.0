@@ -1,117 +1,114 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m6 offset-m3">
-                <div class="card">
+    <div class="row">
+        <div class="col s12 m6 offset-m3">
+            <div class="card profile-card">
     
-                    <!-- user information -->
-                    <div class="card-image">
-                        <img src="images/sample-1.jpg">
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i
-                                class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <h4 class="card-title black-text">
-                            {{ username }}
-                        </h4>
-                        <div class="row">
-                            <div class="col s4">Username</div>
-                            <div class="col s8">{{ username }}</div>
-                        </div>
-                        <div class="row">
-                            <div class="col s4">User email</div>
-                            <div class="col s6">{{ email }}</div>
-                            <div class="col s2"><button class="btn-small">Edit</button></div>
-                        </div>
+                <!-- user information -->
+                <div class="card-image profile-image">
+                    <img src="{{ user_image }}">
+                    <a class="btn-floating right-alighn halfway-fab waves-effect waves-light">
+                        <i class="fas fa-pen profile-pic-edit"></i>
+                    </a>
+                </div>
+                <div class="card-content">
+                    <h4 class="form-title line-br black-text">
+                        {{ username.capitalize() }}
+                    </h4>
+                    <div class="row">
+                        <div class="col s4 awarege-text info">Email</div>
+                        <div class="col s6 awarege-text info">{{ email }}</div>
+                        <div class="col s12"><button class="btn-small profile-pic-edit right awarege-text info">Edit</button></div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     
-        <!-- user recipes -->
-        <div class="row">
-            <div class="col s12">
-                <ul class="tabs">
-                    <li class="tab active col s6"><a href="#test1">Your Recipes</a></li>
-                    <li class="tab col s6"><a href="#test2">Recipes You Like</a></li>
-                </ul>
-            </div>
-            <div id="test1" class="col s12">
-                <ul class="collapsible">
-                    {% for recipe in recipes %}
-                        {% if session.user|lower == recipe.author|lower %}
+    <!-- user recipes -->
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab active col s6"><a href="#test1">Your Recipes</a></li>
+                <li class="tab col s6"><a href="#test2">Recipes You Like</a></li>
+            </ul>
+        </div>
+        <div id="test1" class="col s12">
+            <ul class="collapsible">
+                {% for recipe in recipes %}
+                {% if session.user|lower == recipe.author|lower %}
+                <li>
+                    <div class="collapsible-header">
+                        <h5>{{ recipe.recipe_name.upper() }}</h5>
+                    </div>
+                    <div class="collapsible-body user-recipe">
+                        <div class="row">
+                            <div class="col s2 offset-m8"><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
+                                    class="btn-small">Edit</a></div>
+                            <div class="col s2 "><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                                    class="btn-small">Delete</a></div>
+                        </div>
+                        <ul>
+                            {% for ingredient in recipe.recipe_ingredients %}
                             <li>
-                                <div class="collapsible-header">
-                                    <h5>{{ recipe.recipe_name.upper() }}</h5>
-                                </div>
-                                <div class="collapsible-body user-recipe">
-                                    <div class="row">
-                                        <div class="col s2 offset-m8"><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a></div>
-                                        <div class="col s2 "><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small">Delete</a></div>
-                                    </div>
-                                    <ul>
-                                        {% for ingredient in recipe.recipe_ingredients %}
-                                            <li>
-                                                {{ ingredient.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </Ul>
-                                    <ol>
-                                        {% for direction in recipe.recipe_directions %}
-                                            <li>
-                                                {{ direction.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ol>
-                                </div>
+                                {{ ingredient.capitalize() }}
                             </li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-            </div>
-            
-            <div id="test2" class="col s12">
-                <ul class="collapsible">
-                    {% for recipe in recipes %}
-                        <li>
-                            <div class="collapsible-header">
-                                <h5>{{ recipe.recipe_name.upper() }}</h5>
-                            </div>
-                            <div class="collapsible-body">
-                                <div class="row">
-                                    <div class="col s2 offset-m8"><button class="btn-small">Edit</button></div>
-                                    <div class="col s2 "><button class="btn-small">Delete</button></div>
-                                </div>
-                                <ul class="user-recipe">
-                                    {% for ingredient in recipe.recipe_ingredients %}
-                                        <li>
-                                            {{ ingredient.capitalize() }}
-                                        </li>
-                                    {% endfor %}
-                                </Ul class="user-recipe">
-                                <ol>
-                                    {% for direction in recipe.recipe_directions %}
-                                        <li>
-                                            {{ direction.capitalize() }}
-                                        </li>
-                                    {% endfor %}
-                                </ol>
-                            </div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
+                            {% endfor %}
+                        </Ul>
+                        <ol>
+                            {% for direction in recipe.recipe_directions %}
+                            <li>
+                                {{ direction.capitalize() }}
+                            </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
         </div>
-        <!-- end of user recipes -->
-
-        <!-- add recepy -->
-        <div class="row">
-            <a href="{{ url_for('add_recipe') }}">
-                <button class="btn-large">Add Recipe</button>
-            </a>
+    
+        <div id="test2" class="col s12">
+            <ul class="collapsible">
+                {% for recipe in recipes %}
+                <li>
+                    <div class="collapsible-header">
+                        <h5>{{ recipe.recipe_name.upper() }}</h5>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="col s2 offset-m8"><button class="btn-small">Edit</button></div>
+                            <div class="col s2 "><button class="btn-small">Delete</button></div>
+                        </div>
+                        <ul class="user-recipe">
+                            {% for ingredient in recipe.recipe_ingredients %}
+                            <li>
+                                {{ ingredient.capitalize() }}
+                            </li>
+                            {% endfor %}
+                        </Ul class="user-recipe">
+                        <ol>
+                            {% for direction in recipe.recipe_directions %}
+                            <li>
+                                {{ direction.capitalize() }}
+                            </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
+    </div>
+    <!-- end of user recipes -->
+    
+    <!-- add recepy -->
+    <div class="row">
+        <a href="{{ url_for('add_recipe') }}">
+            <button class="btn-large">Add Recipe</button>
+        </a>
     </div>
 
 {% endblock %}

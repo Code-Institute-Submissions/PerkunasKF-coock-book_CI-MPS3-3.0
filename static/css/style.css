@@ -31,7 +31,10 @@ footer {
 
     .main-navbar {
         background-color: #38B000;
-        margin-bottom: 15px;
+    }
+
+    .content {
+        margin-top: 15px;
     }
 
     .main-logo {
@@ -133,6 +136,11 @@ footer {
         font-family: 'Open Sans', sans-serif;
         font-weight: 1000;
         font-size: 40px;
+    }
+
+    .line-br {
+        border-bottom: 3px solid black;
+        margin-bottom: 25px;
     }
 /* --------------------------- End of Global styles ---------------------------------------------------- */
 
@@ -272,6 +280,61 @@ footer {
     }
 
 /* ---------------------------- End of: LogIn page ------------------------------------------------------------ */
+
+
+
+/* ---------------------------- Flash message ----------------------------------------------------------------- */
+
+    .flash-message {
+        height: 100px;
+        background-color: #FAA307;
+        margin: 0;
+    }
+
+    .flash-message-text {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        color: white;
+        margin: 0;
+        padding-top: 25px;
+    }
+
+/* ---------------------------- End of: Flash message --------------------------------------------------------- */
+
+
+
+/* ---------------------------- Profile page ------------------------------------------------------------------ */
+
+    .profile-card {
+        background-color: white;
+        border: 3px solid #38B000;
+    }
+
+    .profile-pic-edit {
+        background-color: #38B000;
+    }
+
+    .profile-pic-edit:hover {
+        background-color: black;
+    }
+
+    .profile-image {
+        max-height: 350px;
+        width: 100%;
+    }
+
+    .profile-image img{
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    .info {
+        margin-top: 15px;
+    }
+
+/* ---------------------------- End of: Profile page ------------------------------------------------------------------ */
 
 
 

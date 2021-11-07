@@ -33,11 +33,8 @@
                         <li class="nav-br">|</li>
                         <li><a class="main-navtext" href="{{ url_for('get_recipes') }}">Recipes</a></li>
                         <li class="nav-br">|</li>
-                        <li><a class="main-navtext" href="#">Find Something New</a></li>
-                        <li class="nav-br">|</li>
                     {% if session.user %}
                         <li><a class="main-navtext" href="{{ url_for('logout') }}">Logout</a></li>
-                        <li class="nav-br">|</li>
                     {% else %}
                         <li><a class="main-navtext" href="{{ url_for('login') }}">Log In</a></li>
                         <li class="nav-br">|</li>
@@ -70,14 +67,14 @@
             {% if messages %}
                 {% for message in messages %}
                     <div class="row flash-message">
-                        <h5>{{ message }}</h5>
+                        <h5 class="flash-message-text center-align">{{ message }}</h5>
                     </div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
     </section>
 
-    <main class="container">
+    <main class="container content">
         {% block content %}
         {% endblock %}
     </main>
