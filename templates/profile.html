@@ -26,51 +26,59 @@
         </div>
     </div>
     
-    <!-- user recipes -->
+    <!-- User recipes -->
     <div class="row">
+        <!-- User recipes navigations -->
         <div class="col s12">
-            <ul class="tabs">
-                <li class="tab active col s6"><a href="#test1">Your Recipes</a></li>
-                <li class="tab col s6"><a href="#test2">Recipes You Like</a></li>
+            <ul class="tabs productas-catalog-navigation">
+                <li class="tab active col s6"><a class="black-text awarege-title center" href="#user-recipes">Your Recipes</a></li>
+                <li class="tab col s6"><a class="black-text awarege-title center" href="#user-like-recipes">Recipes You Like</a></li>
             </ul>
         </div>
-        <div id="test1" class="col s12">
-            <ul class="collapsible">
+        <!-- End of: User recipes navigations -->
+
+        <!-- User recipes list -->
+        <div id="user-recipes" class="col s12">
+            <ul class="collapsible product-catalog-body">
                 {% for recipe in recipes %}
-                {% if session.user|lower == recipe.author|lower %}
-                <li>
-                    <div class="collapsible-header">
-                        <h5>{{ recipe.recipe_name.upper() }}</h5>
-                    </div>
-                    <div class="collapsible-body user-recipe">
-                        <div class="row">
-                            <div class="col s2 offset-m8"><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
-                                    class="btn-small">Edit</a></div>
-                            <div class="col s2 "><a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-                                    class="btn-small">Delete</a></div>
-                        </div>
-                        <ul>
-                            {% for ingredient in recipe.recipe_ingredients %}
-                            <li>
-                                {{ ingredient.capitalize() }}
-                            </li>
-                            {% endfor %}
-                        </Ul>
-                        <ol>
-                            {% for direction in recipe.recipe_directions %}
-                            <li>
-                                {{ direction.capitalize() }}
-                            </li>
-                            {% endfor %}
-                        </ol>
-                    </div>
-                </li>
-                {% endif %}
+                    {% if session.user|lower == recipe.author|lower %}
+                        <li>
+                            <div class="collapsible-header products-collapsible-header">
+                                <div class="col s4"><img class="carusel-img product-catalog-image" src="{{ recipe.recipe_image }}"
+                                        alt="Picture of {{ recipe.recipe_image }}"></div>
+                                <div class="col s8">
+                                    <h4 class="awarege-title left">{{ recipe.recipe_name.upper() }}</h4>
+                                </div>
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="row instructions-field">
+                                    <p class="small-title center">Ingredients</p>
+                                    <ul class="ingredient-list">
+                                        {% for ingredient in recipe.recipe_ingredients %}
+                                            <li class="awarege-text ingredient-item">
+                                                - {{ ingredient.capitalize() }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                    <p class="small-title center">Directions</p>
+                                    <ol class="directions-list">
+                                        {% for direction in recipe.recipe_directions %}
+                                            <li class="awarege-text direction-item">
+                                                {{ direction.capitalize() }}
+                                            </li>
+                                        {% endfor %}
+                                    </ol>
+                                </div>
+                            </div>
+                        </li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </div>
+        <!-- End of: User recipes list -->
+
     
-        <div id="test2" class="col s12">
+        <div id="user-like-recipes" class="col s12">
             <ul class="collapsible">
                 {% for recipe in recipes %}
                 <li>
@@ -105,9 +113,9 @@
     <!-- end of user recipes -->
     
     <!-- add recepy -->
-    <div class="row">
+    <div class="row add-recipe-btn-container">
         <a href="{{ url_for('add_recipe') }}">
-            <button class="btn-large">Add Recipe</button>
+            <button class="btn add-recipe-btn awarege-text">Add Recipe</button>
         </a>
     </div>
 
