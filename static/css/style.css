@@ -355,6 +355,73 @@ footer {
 
 
 
+/* ---------------------------- Add recipe page styles ---------------------------------------------------------------- */
+
+
+    .add-recipe-form {
+        border: 5px solid black;
+        border-radius: 20px;
+        margin-top: 50px;
+        background-color: white;
+    }
+
+    .ing-input-field,
+    .dir-input-field {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .imput-container {
+        margin: 0;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .recipe_ing {
+       margin-top: 50px;
+    }
+
+    .remuve-btn {
+        margin-top: 15px;
+        background-color: #38B000;
+        border: 2px solid black;
+        color: white;
+        height: 30px;
+        width: 50px
+    }
+
+    .remuve-btn:hover {
+        background-color: black;
+        border-color: #38B000;
+    }
+
+    .remuve-btn-text {
+        margin-top : 0;
+    }
+
+    .add-title {
+        margin-top: 0;
+        margin-bottom: 35px;
+    }
+
+    .recipe_dir {
+        height: 100px;
+    }
+
+    .meal-type-select {
+        border-top: 3px solid black;
+        border-bottom: 3px solid black;
+    }
+
+    .cloudinary-button {
+        width: 90%;
+    }
+
+/* ---------------------------- End of: Add recipe page styles --------------------------------------------------------- */
+
+
 
 /* User Recipes */
 

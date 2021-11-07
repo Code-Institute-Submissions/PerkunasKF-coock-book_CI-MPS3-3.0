@@ -30,7 +30,7 @@ function addIngredients() {
   ingredientItem.setAttribute("number", `${ingredient}`);
   ingredientItem.appendChild(ingredientRow);
 
-  ingredientRow.setAttribute("class", "row");
+  ingredientRow.setAttribute("class", "row imput-container");
   ingredientRow.appendChild(ingredientImputCol);
   ingredientRow.appendChild(remuveBtnCol);
   
@@ -42,12 +42,13 @@ function addIngredients() {
   ingredientInput.setAttribute("class", "recipe_ing");
   ingredientInput.setAttribute("required", "");
 
-  remuveBtnCol.setAttribute("class", "col s3");
+  remuveBtnCol.setAttribute("class", "col s3 remuve-btn");
   remuveBtnCol.setAttribute("id", `ingredient-list-item-remuve-${ingredient}`);
   remuveBtnCol.setAttribute("number", `${ingredient}`);
   
   remuveBtnCol.appendChild(remuveBtnText);
 
+  remuveBtnText.setAttribute("class", "remuve-btn-text center awarege-text");
   remuveBtnText.appendChild(document.createTextNode("Remuve"));
 
   ingredient++;
@@ -105,7 +106,7 @@ function addDirections() {
   directionItem.appendChild(directiontRow);
 
 
-  directiontRow.setAttribute("class", "row");
+  directiontRow.setAttribute("class", "row imput-container");
   directiontRow.appendChild(directiontImputCol);
   directiontRow.appendChild(remuveBtnCol);
   
@@ -117,10 +118,11 @@ function addDirections() {
   directiontInput.setAttribute("class", "recipe_dir");
   directiontInput.setAttribute("required", "");
 
-  remuveBtnCol.setAttribute("class", "col s3");
+  remuveBtnCol.setAttribute("class", "col s3 remuve-btn");
   remuveBtnCol.setAttribute("id", `direction-list-item-remuve-${direction}`);
   remuveBtnCol.appendChild(remuveBtnText);
 
+  remuveBtnText.setAttribute("class", "remuve-btn-text center awarege-text");
   remuveBtnText.appendChild(document.createTextNode("Remuve"));
 
   direction++;

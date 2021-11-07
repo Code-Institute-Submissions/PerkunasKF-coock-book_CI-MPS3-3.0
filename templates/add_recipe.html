@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h4>Add Recipe</h4>
-
-    <div class="row">
+    <div class="row add-recipe-form title-container">
+        <div class="row title-container">
+            <h4 class="section-title center">Add Recipe</h4>
+        </div>
         <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
             <div class="row">
                 <div class="input-field col s12">
@@ -14,23 +15,23 @@
             <div class="row">
                 <div id="ingredient-list" class="col s12">
                     <ul id="add_ingredients">
-            
+                        <h4 class="awarege-title add-title center">Ingredients</h4>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div id="direction-list" class="col s12">
                     <ul id="add-directions">
-            
+                        <h4 class="awarege-title add-title center">Directions</h4>
                     </ul>
                 </div>
             </div>
-            <div class="row">
+            <div class="row meal-type-select center">
                 <div class="col s4">
                     <p>
                         <label>
                             <input name="meal_type" type="radio" value="breakfast" required />
-                            <span>Breakfast</span>
+                            <span class="awarege-text black-text">Breakfast</span>
                         </label>
                     </p>
                 </div>
@@ -38,7 +39,7 @@
                     <p>
                         <label>
                             <input name="meal_type" type="radio" value="lunch" />
-                            <span>Lunch</span>
+                            <span class="awarege-text black-text">Lunch</span>
                         </label>
                     </p>
                 </div>
@@ -46,20 +47,20 @@
                     <p>
                         <label>
                             <input name="meal_type" type="radio" value="dinner" />
-                            <span>Dinner</span>
+                            <span class="awarege-text black-text">Dinner</span>
                         </label>
                     </p>
                 </div>
             </div>
-            <div class="row">
+            <div class="row center">
                 <div id="upload_widget" class="cloudinary-button">Upload files</div>
             </div>
             <div class="row" style="display: none;">
                 <input id="recipe_image" name="recipe_image" type="text">
                 <label for="recipe_image"></label>
             </div>
-            <div class="row">
-                <button type="submit" class="btn-large">Add Recipy</button>
+            <div class="row center">
+                <button type="submit" class="btn add-recipe-btn awarege-text">Add Recipy</button>
             </div>
         </form>
     </div>
