@@ -153,6 +153,7 @@ footer {
         border-bottom: 3px solid black;
         margin-bottom: 25px;
     }
+    
 /* --------------------------- End of Global styles ---------------------------------------------------- */
 
 
@@ -379,6 +380,12 @@ footer {
         background-color: black;
     }
 
+    .info-user {
+        border: 2px solid black;
+        padding-bottom: 10px;
+        border-radius: 20px;
+    }
+
 /* ---------------------------- End of: Profile page ------------------------------------------------------------------ */
 
 
@@ -408,7 +415,7 @@ footer {
     }
 
     .recipe_ing {
-       margin-top: 50px;
+       margin-top: 10px;
     }
 
     .remuve-btn {

@@ -19,9 +19,10 @@ function addIngredients() {
   var ingredientItem = document.createElement("li");
   var ingredientRow = document.createElement("div");
   var ingredientImputCol = document.createElement("div");
-  var ingredientInput = document.createElement("input");
+  var ingredientInput = document.createElement("textarea");
   var remuveBtnCol = document.createElement("div");
   var remuveBtnText = document.createElement("p");
+  var remuveBtnTextSmall = document.createElement("p");
 
   ingredientList.appendChild(ingredientItem);
 
@@ -47,9 +48,13 @@ function addIngredients() {
   remuveBtnCol.setAttribute("number", `${ingredient}`);
   
   remuveBtnCol.appendChild(remuveBtnText);
+  remuveBtnCol.appendChild(remuveBtnTextSmall);
 
-  remuveBtnText.setAttribute("class", "remuve-btn-text center awarege-text");
+  remuveBtnText.setAttribute("class", "remuve-btn-text center awarege-text big-catalog");
   remuveBtnText.appendChild(document.createTextNode("Remuve"));
+
+  remuveBtnTextSmall.setAttribute("class", "remuve-btn-text center awarege-text small-catalog");
+  remuveBtnTextSmall.appendChild(document.createTextNode("X"));
 
   ingredient++;
   return
@@ -97,6 +102,7 @@ function addDirections() {
   var directiontInput = document.createElement("textarea");
   var remuveBtnCol = document.createElement("div");
   var remuveBtnText = document.createElement("p");
+  var remuveBtnTextSmall = document.createElement("p");
 
   directiontList.appendChild(directionItem);
 
@@ -121,9 +127,13 @@ function addDirections() {
   remuveBtnCol.setAttribute("class", "col s3 remuve-btn");
   remuveBtnCol.setAttribute("id", `direction-list-item-remuve-${direction}`);
   remuveBtnCol.appendChild(remuveBtnText);
+  remuveBtnCol.appendChild(remuveBtnTextSmall);
 
-  remuveBtnText.setAttribute("class", "remuve-btn-text center awarege-text");
+  remuveBtnText.setAttribute("class", "remuve-btn-text center awarege-text big-catalog");
   remuveBtnText.appendChild(document.createTextNode("Remuve"));
+
+  remuveBtnTextSmall.setAttribute("class", "remuve-btn-text center awarege-text small-catalog");
+  remuveBtnTextSmall.appendChild(document.createTextNode("X"));
 
   direction++;
   return

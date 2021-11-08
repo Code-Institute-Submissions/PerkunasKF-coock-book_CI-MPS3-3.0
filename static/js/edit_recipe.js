@@ -62,6 +62,7 @@ function addIngredientsEdit () {
   var ingredientInput = document.createElement("input");
   var remuveBtnCol = document.createElement("div");
   var remuveBtnText = document.createElement("p");
+  var remuveBtnTextSmall = document.createElement("p");
 
   ingredientList.appendChild(ingredientItem);
 
@@ -82,13 +83,18 @@ function addIngredientsEdit () {
   ingredientInput.setAttribute("class", "recipe_ing");
   ingredientInput.setAttribute("required", "");
 
-  remuveBtnCol.setAttribute("class", "col s3");
+  remuveBtnCol.setAttribute("class", "col s3 remuve-btn");
   remuveBtnCol.setAttribute("id", `ingredient-list-item-remuve-${ingredient}`);
   remuveBtnCol.setAttribute("number", `${ingredient}`);
   
   remuveBtnCol.appendChild(remuveBtnText);
+  remuveBtnCol.appendChild(remuveBtnTextSmall);
 
+  remuveBtnText.setAttribute("class", "remuve-btn-text center awarege-text big-catalog");
   remuveBtnText.appendChild(document.createTextNode("Remuve"));
+
+  remuveBtnTextSmall.setAttribute("class", "remuve-btn-text center awarege-text small-catalog");
+  remuveBtnTextSmall.appendChild(document.createTextNode("X"));
 
   ingredient++;
   return

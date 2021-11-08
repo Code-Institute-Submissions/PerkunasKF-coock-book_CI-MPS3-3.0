@@ -26,7 +26,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="row meal-type-select center">
+            <!-- Big screen radio buttons -->
+            <div class="row meal-type-select center big-catalog">
                 <h4 class="awarege-title add-title center">Meal Type</h4>
                 <div class="col s4">
                     <p>
@@ -53,6 +54,28 @@
                     </p>
                 </div>
             </div>
+            <!-- End of: Big screen radio buttons -->
+
+            <!-- Small screen radio buttons -->
+            <div class="row meal-type-select center small-catalog">
+                <h4 class="awarege-title add-title center">Meal Type</h4>
+                <ul>
+                    <li class="left">
+                        <input name="meal_type" type="radio" value="breakfast" required />
+                        <span class="awarege-text black-text">Breakfast</span>
+                    </li>
+                    <li class="left">
+                        <input name="meal_type" type="radio" value="lunch" />
+                        <span class="awarege-text black-text">Lunch</span>
+                    </li>
+                    <li class="left">
+                        <input name="meal_type" type="radio" value="dinner" />
+                        <span class="awarege-text black-text">Dinner</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- End of: Small screen radio buttons -->
+
             <div class="row center">
                 <div id="upload_widget" class="cloudinary-button">Upload image</div>
             </div>

@@ -16,10 +16,15 @@
                     <h4 class="form-title line-br black-text">
                         {{ username.capitalize() }}
                     </h4>
-                    <div class="row">
+                    <div class="row big-catalog info-user center">
                         <div class="col s4 awarege-text info">Email</div>
                         <div class="col s6 awarege-text info">{{ email }}</div>
-                        <div class="col s12"><button class="btn-small profile-pic-edit right awarege-text info">Edit</button></div>
+                        <div class="col s12"><button class="btn-small profile-pic-edit awarege-text info">Edit</button></div>
+                    </div>
+                    <div class="row small-catalog info-user center">
+                        <div class="col s12 awarege-text info">Email</div>
+                        <div class="col s12 awarege-text info">{{ email }}</div>
+                        <div class="col s12"><button class="btn-small profile-pic-edit awarege-text info">Edit</button></div>
                     </div>
                 </div>
             </div>
@@ -42,7 +47,8 @@
             <ul class="collapsible product-catalog-body">
                 {% for recipe in recipes %}
                     {% if session.user|lower == recipe.author|lower %}
-                        <li>
+                        <!-- Big screen list -->
+                        <li class="big-catalog">
                             <div class="collapsible-header products-collapsible-header">
                                 <div class="col s4"><img class="carusel-img product-catalog-image" src="{{ recipe.recipe_image }}"
                                         alt="Picture of {{ recipe.recipe_image }}"></div>
@@ -68,9 +74,54 @@
                                             </li>
                                         {% endfor %}
                                     </ol>
+                                    <div class="row">
+                                        <div class="col s2 offset-m8"><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a></div>
+                                        <div class="col s2 "><a class="btn-small">Delete</a></div>
+                                    </div>
                                 </div>
                             </div>
                         </li>
+                        <!-- End of: Big screen list -->
+
+                        <!-- Mobile catalog list -->
+                        <li class="small-catalog">
+                            <div class="collapsible-header products-collapsible-header">
+                                <ul>
+                                    <li>
+                                        <img class="product-catalog-image" src="{{ recipe.recipe_image }}"
+                                        alt="Picture of {{ recipe.recipe_image }}">
+                                    </li>
+                                    <li>
+                                        <h4 class="smallscreen-awarege-title left">{{ recipe.recipe_name.upper() }}</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="row instructions-field">
+                                    <p class="small-title center">Ingredients</p>
+                                    <ul class="ingredient-list">
+                                        {% for ingredient in recipe.recipe_ingredients %}
+                                            <li class="awarege-text ingredient-item">
+                                                - {{ ingredient.capitalize() }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                    <p class="small-title center">Directions</p>
+                                    <ol class="directions-list">
+                                        {% for direction in recipe.recipe_directions %}
+                                            <li class="awarege-text direction-item">
+                                                {{ direction.capitalize() }}
+                                            </li>
+                                        {% endfor %}
+                                    </ol>
+                                    <div class="row">
+                                        <div class="col s6 left"><a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small">Edit</a></div>
+                                        <div class="col s6 right "><a class="btn-small">Delete</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- End of: Mobile catalog list -->
                     {% endif %}
                 {% endfor %}
             </ul>
