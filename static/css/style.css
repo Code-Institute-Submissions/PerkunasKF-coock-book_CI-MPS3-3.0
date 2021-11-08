@@ -89,6 +89,12 @@ footer {
         font-size: 30px;
     }
 
+    .smallscreen-awarege-title {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 800;
+        font-size: 18px;
+    }
+
     .instructions-field {
         border: 3px solid #38B000;
         border-radius: 20px;

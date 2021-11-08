@@ -103,7 +103,7 @@
                                                 alt="Picture of {{ product.product_image }}">
                                         </li>
                                         <li>
-                                            <h4 class="awarege-title left">{{ product.product_name.upper() }}</h4>
+                                            <h4 class="smallscreen-awarege-title left">{{ product.product_name.upper() }}</h4>
                                         </li>
                                     </ul>
                                 </div>
@@ -145,13 +145,13 @@
                                 <div class="collapsible-body">
                                     <div class="row instructions-field">
                                         <p class="small-title center">Description</p>
-                                        <Ul class="ingredient-list">
+                                        <ul class="ingredient-list">
                                             {% for feauter in product.product_description %}
                                                 <li class="awarege-text ingredient-item">
                                                     - {{ feauter.capitalize() }}
                                                 </li>
                                             {% endfor %}
-                                        </Ul>
+                                            </ul>
                                         <p class="small-title right">Price : {{ product.product_price }}</p>
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@
                                                 alt="Picture of {{ product.product_image }}">
                                         </li>
                                         <li>
-                                            <h4 class="awarege-title left">{{ product.product_name.upper() }}</h4>
+                                            <h4 class="smallscreen-awarege-title left">{{ product.product_name.upper() }}</h4>
                                         </li>
                                     </ul>
                                 </div>
