@@ -153,6 +153,16 @@ footer {
         border-bottom: 3px solid black;
         margin-bottom: 25px;
     }
+
+    .my-btn {
+        background-color: #38B000;
+        border: 2px solid black;
+    }
+
+    .my-btn:hover {
+        background-color: black;
+        border: 2px solid #38B000;
+    }
     
 /* --------------------------- End of Global styles ---------------------------------------------------- */
 

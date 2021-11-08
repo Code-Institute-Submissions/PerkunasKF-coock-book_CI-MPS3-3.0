@@ -182,14 +182,15 @@
             <!-- End of: Small screen radio buttons -->
 
             <div class="row center">
-                <div id="upload_widget" class="cloudinary-button">Upload image</div>
+                <div id="upload_widget" class="cloudinary-button">Change image</div>
             </div>
             <div class="row" style="display: none;">
                 <input id="recipe_image" name="recipe_image" type="text">
                 <label for="recipe_image"></label>
             </div>
             <div class="row center">
-                <button type="submit" class="btn add-recipe-btn awarege-text">Add Recipy</button>
+                <div class="col s6"><button type="submit" class="btn-large my-btn">Edit Recipy</button></div>
+                <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn-large my-btn">Cancel</a></div>
             </div>
         </form>
     </div>
