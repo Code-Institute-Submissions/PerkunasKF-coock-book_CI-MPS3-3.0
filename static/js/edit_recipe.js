@@ -59,7 +59,7 @@ function addIngredientsEdit () {
   var ingredientItem = document.createElement("li");
   var ingredientRow = document.createElement("div");
   var ingredientImputCol = document.createElement("div");
-  var ingredientInput = document.createElement("input");
+  var ingredientInput = document.createElement("textarea");
   var remuveBtnCol = document.createElement("div");
   var remuveBtnText = document.createElement("p");
   var remuveBtnTextSmall = document.createElement("p");
