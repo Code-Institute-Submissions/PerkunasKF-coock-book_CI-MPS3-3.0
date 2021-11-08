@@ -69,28 +69,59 @@
                 <ul class="collapsible product-catalog-body">
                     {% for product in products %}
                         {% if product.product_type|lower == "utensils" %}
-                            <li>
+                            <!-- Big screen list -->
+                            <li class="big-catalog">
                                 <div class="collapsible-header products-collapsible-header">
-                                    <div class="col s4"><img class="carusel-img product-catalog-image" src="{{ product.product_image }}"
+                                    <div class="col m6 s4"><img class="product-catalog-image" src="{{ product.product_image }}"
                                         alt="Picture of {{ product.product_image }}"></div>
-                                    <div class="col s8">
+                                    <div class="col m6 s8">
                                         <h4 class="awarege-title left">{{ product.product_name.upper() }}</h4>
                                     </div>
                                 </div>
                                 <div class="collapsible-body">
                                     <div class="row instructions-field">
                                         <p class="small-title center">Description</p>
-                                        <Ul class="ingredient-list">
+                                        <ul class="ingredient-list">
                                             {% for feauter in product.product_description %}
                                                 <li class="awarege-text ingredient-item">
                                                     - {{ feauter.capitalize() }}
                                                 </li>
                                             {% endfor %}
-                                        </Ul>
+                                        </ul>
                                         <p class="small-title right">Price : {{ product.product_price }}</p>
                                     </div>
                                 </div>
                             </li>
+                            <!-- End of: Big screen list -->
+
+                            <!-- Mobile catalog list -->
+                            <li class="small-catalog">
+                                <div class="collapsible-header products-collapsible-header">
+                                    <ul>
+                                        <li>
+                                            <img class="product-catalog-image" src="{{ product.product_image }}"
+                                                alt="Picture of {{ product.product_image }}">
+                                        </li>
+                                        <li>
+                                            <h4 class="awarege-title left">{{ product.product_name.upper() }}</h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="collapsible-body">
+                                    <div class="row instructions-field">
+                                        <p class="small-title center">Description</p>
+                                        <ul class="ingredient-list">
+                                            {% for feauter in product.product_description %}
+                                                <li class="awarege-text ingredient-item">
+                                                    - {{ feauter.capitalize() }}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                        <p class="small-title right">Price : {{ product.product_price }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- End of: Mobile catalog list -->
                         {% endif %}
                     {% endfor %}
                 </ul>
@@ -102,9 +133,10 @@
                 <ul class="collapsible product-catalog-body">
                     {% for product in products %}
                         {% if product.product_type|lower == "potspans" %}
-                            <li>
+                            <!-- Big screen list -->
+                            <li class="big-catalog">
                                 <div class="collapsible-header products-collapsible-header">
-                                    <div class="col s4"><img class="carusel-img product-catalog-image" src="{{ product.product_image }}"
+                                    <div class="col s4"><img class="product-catalog-image" src="{{ product.product_image }}"
                                         alt="Picture of {{ product.product_image }}"></div>
                                     <div class="col s8">
                                         <h4 class="awarege-title left">{{ product.product_name.upper() }}</h4>
@@ -124,6 +156,38 @@
                                     </div>
                                 </div>
                             </li>
+                            <!-- End of: Big screen list -->
+
+
+                            <!-- Mobile catalog list -->
+                            <li class="small-catalog">
+                                <div class="collapsible-header products-collapsible-header">
+                                    <ul>
+                                        <li>
+                                            <img class="product-catalog-image" src="{{ product.product_image }}"
+                                                alt="Picture of {{ product.product_image }}">
+                                        </li>
+                                        <li>
+                                            <h4 class="awarege-title left">{{ product.product_name.upper() }}</h4>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="collapsible-body">
+                                    <div class="row instructions-field">
+                                        <p class="small-title center">Description</p>
+                                        <ul class="ingredient-list">
+                                            {% for feauter in product.product_description %}
+                                                <li class="awarege-text ingredient-item">
+                                                    - {{ feauter.capitalize() }}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                        <p class="small-title right">Price : {{ product.product_price }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- End of: Mobile catalog list -->
+
                         {% endif %}
                     {% endfor %}
                 </ul>

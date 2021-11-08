@@ -211,6 +211,21 @@ footer {
     .product-catalog-image {
         border: 2px solid #38B000;
         border-radius: 20px;
+
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    @media (max-width: 600px) {
+        .big-catalog {
+            display: none;
+        }
+    }
+
+    @media (min-width: 600px) {
+        .small-catalog {
+            display: none;
+        }
     }
 
     .productas-catalog-navigation {
