@@ -121,7 +121,7 @@ def profile(username):
         {"username": session["user"]})["username"]
     email = mongo.db.users.find_one(
         {"username": session["user"]})["email"]
-    user_image =  mongo.db.users.find_one(
+    user_image = mongo.db.users.find_one(
         {"username": session["user"]})["user_image"]
     if session["user"]:
         return render_template(
