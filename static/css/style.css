@@ -26,6 +26,10 @@ footer {
 
 /* ------------------------------------- Global styles ------------------------------------- */
 
+    .width-90 {
+        width: 90%;
+        margin-left: 5%;
+    }
 
 /* Main Navigation Bar */
 
