@@ -108,6 +108,8 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     recipes = list(mongo.db.recipes.find())
+    user_id = mongo.db.users.find_one(
+        {"username": session["user"]})["_id"]
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     user_image = mongo.db.users.find_one(
@@ -116,9 +118,43 @@ def profile(username):
         return render_template(
             "profile.html", recipes=recipes,
             username=username,
-            user_image=user_image)
+            user_image=user_image, user_id=user_id)
 
     return redirect(url_for("login"))
+
+
+@app.route("/edit_profile/<user_id>", methods=["GET", "POST"])
+def edit_profile(user_id):
+    user_image = mongo.db.users.find_one(
+        {"username": session["user"]})["user_image"]
+    if request.method == "POST":
+        username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+        if request.form.get("password") == "":
+            user_password = mongo.db.users.find_one(
+                {"_id": ObjectId(user_id)})["password"]
+            user = {
+                "username": username,
+                "password": user_password,
+                "user_image": request.form.get("user_image")
+            }
+        else:
+            user = {
+                "username": username,
+                "password": request.form.get("password"),
+                "user_image": request.form.get("user_image")
+            }
+        mongo.db.users.update({"_id": ObjectId(user_id)}, user)
+        flash("Profile Information Edited Successfully")
+        return redirect(url_for(
+                "profile", username=session["user"]))
+
+    userdata = mongo.db.users.find_one(
+        {"_id": ObjectId(user_id)})
+    return render_template('edit_profile.html',
+        username=session['user'], userdata=userdata,
+        user_image=user_image)
 
 
 @app.route("/logout")

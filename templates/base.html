@@ -29,7 +29,7 @@
                     <ul class="right hide-on-med-and-down">
                         {% if session.user %}
                             <li><a class="main-navtext"
-                                    href="{{ url_for('profile', username=session['user'], email=session['user']) }}">User</a>
+                                    href="{{ url_for('profile', username=session['user']) }}">User</a>
                             </li>
                         <li class="nav-br">|</li>
                         {% endif %}
