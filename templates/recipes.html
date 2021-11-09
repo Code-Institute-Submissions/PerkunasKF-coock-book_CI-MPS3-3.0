@@ -69,235 +69,147 @@
 
         <!-- Breakfast recipes catalog list -->
         <div id="breakfast-recipes" class="col s12">
-            <ul class="collapsible product-catalog-body">
-                {% for recipe in recipes %}
-                    {% if recipe.meal_type|lower == "breakfast" %}
-                        <!-- Big screen list -->
-                        <li class="big-catalog">
-                            <div class="collapsible-header products-collapsible-header">
-                                <div class="col s4"><img class="carusel-img product-catalog-image" src="{{ recipe.recipe_image }}"
-                                        alt="Picture of {{ recipe.recipe_image }}"></div>
-                                <div class="col s8">
-                                    <h4 class="awarege-title left">{{ recipe.recipe_name.upper() }}</h4>
+            {% for recipe in recipes %}
+                {% if recipe.meal_type == "breakfast" %}
+                    <div class="col s12 l4">
+                        <div class="card horizontal display-card">
+                            <div class="card-image valign-wrapper">
+                                <img
+                                    src="{{ recipe.recipe_image }}">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-action">
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
+                                        {{ recipe.recipe_name }}
+                                    </a>
                                 </div>
                             </div>
-                            <div class="collapsible-body">
-                                <div class="row instructions-field">
-                                    <p class="small-title center">Ingredients</p>
-                                    <ul class="ingredient-list">
-                                        {% for ingredient in recipe.recipe_ingredients %}
-                                            <li class="awarege-text ingredient-item">
-                                                - {{ ingredient.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                    <p class="small-title center">Directions</p>
-                                    <ol class="directions-list">
-                                        {% for direction in recipe.recipe_directions %}
-                                            <li class="awarege-text direction-item">
-                                                {{ direction.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ol>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- End of: Big screen list -->
+                        </div>
+                    </div>
 
-                        <!-- Mobile catalog list -->
-                        <li class="small-catalog">
-                            <div class="collapsible-header products-collapsible-header">
-                                <ul>
-                                    <li>
-                                        <img class="carusel-img product-catalog-image" src="{{ recipe.recipe_image }}"
-                                            alt="Picture of {{ recipe.recipe_image }}">
-                                    </li>
-                                    <li>
-                                        <h4 class="smallscreen-awarege-title left">{{ recipe.recipe_name.upper() }}</h4>
-                                    </li>
+                    <div id="{{ recipe.recipe_name }}" class="modal">
+                        <div class="modal-content">
+                            <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
+                            <div class="row instructions-field">
+                                <p class="small-title center">Ingredients</p>
+                                <ul class="ingredient-list">
+                                    {% for ingredient in recipe.recipe_ingredients %}
+                                        <li class="awarege-text ingredient-item">
+                                            - {{ ingredient.capitalize() }}
+                                        </li>
+                                    {% endfor %}
                                 </ul>
+                                <p class="small-title center">Directions</p>
+                                <ol class="directions-list">
+                                    {% for direction in recipe.recipe_directions %}
+                                        <li class="awarege-text direction-item">
+                                            {{ direction.capitalize() }}
+                                        </li>
+                                    {% endfor %}
+                                </ol>
                             </div>
-                            <div class="collapsible-body">
-                                <div class="row instructions-field">
-                                    <p class="small-title center">Ingredients</p>
-                                    <ul class="ingredient-list">
-                                        {% for ingredient in recipe.recipe_ingredients %}
-                                            <li class="awarege-text ingredient-item">
-                                                - {{ ingredient.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                    <p class="small-title center">Directions</p>
-                                    <ol class="directions-list">
-                                        {% for direction in recipe.recipe_directions %}
-                                            <li class="awarege-text direction-item">
-                                                {{ direction.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ol>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- End of: Mobile catalog list -->
-                    {% endif %}
-                {% endfor %}
-            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
         <!-- End of: Breakfast recipes catalog list -->
 
+
         <!-- LUnch recipes catalog list -->
         <div id="lunch-recipes" class="col s12">
-            <ul class="collapsible product-catalog-body">
-                {% for recipe in recipes %}
-                    {% if recipe.meal_type|lower == "lunch" %}
-                        <!-- Big screen list -->
-                        <li class="big-catalog">
-                            <div class="collapsible-header products-collapsible-header">
-                                <div class="col s4"><img class="carusel-img product-catalog-image" src="{{ recipe.recipe_image }}"
-                                        alt="Picture of {{ recipe.recipe_image }}"></div>
-                                <div class="col s8">
-                                    <h4 class="awarege-title left">{{ recipe.recipe_name.upper() }}</h4>
+            {% for recipe in recipes %}
+                {% if recipe.meal_type == "lunch" %}
+                    <div class="col s12 l4">
+                        <div class="card horizontal display-card">
+                            <div class="card-image valign-wrapper">
+                                <img
+                                    src="{{ recipe.recipe_image }}">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-action">
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
+                                        {{ recipe.recipe_name }}
+                                    </a>
                                 </div>
                             </div>
-                            <div class="collapsible-body">
-                                <div class="row instructions-field">
-                                    <p class="small-title center">Ingredients</p>
-                                    <ul class="ingredient-list">
-                                        {% for ingredient in recipe.recipe_ingredients %}
-                                            <li class="awarege-text ingredient-item">
-                                                - {{ ingredient.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                    <p class="small-title center">Directions</p>
-                                    <ol class="directions-list">
-                                        {% for direction in recipe.recipe_directions %}
-                                            <li class="awarege-text direction-item">
-                                                {{ direction.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ol>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- End of: Big screen list -->
+                        </div>
+                    </div>
 
-                        <!-- Mobile catalog list -->
-                        <li class="small-catalog">
-                            <div class="collapsible-header products-collapsible-header">
-                                <ul>
-                                    <li>
-                                        <img class="product-catalog-image" src="{{ recipe.recipe_image }}"
-                                            alt="Picture of {{ recipe.recipe_image }}">
-                                    </li>
-                                    <li>
-                                        <h4 class="smallscreen-awarege-title left">{{ recipe.recipe_name.upper() }}</h4>
-                                    </li>
+                    <div id="{{ recipe.recipe_name }}" class="modal">
+                        <div class="modal-content">
+                            <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
+                            <div class="row instructions-field">
+                                <p class="small-title center">Ingredients</p>
+                                <ul class="ingredient-list">
+                                    {% for ingredient in recipe.recipe_ingredients %}
+                                        <li class="awarege-text ingredient-item">
+                                            - {{ ingredient.capitalize() }}
+                                        </li>
+                                    {% endfor %}
                                 </ul>
+                                <p class="small-title center">Directions</p>
+                                <ol class="directions-list">
+                                    {% for direction in recipe.recipe_directions %}
+                                        <li class="awarege-text direction-item">
+                                            {{ direction.capitalize() }}
+                                        </li>
+                                    {% endfor %}
+                                </ol>
                             </div>
-                            <div class="collapsible-body">
-                                <div class="row instructions-field">
-                                    <p class="small-title center">Ingredients</p>
-                                    <ul class="ingredient-list">
-                                        {% for ingredient in recipe.recipe_ingredients %}
-                                            <li class="awarege-text ingredient-item">
-                                                - {{ ingredient.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                    <p class="small-title center">Directions</p>
-                                    <ol class="directions-list">
-                                        {% for direction in recipe.recipe_directions %}
-                                            <li class="awarege-text direction-item">
-                                                {{ direction.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ol>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- End of: Mobile catalog list -->
-                    {% endif %}
-                {% endfor %}
-            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
         <!-- End of: LUnch recipes catalog list -->
 
+
         <!-- Dinner recipes catalog list -->
         <div id="dinner-recipes" class="col s12">
-            <ul class="collapsible product-catalog-body">
-                {% for recipe in recipes %}
-                    {% if recipe.meal_type|lower == "dinner" %}
-                        <!-- Big screen list -->
-                        <li class="big-catalog">
-                            <div class="collapsible-header products-collapsible-header">
-                                <div class="col s4"><img class="product-catalog-image" src="{{ recipe.recipe_image }}"
-                                        alt="Picture of {{ recipe.recipe_image }}"></div>
-                                <div class="col s8">
-                                    <h4 class="awarege-title left">{{ recipe.recipe_name.upper() }}</h4>
+            {% for recipe in recipes %}
+                {% if recipe.meal_type == "dinner" %}
+                    <div class="col s12 l4">
+                        <div class="card horizontal display-card">
+                            <div class="card-image valign-wrapper">
+                                <img
+                                    src="{{ recipe.recipe_image }}">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-action">
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
+                                        {{ recipe.recipe_name }}
+                                    </a>
                                 </div>
                             </div>
-                            <div class="collapsible-body">
-                                <div class="row instructions-field">
-                                    <p class="small-title center">Ingredients</p>
-                                    <ul class="ingredient-list">
-                                        {% for ingredient in recipe.recipe_ingredients %}
-                                            <li class="awarege-text ingredient-item">
-                                                - {{ ingredient.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                    <p class="small-title center">Directions</p>
-                                    <ol class="directions-list">
-                                        {% for direction in recipe.recipe_directions %}
-                                            <li class="awarege-text direction-item">
-                                                {{ direction.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ol>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- End of: Big screen list -->
+                        </div>
+                    </div>
 
-                        <!-- Mobile catalog list -->
-                        <li class="small-catalog">
-                            <div class="collapsible-header products-collapsible-header">
-                                <ul>
-                                    <li>
-                                        <img class="product-catalog-image" src="{{ recipe.recipe_image }}"
-                                            alt="Picture of {{ recipe.recipe_image }}">
-                                    </li>
-                                    <li>
-                                        <h4 class="smallscreen-awarege-title left">{{ recipe.recipe_name.upper() }}</h4>
-                                    </li>
+                    <div id="{{ recipe.recipe_name }}" class="modal">
+                        <div class="modal-content">
+                            <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
+                            <div class="row instructions-field">
+                                <p class="small-title center">Ingredients</p>
+                                <ul class="ingredient-list">
+                                    {% for ingredient in recipe.recipe_ingredients %}
+                                        <li class="awarege-text ingredient-item">
+                                            - {{ ingredient.capitalize() }}
+                                        </li>
+                                    {% endfor %}
                                 </ul>
+                                <p class="small-title center">Directions</p>
+                                <ol class="directions-list">
+                                    {% for direction in recipe.recipe_directions %}
+                                        <li class="awarege-text direction-item">
+                                            {{ direction.capitalize() }}
+                                        </li>
+                                    {% endfor %}
+                                </ol>
                             </div>
-                            <div class="collapsible-body">
-                                <div class="row instructions-field">
-                                    <p class="small-title center">Ingredients</p>
-                                    <ul class="ingredient-list">
-                                        {% for ingredient in recipe.recipe_ingredients %}
-                                            <li class="awarege-text ingredient-item">
-                                                - {{ ingredient.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                    <p class="small-title center">Directions</p>
-                                    <ol class="directions-list">
-                                        {% for direction in recipe.recipe_directions %}
-                                            <li class="awarege-text direction-item">
-                                                {{ direction.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ol>
-                                </div>
-                            </div>
-                        </li>
-                        <!-- End of: Mobile catalog list -->
-                    {% endif %}
-                {% endfor %}
-            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
         </div>
         <!-- End of: Dinner recipes catalog list -->
 
