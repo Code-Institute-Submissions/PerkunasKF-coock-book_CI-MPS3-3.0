@@ -5,7 +5,7 @@
     <!-- Carusel for products on sale -->
     <!-- Materialized model code block -->
     <div class="row title-container center">
-        <h2 class="section-title">Our Products On Sale !!!</h2>
+        <h2 class="section-title">Our New Products For Sale</h2>
     </div>
     <div class="row">
         <div class="carousel">
@@ -54,7 +54,7 @@
 
     <!-- Container for products catalog -->
     <!-- Code block from Materialized -->
-        <div class="row">
+        <div id="product-catalog" class="row">
             <!-- Navigations for products catalog -->
             <div class="col s12">
                 <ul class="tabs productas-catalog-navigation">
@@ -66,136 +66,88 @@
 
             <!-- Poduct catalog utensils section -->
             <div id="utensils" class="col s12">
-                <ul class="collapsible product-catalog-body">
-                    {% for product in products %}
-                        {% if product.product_type|lower == "utensils" %}
-                            <!-- Big screen list -->
-                            <li class="big-catalog">
-                                <div class="collapsible-header products-collapsible-header">
-                                    <div class="col m6 s4"><img class="product-catalog-image" src="{{ product.product_image }}"
-                                        alt="Picture of {{ product.product_image }}"></div>
-                                    <div class="col m6 s8">
-                                        <h4 class="awarege-title left">{{ product.product_name.upper() }}</h4>
+                {% for product in products %}
+                    {% if product.product_type == "utensils" %}
+                        <div class="col s12 l4">
+                            <div class="card horizontal display-card">
+                                <div class="card-image valign-wrapper">
+                                    <img
+                                        src="{{ product.product_image }}">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-action">
+                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
+                                            {{ product.product_name }}
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="collapsible-body">
-                                    <div class="row instructions-field">
-                                        <p class="small-title center">Description</p>
-                                        <ul class="ingredient-list">
-                                            {% for feauter in product.product_description %}
-                                                <li class="awarege-text ingredient-item">
-                                                    - {{ feauter.capitalize() }}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                        <p class="small-title right">Price : {{ product.product_price }}</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- End of: Big screen list -->
+                            </div>
+                        </div>
 
-                            <!-- Mobile catalog list -->
-                            <li class="small-catalog">
-                                <div class="collapsible-header products-collapsible-header">
-                                    <ul>
-                                        <li>
-                                            <img class="product-catalog-image" src="{{ product.product_image }}"
-                                                alt="Picture of {{ product.product_image }}">
+                        <div id="{{ product.product_name }}" class="modal">
+                            <div class="modal-content">
+                                <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
+                                <div class="row instructions-field">
+                                    <p class="small-title center">Description</p>
+                                    <ul class="ingredient-list">
+                                        {% for feauter in product.product_description %}
+                                        <li class="awarege-text ingredient-item">
+                                            - {{ feauter.capitalize() }}
                                         </li>
-                                        <li>
-                                            <h4 class="smallscreen-awarege-title left">{{ product.product_name.upper() }}</h4>
-                                        </li>
+                                        {% endfor %}
                                     </ul>
+                                    <p class="small-title left">Price : {{ product.product_price }}</p>
                                 </div>
-                                <div class="collapsible-body">
-                                    <div class="row instructions-field">
-                                        <p class="small-title center">Description</p>
-                                        <ul class="ingredient-list">
-                                            {% for feauter in product.product_description %}
-                                                <li class="awarege-text ingredient-item">
-                                                    - {{ feauter.capitalize() }}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                        <p class="small-title right">Price : {{ product.product_price }}</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- End of: Mobile catalog list -->
-                        {% endif %}
-                    {% endfor %}
-                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
             <!-- End of: Poduct catalog utensils section -->
 
             <!-- Poduct catalog pots and pans section -->
             <div id="potspans" class="col s12">
-                <ul class="collapsible product-catalog-body">
-                    {% for product in products %}
-                        {% if product.product_type|lower == "potspans" %}
-                            <!-- Big screen list -->
-                            <li class="big-catalog">
-                                <div class="collapsible-header products-collapsible-header">
-                                    <div class="col s4"><img class="product-catalog-image" src="{{ product.product_image }}"
-                                        alt="Picture of {{ product.product_image }}"></div>
-                                    <div class="col s8">
-                                        <h4 class="awarege-title left">{{ product.product_name.upper() }}</h4>
+                {% for product in products %}
+                    {% if product.product_type == "potspans" %}
+                        <div class="col s12 l4">
+                            <div class="card horizontal display-card">
+                                <div class="card-image valign-wrapper">
+                                    <img
+                                        src="{{ product.product_image }}">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-action">
+                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
+                                            {{ product.product_name }}
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="collapsible-body">
-                                    <div class="row instructions-field">
-                                        <p class="small-title center">Description</p>
-                                        <ul class="ingredient-list">
-                                            {% for feauter in product.product_description %}
-                                                <li class="awarege-text ingredient-item">
-                                                    - {{ feauter.capitalize() }}
-                                                </li>
-                                            {% endfor %}
-                                            </ul>
-                                        <p class="small-title right">Price : {{ product.product_price }}</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- End of: Big screen list -->
+                            </div>
+                        </div>
 
-
-                            <!-- Mobile catalog list -->
-                            <li class="small-catalog">
-                                <div class="collapsible-header products-collapsible-header">
-                                    <ul>
-                                        <li>
-                                            <img class="product-catalog-image" src="{{ product.product_image }}"
-                                                alt="Picture of {{ product.product_image }}">
+                        <div id="{{ product.product_name }}" class="modal">
+                            <div class="modal-content">
+                                <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
+                                <div class="row instructions-field">
+                                    <p class="small-title center">Description</p>
+                                    <ul class="ingredient-list">
+                                        {% for feauter in product.product_description %}
+                                        <li class="awarege-text ingredient-item">
+                                            - {{ feauter.capitalize() }}
                                         </li>
-                                        <li>
-                                            <h4 class="smallscreen-awarege-title left">{{ product.product_name.upper() }}</h4>
-                                        </li>
+                                        {% endfor %}
                                     </ul>
+                                    <p class="small-title left">Price : {{ product.product_price }}</p>
                                 </div>
-                                <div class="collapsible-body">
-                                    <div class="row instructions-field">
-                                        <p class="small-title center">Description</p>
-                                        <ul class="ingredient-list">
-                                            {% for feauter in product.product_description %}
-                                                <li class="awarege-text ingredient-item">
-                                                    - {{ feauter.capitalize() }}
-                                                </li>
-                                            {% endfor %}
-                                        </ul>
-                                        <p class="small-title right">Price : {{ product.product_price }}</p>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- End of: Mobile catalog list -->
-
-                        {% endif %}
-                    {% endfor %}
-                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
             <!--End of: Poduct catalog pots and pans section -->
 
         </div>
         <!-- End of Code block from Materialized -->
-
+    </div>
 
 {% endblock %}
