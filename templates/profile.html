@@ -6,8 +6,12 @@
             <div class="card profile-card">
     
                 <!-- user information -->
-                <div class="card-image profile-image">
-                    <img src="{{ user_image }}">
+                <div class="card-image profile-image-container">
+                    {% if user_image == "" %}
+                        <img class="profile-image" src="https://res.cloudinary.com/silorak/image/upload/v1636442322/blank-profile-picture-973460_960_720_aekp52.webp">
+                    {% else %}
+                        <img class="profile-image" src="{{ user_image }}">
+                    {% endif %}
                     <a class="btn-floating right-alighn halfway-fab waves-effect waves-light">
                         <i class="fas fa-pen profile-pic-edit"></i>
                     </a>
@@ -16,12 +20,7 @@
                     <h4 class="form-title line-br black-text">
                         {{ username.capitalize() }}
                     </h4>
-                    <div class="row big-catalog info-user center">
-                        <div class="col s4 awarege-text info">Email</div>
-                        <div class="col s6 awarege-text info">{{ email }}</div>
-                        <div class="col s12"><button class="btn-small profile-pic-edit awarege-text info">Edit</button></div>
-                    </div>
-                    <div class="row small-catalog info-user center">
+                    <div class="row info-user center">
                         <div class="col s12 awarege-text info">Email</div>
                         <div class="col s12 awarege-text info">{{ email }}</div>
                         <div class="col s12"><button class="btn-small profile-pic-edit awarege-text info">Edit</button></div>

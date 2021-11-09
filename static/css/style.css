@@ -358,15 +358,15 @@ footer {
         background-color: black;
     }
 
-    .profile-image {
+    /* .profile-image-container {
         max-height: 350px;
         width: 100%;
-    }
+    } */
 
-    .profile-image img{
-        max-height: 100%;
+    .profile-image {
+        max-height: 350px;
         max-width: 100%;
-        object-fit: contain;
+        object-fit: scale-down;
     }
 
     .info {
