@@ -24,18 +24,12 @@
                             maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" required>
                         <label for="password_confirm">Confirm Password</label>
                     </div>
-                    <!-- email -->
-                    <div class="input-field row">
-                        <input id="email" name="email" type="email" class="validate" required>
-                        <label for="email">Email</label>
-                    </div>
                     <!-- register button -->
                     <div class="row">
                         <button type="submit" class="btn forum-submit-btn">Register</button>
                     </div>
                     <div class="card-action row right-align">
                         <a class="small-link black-text" href="{{ url_for('login') }}">Already a user? Log In</a>
-                        
                     </div>
                 </div>
             </div>

@@ -68,17 +68,9 @@ def register():
             flash("Password does not match!")
             return redirect(url_for('register'))
 
-        existing_email = mongo.db.users.find_one(
-            {"email": request.form.get("email").lower()})
-
-        if existing_email:
-            flash("Email already exists!")
-            return redirect(url_for("register"))
-
         register_data = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "email": request.form.get("email").lower(),
             "user_image": request.form.get("user_image")
         }
         mongo.db.users.insert_one(register_data)
@@ -118,14 +110,12 @@ def profile(username):
     recipes = list(mongo.db.recipes.find())
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    email = mongo.db.users.find_one(
-        {"username": session["user"]})["email"]
     user_image = mongo.db.users.find_one(
         {"username": session["user"]})["user_image"]
     if session["user"]:
         return render_template(
             "profile.html", recipes=recipes,
-            username=username, email=email,
+            username=username,
             user_image=user_image)
 
     return redirect(url_for("login"))
