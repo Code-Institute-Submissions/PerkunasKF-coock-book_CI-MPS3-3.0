@@ -142,7 +142,7 @@ def edit_profile(user_id):
         else:
             user = {
                 "username": username,
-                "password": request.form.get("password"),
+                "password": generate_password_hash(request.form.get("password")),
                 "user_image": request.form.get("user_image")
             }
         mongo.db.users.update({"_id": ObjectId(user_id)}, user)
