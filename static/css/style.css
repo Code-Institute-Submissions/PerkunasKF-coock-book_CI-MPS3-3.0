@@ -64,6 +64,14 @@ footer {
         color: #FFE8AD;
     }
 
+    #nav-bar-image {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-top: 10px;
+    }
+
 /* End of Navigation Bar */
 
     body {

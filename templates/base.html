@@ -21,15 +21,17 @@
     <div class="navbar-fixed">
         <header>
             <!-- Navigation bar -->
-            <nav class="nav-extended">
-                <div class="nav-wrapper main-navbar">
+            <nav class="nav-extended main-navbar">
+                <div class="nav-wrapper">
                     <a href="{{ url_for('home') }}" class="brand-logo left"><i
                             class="fas fa-apple-alt main-logo logo"></i></a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars logo"></i></a>
                     <ul class="right hide-on-med-and-down">
                         {% if session.user %}
                             <li><a class="main-navtext"
-                                    href="{{ url_for('profile', username=session['user']) }}">User</a>
+                                    href="{{ url_for('profile', username=session['user']) }}">
+                                    <img id="nav-bar-image" src="{{ user_image }}" alt="">
+                                </a>
                             </li>
                             <li class="nav-br">|</li>
                             <li>
