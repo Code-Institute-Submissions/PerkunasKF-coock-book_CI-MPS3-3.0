@@ -30,7 +30,7 @@
                         {% if session.user %}
                             <li><a class="main-navtext"
                                     href="{{ url_for('profile', username=session['user']) }}">
-                                    <img id="nav-bar-image" src="{{ user_image }}" alt="">
+                                    {{ session.user.capitalize() }}
                                 </a>
                             </li>
                             <li class="nav-br">|</li>

@@ -31,7 +31,8 @@ def home():
     products_onsale = random.sample(products, 2)
     return render_template(
         "home.html", recipes=recipes,
-        random_recipe=random_recipe, products_onsale=products_onsale)
+        random_recipe=random_recipe,
+        products_onsale=products_onsale)
 
 
 @app.route("/get_recipes")
