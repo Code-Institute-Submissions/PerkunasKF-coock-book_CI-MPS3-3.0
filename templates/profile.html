@@ -43,8 +43,15 @@
         <!-- User recipes navigations -->
         <div class="col s12">
             <ul class="tabs productas-catalog-navigation">
-                <li class="tab active col s6"><a class="black-text awarege-title center" href="#user-recipes">Your Recipes</a></li>
-                <li class="tab col s6"><a class="black-text awarege-title center" href="#user-like-recipes">Recipes You Like</a></li>
+                {% if session.user|lower == "admin" %}
+                    <li class="tab col s3"><a class="black-text awarege-title center" href="#user-recipes">Your Recipes</a></li>
+                    <li class="tab active col s3"><a class="black-text awarege-title center" href="#all-users">All Users</a></li>
+                    <li class="tab col s3"><a class="black-text awarege-title center" href="#all-user-recipes">All Recipes</a></li>
+                    <li class="tab col s3"><a class="black-text awarege-title center" href="#">Recipes You Like</a></li>
+                {% else %}
+                    <li class="tab active col s6"><a class="black-text awarege-title center" href="#user-recipes">Your Recipes</a></li>
+                    <li class="tab col s6"><a class="black-text awarege-title center" href="#">Recipes You Like</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -98,39 +105,84 @@
         </div>        
         <!-- End of: User recipes list -->
 
-    
-        <div id="user-like-recipes" class="col s12">
-            <ul class="collapsible">
-                {% for recipe in recipes %}
-                <li>
-                    <div class="collapsible-header">
-                        <h5>{{ recipe.recipe_name.upper() }}</h5>
-                    </div>
-                    <div class="collapsible-body">
-                        <div class="row">
-                            <div class="col s2 offset-m8"><button class="btn-small">Edit</button></div>
-                            <div class="col s2 "><button class="btn-small">Delete</button></div>
+        <!-- All recipes -->
+        <div id="all-users" class="row">
+            {% for user in all_users %}
+                <div class="col s12 l4">
+                    <div class="card horizontal display-card">
+                        <div class="card-image valign-wrapper">
+                            <img src="{{ user.user_image }}">
                         </div>
-                        <ul class="user-recipe">
-                            {% for ingredient in recipe.recipe_ingredients %}
-                            <li>
-                                {{ ingredient.capitalize() }}
-                            </li>
-                            {% endfor %}
-                        </Ul class="user-recipe">
-                        <ol>
-                            {% for direction in recipe.recipe_directions %}
-                            <li>
-                                {{ direction.capitalize() }}
-                            </li>
-                            {% endfor %}
-                        </ol>
+                        <div class="card-stacked">
+                            <div class="card-action">
+                                <a class="modal-trigger black-text awarege-text display-name" href="#{{ user.username }}">
+                                    {{ user.username.upper() }}
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </li>
-                {% endfor %}
-            </ul>
+                </div>
+        
+            <div id="{{ user.username }}" class="modal">
+                <div class="modal-content">
+                    <img class="profile-image" src="{{ user.user_image }}">
+                    <h4 class="awarege-title center">{{ user.username.upper() }}</h4>
+                    <div class="row center">
+                        <div class="col s6">Block</div>
+                        <div class="col s6">Cancel</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-    <!-- end of user recipes -->
+        <!-- End of: All recipes -->
+
+        <!-- All recipes -->
+        <div id="all-user-recipes" class="row">
+            {% for recipe in recipes %}
+                    <div class="col s12 l4">
+                        <div class="card horizontal display-card">
+                            <div class="card-image valign-wrapper">
+                                <img
+                                    src="{{ recipe.recipe_image }}">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-action">
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
+                                        {{ recipe.recipe_name.upper() }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="{{ recipe.recipe_name }}" class="modal">
+                        <div class="modal-content">
+                            <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
+                            <div class="row instructions-field">
+                                <p class="small-title center">Ingredients</p>
+                                <ul class="ingredient-list">
+                                    {% for ingredient in recipe.recipe_ingredients %}
+                                        <li class="awarege-text ingredient-item">
+                                            - {{ ingredient.capitalize() }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <p class="small-title center">Directions</p>
+                                <ol class="directions-list">
+                                    {% for direction in recipe.recipe_directions %}
+                                        <li class="awarege-text direction-item">
+                                            {{ direction.capitalize() }}
+                                        </li>
+                                    {% endfor %}
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+            {% endfor %}
+        </div>        
+        <!-- End of: All recipes -->
+
     
     <!-- add recepy -->
     <div class="row add-recipe-btn-container center">

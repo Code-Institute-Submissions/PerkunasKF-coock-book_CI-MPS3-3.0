@@ -115,11 +115,13 @@ def profile(username):
         {"username": session["user"]})["username"]
     user_image = mongo.db.users.find_one(
         {"username": session["user"]})["user_image"]
+    all_users = mongo.db.users.find()
     if session["user"]:
         return render_template(
             "profile.html", recipes=recipes,
             username=username,
-            user_image=user_image, user_id=user_id)
+            user_image=user_image, user_id=user_id,
+            all_users=all_users)
 
     return redirect(url_for("login"))
 

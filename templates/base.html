@@ -55,12 +55,22 @@
                     </ul>
                 </div>
             </nav>
+        </header>
+    </div>
+
     
             <!-- Mobile navigations -->
             <ul class="sidenav" id="mobile-demo">
                 {% if session.user %}
-                    <li><a class="main-navtext"
-                        href="{{ url_for('profile', username=session['user'], email=session['user']) }}">User</a></li>
+                    <li><a class="main-navtext" href="{{ url_for('profile', username=session['user']) }}">
+                            {{ session.user.capitalize() }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('add_recipe') }}" class="main-navtext">
+                            Add Recipe
+                        </a>
+                    </li>
                 {% endif %}
                     <li><a class="main-navtext" href="{{ url_for('get_products') }}">Products</a></li>
                     <li><a class="main-navtext" href="{{ url_for('get_recipes') }}">Recipes</a></li>
@@ -71,9 +81,7 @@
                     <li><a class="main-navtext" href="{{ url_for('register') }}">Register</a></li>
                 {% endif %}
             </ul>
-        </header>
-    </div>
-
+    
     <!-- section to display flash messages -->
     <section>
         {% with messages = get_flashed_messages() %}
