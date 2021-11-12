@@ -11,10 +11,10 @@
                 {% for recipe in recipes_list %}
                     {% if recipe.recipe_name == recipe_select.recipe_name %}
                         <div class="col s4 recipe-images">
-                            <img src="{{ recipe_select.recipe_image }}" alt="">
+                            <img class="edit-recipe-img" src="{{ recipe_select.recipe_image }}" alt="">
                         </div>
                         <div class="input-field col s8">
-                            <input id="recipe_name" name="recipe_name" type="text" class="validate" maxlength="50"
+                            <input id="recipe_name" name="recipe_name" type="text" class="validate awarege-title" maxlength="50"
                             value="{{ recipe.recipe_name.capitalize()  }}" required>
                         </div>
                     {% endif %}
@@ -43,35 +43,34 @@
                 {% endfor %}
             </div>
             <!-- End of: Small screen display -->
-
-            <div class="row">
-                <div id="ingredient-list" class="col s12">
-                    <h4 class="awarege-title add-title center">Ingredients</h4>
-                    <ul>
-                        {% for recipe in recipes_list %}
-                            {% if recipe.recipe_name == recipe_select.recipe_name %}
-                                {% set count = namespace(value=0) %}
-                                {% for ingredient in recipe.recipe_ingredients %}
-                                    <li class="edit-ing-input-field" id="edit-ingredient-list-item-{{ count.value }}"
-                                        number="{{ count.value }}">
-                                        <div class="row">
-                                            <div class="col s9">
-                                                <input name="recipe_ingredient" type="text" class="recipe_ing" value="{{- ingredient -}}" required="">
-                                            </div>
-                                            <div class="col s3 edit-item-remuve remuve-btn"
-                                                id="edit-ingredient-list-item-remuve-{{ count.value }}" number="{{ count.value }}">
-                                                <p class="remuve-btn-text center awarege-text big-catalog">Remuve</p>
-                                                <p class="remuve-btn-text center awarege-text small-catalog">X</p>
-                                            </div>
+            
+            <div id="ingredient-list" class="col s12 center">
+                <h4 class="awarege-title add-title">Ingredients</h4>
+                <ul id="edit_ingredients" class="center">
+                    {% for recipe in recipes_list %}
+                        {% if recipe.recipe_name == recipe_select.recipe_name %}
+                        {% set count = namespace(value=0) %}
+                            {% for ingredient in recipe.recipe_ingredients %}
+                                <li class="edit-ing-input-field" id="edit-ingredient-list-item-{{ count.value }}" number="{{ count.value }}"
+                                    style="width: 95%;">
+                                    <div class="row">
+                                        <div class="col s9">
+                                            <input name="recipe_ingredient" type="text" class="recipe_ing" value="{{- ingredient -}}"
+                                                required="">
                                         </div>
-                                    </li>
-                                {% set count.value = count.value + 1 %}
-                                {% endfor %}
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                    <div id="edit_ingredients" class="col s12">Add ingredient</div>
-                </div>
+                                        <div class="col s3 edit-item-remuve remuve-btn" id="edit-ingredient-list-item-remuve-{{ count.value }}"
+                                            number="{{ count.value }}">
+                                            <p class="remuve-btn-text center awarege-text big-catalog">Remuve</p>
+                                            <p class="remuve-btn-text center awarege-text small-catalog">X</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            {% set count.value = count.value + 1 %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                <div id="edit-ingredients-buttno" class="btn add-btn awarege-text">Add Ingredient</div>
             </div>
             <div class="row">
                 <div id="direction-list" class="col s12">

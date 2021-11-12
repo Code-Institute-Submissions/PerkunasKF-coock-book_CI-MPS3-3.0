@@ -104,9 +104,7 @@ function addIngredientsEdit () {
 // Generates a list after pressing enter after user input
 // in add_recipe.html ingredient list
 function enterIngredientEdit () {
-  console.log("Hello");
-  document.querySelector('#edit_ingredients').addEventListener('click', function () {
-      console.log("Hello");
+  document.querySelector('#edit-ingredients-buttno').addEventListener('click', function () {
       addIngredientsEdit ();
       removeIngredient();
   });
