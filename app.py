@@ -109,6 +109,7 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     recipes = list(mongo.db.recipes.find())
+    products = list(mongo.db.products.find())
     user_id = mongo.db.users.find_one(
         {"username": session["user"]})["_id"]
     username = mongo.db.users.find_one(
@@ -121,7 +122,7 @@ def profile(username):
             "profile.html", recipes=recipes,
             username=username,
             user_image=user_image, user_id=user_id,
-            all_users=all_users)
+            all_users=all_users, products=products)
 
     return redirect(url_for("login"))
 

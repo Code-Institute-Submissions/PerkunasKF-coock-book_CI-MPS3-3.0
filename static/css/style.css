@@ -421,6 +421,19 @@ footer {
         border-radius: 20px;
     }
 
+    .add-btn {
+        width: 50%;
+        height: 50px;
+        border: 5px solid black;
+        border-radius: 20px;
+        background-color: #38B000;
+    }
+
+    .add-btn:hover {
+        border-color: #38B000;
+        background-color: black;
+    }
+
 /* ---------------------------- End of: Profile page ------------------------------------------------------------------ */
 
 
