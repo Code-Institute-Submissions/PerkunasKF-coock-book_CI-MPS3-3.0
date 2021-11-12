@@ -545,6 +545,12 @@ footer {
 
     .edit-ing-input-field {
         margin-left: 2.5%;
+        width: 95%
+    }
+
+    .edit-dir-input-field {
+        margin-left: 2.5%;
+        width: 95%
     }
 
 /* ---------------------------- End of: Edit recipe page --------------------------------------------------------------- */

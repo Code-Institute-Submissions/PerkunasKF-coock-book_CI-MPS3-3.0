@@ -51,8 +51,7 @@
                         {% if recipe.recipe_name == recipe_select.recipe_name %}
                         {% set count = namespace(value=0) %}
                             {% for ingredient in recipe.recipe_ingredients %}
-                                <li class="edit-ing-input-field" id="edit-ingredient-list-item-{{ count.value }}" number="{{ count.value }}"
-                                    style="width: 95%;">
+                                <li class="edit-ing-input-field" id="edit-ingredient-list-item-{{ count.value }}" number="{{ count.value }}">
                                     <div class="row">
                                         <div class="col s9">
                                             <input name="recipe_ingredient" type="text" class="recipe_ing" value="{{- ingredient -}}"
@@ -73,7 +72,7 @@
                 <div id="edit-ingredients-buttno" class="btn add-btn awarege-text">Add Ingredient</div>
             </div>
             <div class="row">
-                <div id="direction-list" class="col s12">
+                <div id="direction-list" class="col s12 center">
                     <ul id="edit-directions">
                         <h4 class="awarege-title add-title center">Directions</h4>
                         {% for recipe in recipes_list %}
@@ -99,6 +98,7 @@
                             {% endif %}
                         {% endfor %}
                     </ul>
+                    <div id="edit-direction-buttno" class="btn add-btn awarege-text">Add Direction</div>
                 </div>
             </div>
 

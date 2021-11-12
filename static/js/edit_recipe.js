@@ -140,6 +140,7 @@ function addDirectionsEdit () {
   var directiontInput = document.createElement("textarea");
   var remuveBtnCol = document.createElement("div");
   var remuveBtnText = document.createElement("p");
+  var remuveBtnTextSmall = document.createElement("p");
 
   directiontList.appendChild(directionItem);
 
@@ -161,11 +162,15 @@ function addDirectionsEdit () {
   directiontInput.setAttribute("class", "recipe_dir");
   directiontInput.setAttribute("required", "");
 
-  remuveBtnCol.setAttribute("class", "col s3");
+  remuveBtnCol.setAttribute("class", "col s3 remuve-btn");
   remuveBtnCol.setAttribute("id", `direction-list-item-remuve-${direction}`);
   remuveBtnCol.appendChild(remuveBtnText);
 
+  remuveBtnText.setAttribute("class", "remuve-btn-text center awarege-text big-catalog");
   remuveBtnText.appendChild(document.createTextNode("Remuve"));
+
+  remuveBtnTextSmall.setAttribute("class", "remuve-btn-text center awarege-text small-catalog");
+  remuveBtnTextSmall.appendChild(document.createTextNode("X"));
 
   direction++;
   return
@@ -175,11 +180,9 @@ function addDirectionsEdit () {
 // Generates a list after pressing enter after user input
 // in add_recipe.html directions list
 function enterDirectionsEdit () {
-  document.querySelector('#edit-directions').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
+  document.querySelector('#edit-direction-buttno').addEventListener('click', function () {
       addDirectionsEdit();
       removeDirection();
-    }
   });
 }
 
