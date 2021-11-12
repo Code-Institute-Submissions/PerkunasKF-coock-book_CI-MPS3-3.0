@@ -102,40 +102,48 @@
                 </div>
             </div>
 
-            <!-- Small screen radio buttons -->
+            <!-- Meal type edit -->
             <div class="row meal-type-select center">
                 <h4 class="awarege-title add-title center">Meal Type</h4>
-                <ul>
-                    <li class="col s12 m4 left">
-                        {% if recipe_select_small.meal_type == "breakfast" %}
-                            <input name="meal_type" type="radio" value="breakfast" require checked />
-                            <span>Breakfast</span>
-                        {% else %}
-                            <input name="meal_type" type="radio" value="breakfast" require />
-                            <span>Breakfast</span>
-                        {% endif %}
-                    </li>
-                    <li class="col s12 m4 left">
-                        {% if recipe_select_small.meal_type == "lunch" %}
-                            <input name="meal_type" type="radio" value="lunch" checked />
-                            <span>Lunch</span>
-                        {% else %}
-                            <input name="meal_type" type="radio" value="lunch" />
-                            <span>Lunch</span>
-                        {% endif %}
-                    </li>
-                    <li class="col s12 m4 left">
-                        {% if recipe_select_small.meal_type == "dinner" %}
-                            <input name="meal_type" type="radio" value="dinner" checked />
-                            <span>Dinner</span>
-                        {% else %}
-                            <input name="meal_type" type="radio" value="dinner" />
-                            <span>Dinner</span>
-                        {% endif %}
-                    </li>
-                </ul>
+                <div class="col s12 m4">
+                    <p>
+                        <label>
+                            {% if recipe_select.meal_type == "breakfast" %}
+                                <input name="meal_type" type="radio" value="breakfast" checked/>
+                            {% else %}
+                                <input name="meal_type" type="radio" value="breakfast"/>
+                            {% endif %}
+                            <span class="awarege-text black-text">Breakfast</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="col s12 m4">
+                    <p>
+                        <label>
+                            {% if recipe_select.meal_type == "lunch" %}
+                                <input name="meal_type" type="radio" value="lunch" checked/>
+                            {% else %}
+                                <input name="meal_type" type="radio" value="lunch"/>
+                            {% endif %}
+                            <span class="awarege-text black-text">Lunch</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="col s12 m4">
+                    <p>
+                        <label>
+                            {% if recipe_select.meal_type == "dinner" %}
+                                <input name="meal_type" type="radio" value="dinner" checked/>
+                            {% else %}
+                                <input name="meal_type" type="radio" value="dinner"/>
+                            {% endif %}
+                                <span class="awarege-text black-text">Dinner</span>
+                        </label>
+                    </p>
+                </div>
             </div>
-            <!-- End of: Small screen radio buttons -->
+            <!-- End of: Meal type edit -->
+
 
             <div class="row center">
                 <div id="upload_widget" class="cloudinary-button">Change image</div>

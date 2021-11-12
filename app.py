@@ -211,14 +211,13 @@ def edit_recipe(recipe_id):
             }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, recipe)
         flash("Recipy edited Successfully")
+        return redirect(url_for("profile", username=session["user"]))
 
     recipes_list = list(mongo.db.recipes.find())
     recipe_select = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    recipe_select_small = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template(
         "edit_recipe.html",
-        recipe_select=recipe_select, recipes_list=recipes_list,
-        recipe_select_small=recipe_select_small)
+        recipe_select=recipe_select, recipes_list=recipes_list)
 
 
 @app.route("/delete_recipe/<recipe_id>")
