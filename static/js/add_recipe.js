@@ -141,7 +141,7 @@ function addDirections() {
 // Generates a list after pressing enter after user input
 // in add_recipe.html directions list
 function enterDirections () {
-  document.querySelector('#add-directions').addEventListener('click', function () {
+  document.querySelector('#add-direction-button').addEventListener('click', function () {
       addDirections();
       removeDirection();
   });
