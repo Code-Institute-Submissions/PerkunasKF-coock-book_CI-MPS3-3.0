@@ -544,3 +544,17 @@ footer {
 } */
 
 /* End of User Recipes */
+
+/* ---------------------------- Mobile size style ---------------------------------------------------------------------- */
+
+@media (max-width: 650px) {
+    .mobal-text {
+        font-size: 10px;
+    }
+
+    .productas-catalog-navigation {
+        height: 75px;
+    }
+}
+
+/* ---------------------------- Mobile size style ---------------------------------------------------------------------- */
