@@ -29,12 +29,12 @@
                     <ul>
                         <li>
                             <div class="col s12 recipe-images">
-                                <img src="{{ recipe_select.recipe_image }}" alt="">
+                                <img class="edit-recipe-img" src="{{ recipe_select.recipe_image }}" alt="">
                             </div>
                         </li>
                         <li>
                             <div class="input-field col s12">
-                                <input id="recipe_name" name="recipe_name" type="text" class="validate" maxlength="50"
+                                <input id="recipe_name" name="recipe_name" type="text" class="validate awarege-title" maxlength="50"
                                 value="{{ recipe.recipe_name.capitalize()  }}" required>
                             </div>
                         </li>
@@ -153,8 +153,8 @@
                 <label for="recipe_image"></label>
             </div>
             <div class="row center">
-                <div class="col s6"><button type="submit" class="btn-large my-btn">Edit Recipy</button></div>
-                <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn-large my-btn">Cancel</a></div>
+                <div class="col s6"><button type="submit" class="btn add-btn">Edit Recipy</button></div>
+                <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn add-btn">Cancel</a></div>
             </div>
         </form>
     </div>
