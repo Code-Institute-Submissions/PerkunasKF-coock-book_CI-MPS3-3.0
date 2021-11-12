@@ -189,14 +189,26 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
-        recipe = {
-            "recipe_name": request.form.get("recipe_name"),
-            "recipe_ingredients": request.form.getlist("recipe_ingredient"),
-            "recipe_directions": request.form.getlist("recipe_direction"),
-            "meal_type": request.form.get("meal_type"),
-            "author": session["user"],
-            "recipe_image": request.form.get("recipe_image")
-        }
+        if request.form.get("recipe_image") == "":
+            recipe_image = mongo.db.recipes.find_one(
+                {"_id": ObjectId(recipe_id)})["recipe_image"]
+            recipe = {
+                "recipe_name": request.form.get("recipe_name"),
+                "recipe_ingredients": request.form.getlist("recipe_ingredient"),
+                "recipe_directions": request.form.getlist("recipe_direction"),
+                "meal_type": request.form.get("meal_type"),
+                "author": session["user"],
+                "recipe_image": recipe_image
+            }
+        else:
+            recipe = {
+                "recipe_name": request.form.get("recipe_name"),
+                "recipe_ingredients": request.form.getlist("recipe_ingredient"),
+                "recipe_directions": request.form.getlist("recipe_direction"),
+                "meal_type": request.form.get("meal_type"),
+                "author": session["user"],
+                "recipe_image": request.form.get("recipe_image")
+            }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, recipe)
         flash("Recipy edited Successfully")
 
@@ -227,6 +239,26 @@ def add_product():
         flash("Product added Successfully")
         return redirect(url_for("profile", username=session["user"]))
     return render_template("add_product.html")
+
+
+@app.route("/edit_product/<product_id>", methods=["GET", "POST"])
+def edit_product(product_id):
+    if request.method == "POST":
+        product = {
+            "product_name": request.form.get("product_name"),
+            "product_description": request.form.getlist("product_description"),
+            "product_type": request.form.get("product_type"),
+            "product_image": request.form.get("product_image")
+        }
+        mongo.db.products.update({"_id": ObjectId(product_id)}, product)
+        flash("Product edited Successfully")
+
+    product_list = list(mongo.db.products.find())
+    product_select = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    return render_template(
+        "edit_product.html",
+        product_select=product_select, product_list=product_list)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

@@ -47,7 +47,7 @@
             <div class="row">
                 <div id="ingredient-list" class="col s12">
                     <h4 class="awarege-title add-title center">Ingredients</h4>
-                    <ul id="edit_ingredients">
+                    <ul>
                         {% for recipe in recipes_list %}
                             {% if recipe.recipe_name == recipe_select.recipe_name %}
                                 {% set count = namespace(value=0) %}
@@ -70,6 +70,7 @@
                             {% endif %}
                         {% endfor %}
                     </ul>
+                    <div id="edit_ingredients" class="col s12">Add ingredient</div>
                 </div>
             </div>
             <div class="row">

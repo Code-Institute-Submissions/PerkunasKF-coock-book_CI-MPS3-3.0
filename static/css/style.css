@@ -427,6 +427,7 @@ footer {
         border: 5px solid black;
         border-radius: 20px;
         background-color: #38B000;
+        font-size: 18px;
     }
 
     .add-btn:hover {
@@ -434,6 +435,11 @@ footer {
         background-color: black;
     }
 
+    @media (max-width: 600px) {
+        .add-btn {
+            width: 100%;
+        }
+    }
 /* ---------------------------- End of: Profile page ------------------------------------------------------------------ */
 
 
@@ -500,6 +506,10 @@ footer {
 
     .cloudinary-button {
         width: 90%;
+    }
+
+    #add-ingredients-button {
+        border: 2px solid black;
     }
 
 /* ---------------------------- End of: Add recipe page styles --------------------------------------------------------- */

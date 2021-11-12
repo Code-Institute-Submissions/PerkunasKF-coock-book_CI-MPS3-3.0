@@ -3,7 +3,7 @@ var ingredient = 0;
 document.addEventListener('DOMContentLoaded', function () {
   callForRemuve();
 
-  enterIngredientEdit ();
+  enterIngredientEdit();
   enterDirectionsEdit();
   removeIngredient();
   removeDirection();
@@ -104,11 +104,11 @@ function addIngredientsEdit () {
 // Generates a list after pressing enter after user input
 // in add_recipe.html ingredient list
 function enterIngredientEdit () {
-  document.querySelector('#edit_ingredients').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
+  console.log("Hello");
+  document.querySelector('#edit_ingredients').addEventListener('click', function () {
+      console.log("Hello");
       addIngredientsEdit ();
       removeIngredient();
-    }
   });
 }
 

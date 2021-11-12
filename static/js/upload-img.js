@@ -14,7 +14,7 @@ var myWidget = cloudinary.applyUploadWidget(
         userImg.setAttribute("value", result.info['secure_url']);
         profileImg = false;
       } else {
-        if ( productImg=true ) {
+        if ( productImg == true ) {
           var productImg = document.getElementById("product_image");
           productImg.setAttribute("value", result.info['secure_url']);
           productImg = false;

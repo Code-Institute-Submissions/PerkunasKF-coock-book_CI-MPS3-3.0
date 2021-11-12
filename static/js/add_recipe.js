@@ -64,11 +64,9 @@ function addIngredients() {
 // Generates a list after pressing enter after user input
 // in add_recipe.html ingredient list
 function enterIngredient () {
-  document.querySelector('#add_ingredients').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
+  document.querySelector('#add-ingredients-button').addEventListener('click', function () {
       addIngredients();
       removeIngredient ();
-    }
   });
 }
 
@@ -143,11 +141,9 @@ function addDirections() {
 // Generates a list after pressing enter after user input
 // in add_recipe.html directions list
 function enterDirections () {
-  document.querySelector('#add-directions').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
+  document.querySelector('#add-directions').addEventListener('click', function () {
       addDirections();
       removeDirection();
-    }
   });
 }
 
