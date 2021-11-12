@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row add-recipe-form title-container">
+        <div class="row title-container">
+            <h4 class="section-title center">Add Product</h4>
+        </div>
+        <form class="col s12" method="POST" action="{{ url_for('add_product') }}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="product_name" name="product_name" type="text" class="validate" maxlength="50" required>
+                    <label for="product_name">Product Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div id="product-list" class="col s12">
+                    <ul id="add_products">
+                        <h4 class="awarege-title add-title center">Description</h4>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Big screen radio buttons -->
+            <div class="row meal-type-select center big-catalog">
+                <h4 class="awarege-title add-title center">Product Type</h4>
+                <div class="col s6">
+                    <p>
+                        <label>
+                            <input name="product_type" type="radio" value="utensils" required />
+                            <span class="awarege-text black-text">Utensils</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="col s6">
+                    <p>
+                        <label>
+                            <input name="product_type" type="radio" value="potspans" />
+                            <span class="awarege-text black-text">Pots & Pans</span>
+                        </label>
+                    </p>
+                </div>
+            </div>
+            <!-- End of: Big screen radio buttons -->
+
+            <!-- Small screen radio buttons -->
+            <div class="row meal-type-select center small-catalog">
+                <h4 class="awarege-title add-title center">Product Type</h4>
+                <ul>
+                    <li class="left">
+                        <input name="product_type" type="radio" value="utensils" required />
+                        <span class="awarege-text black-text">Utensils</span>
+                    </li>
+                    <li class="left">
+                        <input name="product_type" type="radio" value="potspans" />
+                        <span class="awarege-text black-text">Pots & Pans</span>
+                    </li>
+                </ul>
+            </div>
+            <!-- End of: Small screen radio buttons -->
+
+            <div class="row center">
+                <div id="upload_widget" class="cloudinary-button" product="product">Upload image</div>
+            </div>
+            <div class="row" style="display: none;">
+                <input id="product_image" name="product_image" type="text">
+                <label for="product_image"></label>
+            </div>
+            <div class="row center">
+                <button type="submit" class="btn add-recipe-btn awarege-text">Add Product</button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

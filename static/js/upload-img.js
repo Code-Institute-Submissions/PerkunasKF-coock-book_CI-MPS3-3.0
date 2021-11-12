@@ -1,4 +1,5 @@
 var profileImg = false;
+var productImg = false;
 
 // Cloudinary widjet script for proping a field for
 // image upload
@@ -13,11 +14,15 @@ var myWidget = cloudinary.applyUploadWidget(
         userImg.setAttribute("value", result.info['secure_url']);
         profileImg = false;
       } else {
-        var recipeImg = document.getElementById("recipe_image");
-      recipeImg.setAttribute("value", result.info['secure_url']);
+        if ( productImg=true ) {
+          var productImg = document.getElementById("product_image");
+          productImg.setAttribute("value", result.info['secure_url']);
+          productImg = false;
+        } else {
+            var recipeImg = document.getElementById("recipe_image");
+            recipeImg.setAttribute("value", result.info['secure_url']);
+        }
       }
-      
-      
     }
   }
 )
@@ -30,7 +35,11 @@ var myWidget = cloudinary.applyUploadWidget(
     ;
     if (check.getAttribute("profile") == "profile") {
       profileImg = true
-      console.log(profileImg);
+      // console.log(profileImg);
+    }
+    if (check.getAttribute("product") == "product") {
+      productImg = true
+      // console.log(productImg);
     }
     myWidget.open();
   }, false);

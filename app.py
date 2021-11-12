@@ -214,6 +214,20 @@ def delete_recipe(recipe_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
+@app.route("/add_product", methods=["GET", "POST"])
+def add_product():
+    if request.method == "POST":
+        product = {
+            "product_name": request.form.get("product_name"),
+            "product_description": request.form.getlist("product_description"),
+            "product_type": request.form.get("product_type"),
+            "product_image": request.form.get("product_image")
+        }
+        mongo.db.products.insert_one(product)
+        flash("Product added Successfully")
+        return redirect(url_for("profile", username=session["user"]))
+    return render_template("add_product.html")
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
