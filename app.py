@@ -214,9 +214,11 @@ def edit_recipe(recipe_id):
 
     recipes_list = list(mongo.db.recipes.find())
     recipe_select = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    recipe_select_small = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template(
         "edit_recipe.html",
-        recipe_select=recipe_select, recipes_list=recipes_list)
+        recipe_select=recipe_select, recipes_list=recipes_list,
+        recipe_select_small=recipe_select_small)
 
 
 @app.route("/delete_recipe/<recipe_id>")

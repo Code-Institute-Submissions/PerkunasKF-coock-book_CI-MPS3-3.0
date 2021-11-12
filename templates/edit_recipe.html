@@ -102,56 +102,12 @@
                 </div>
             </div>
 
-            <!-- Big screen radio buttons -->
-            <div class="row big-catalog">
-                <div class="col s4">
-                    <p>
-                        <label>
-                            {% if recipe_select.meal_type == "breakfast" %}
-                                <input name="meal_type" type="radio" value="breakfast" require checked/>
-                                <span>Breakfast</span>
-                            {% else %}
-                                <input name="meal_type" type="radio" value="breakfast" require/>
-                                <span>Breakfast</span>
-                            {% endif %}
-                        </label>
-                    </p>
-                </div>
-                <div class="col s4">
-                    <p>
-                        <label>
-                            {% if recipe_select.meal_type == "lunch" %}
-                                <input name="meal_type" type="radio" value="lunch" checked/>
-                                <span>Lunch</span>
-                            {% else %}
-                                <input name="meal_type" type="radio" value="lunch" />
-                                <span>Lunch</span>
-                            {% endif %}
-                        </label>
-                    </p>
-                </div>
-                <div class="col s4">
-                    <p>
-                        <label>
-                            {% if recipe_select.meal_type == "dinner" %}
-                                <input name="meal_type" type="radio" value="dinner" checked/>
-                                <span>Dinner</span>
-                            {% else %}
-                                <input name="meal_type" type="radio" value="dinner" />
-                                <span>Dinner</span>
-                            {% endif %}
-                        </label>
-                    </p>
-                </div>
-            </div>
-            <!-- End of: Big screen radio buttons -->
-
             <!-- Small screen radio buttons -->
-            <div class="row meal-type-select center small-catalog">
+            <div class="row meal-type-select center">
                 <h4 class="awarege-title add-title center">Meal Type</h4>
                 <ul>
-                    <li class="left">
-                        {% if recipe_select.meal_type == "breakfast" %}
+                    <li class="col s12 m4 left">
+                        {% if recipe_select_small.meal_type == "breakfast" %}
                             <input name="meal_type" type="radio" value="breakfast" require checked />
                             <span>Breakfast</span>
                         {% else %}
@@ -159,8 +115,8 @@
                             <span>Breakfast</span>
                         {% endif %}
                     </li>
-                    <li class="left">
-                        {% if recipe_select.meal_type == "lunch" %}
+                    <li class="col s12 m4 left">
+                        {% if recipe_select_small.meal_type == "lunch" %}
                             <input name="meal_type" type="radio" value="lunch" checked />
                             <span>Lunch</span>
                         {% else %}
@@ -168,8 +124,8 @@
                             <span>Lunch</span>
                         {% endif %}
                     </li>
-                    <li class="left">
-                        {% if recipe_select.meal_type == "dinner" %}
+                    <li class="col s12 m4 left">
+                        {% if recipe_select_small.meal_type == "dinner" %}
                             <input name="meal_type" type="radio" value="dinner" checked />
                             <span>Dinner</span>
                         {% else %}
