@@ -140,7 +140,7 @@
         <!-- All users -->
         <div id="all-users" class="row">
             {% for user in all_users %}
-                {% if user.username.lower() == "admin" %}
+                {% if user.username.lower() != "admin" %}
                     <!-- All user preview -->
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
