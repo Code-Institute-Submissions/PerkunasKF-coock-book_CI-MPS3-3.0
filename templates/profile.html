@@ -137,26 +137,26 @@
         </div>        
         <!-- End of: User recipes list -->
 
-
-
         <!-- All users -->
         <div id="all-users" class="row">
             {% for user in all_users %}
-                <!-- All user preview -->
-                <div class="col s12 l4">
-                    <div class="card horizontal display-card">
-                        <div class="card-image valign-wrapper">
-                            <img src="{{ user.user_image }}">
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-action">
-                                <a class="modal-trigger black-text awarege-text display-name" href="#{{ user.username }}">
-                                    {{ user.username.upper() }}
-                                </a>
+                {% if user.username.lower() == "admin" %}
+                    <!-- All user preview -->
+                    <div class="col s12 l4">
+                        <div class="card horizontal display-card">
+                            <div class="card-image valign-wrapper">
+                                <img src="{{ user.user_image }}">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-action">
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ user.username }}">
+                                        {{ user.username.upper() }}
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                {% endif %}
                 <!-- End of: All user preview -->
         
                 <!-- User modal with information -->
