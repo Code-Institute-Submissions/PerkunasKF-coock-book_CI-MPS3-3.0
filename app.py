@@ -65,7 +65,8 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        if request.form.get("password") != request.form.get("password_confirm"):
+        if request.form.get("password") != request.form.get(
+            "password_confirm"):
             flash("Password does not match!")
             return redirect(url_for('register'))
 
@@ -90,8 +91,10 @@ def login():
 
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
+                existing_user["password"], request.form.get(
+                    "password")):
+                    session["user"] = request.form.get(
+                        "username").lower()
                     flash("Welcome, {}".format(
                         request.form.get("username")))
                     return redirect(url_for(
@@ -133,7 +136,7 @@ def edit_profile(user_id):
         {"username": session["user"]})["user_image"]
     if request.method == "POST":
         username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+            {"username": session["user"]})["username"]
 
         if request.form.get("password") == "":
             user_password = mongo.db.users.find_one(
@@ -146,7 +149,8 @@ def edit_profile(user_id):
         else:
             user = {
                 "username": username,
-                "password": generate_password_hash(request.form.get("password")),
+                "password": generate_password_hash(
+                    request.form.get("password")),
                 "user_image": request.form.get("user_image")
             }
         mongo.db.users.update({"_id": ObjectId(user_id)}, user)
@@ -157,7 +161,8 @@ def edit_profile(user_id):
     userdata = mongo.db.users.find_one(
         {"_id": ObjectId(user_id)})
     return render_template('edit_profile.html',
-        username=session['user'], userdata=userdata,
+        username=session['user'],
+        userdata=userdata,
         user_image=user_image)
 
 
@@ -194,7 +199,8 @@ def edit_recipe(recipe_id):
                 {"_id": ObjectId(recipe_id)})["recipe_image"]
             recipe = {
                 "recipe_name": request.form.get("recipe_name"),
-                "recipe_ingredients": request.form.getlist("recipe_ingredient"),
+                "recipe_ingredients": request.form.getlist(
+                    "recipe_ingredient"),
                 "recipe_directions": request.form.getlist("recipe_direction"),
                 "meal_type": request.form.get("meal_type"),
                 "author": session["user"],
@@ -203,7 +209,8 @@ def edit_recipe(recipe_id):
         else:
             recipe = {
                 "recipe_name": request.form.get("recipe_name"),
-                "recipe_ingredients": request.form.getlist("recipe_ingredient"),
+                "recipe_ingredients": request.form.getlist(
+                    "recipe_ingredient"),
                 "recipe_directions": request.form.getlist("recipe_direction"),
                 "meal_type": request.form.get("meal_type"),
                 "author": session["user"],
@@ -250,14 +257,16 @@ def edit_product(product_id):
                 {"_id": ObjectId(product_id)})["product_image"]
             product = {
                 "product_name": request.form.get("product_name"),
-                "product_description": request.form.getlist("product_description"),
+                "product_description": request.form.getlist(
+                    "product_description"),
                 "product_type": request.form.get("product_type"),
                 "product_image": product_image
             }
         else:
             product = {
                 "product_name": request.form.get("product_name"),
-                "product_description": request.form.getlist("product_description"),
+                "product_description": request.form.getlist(
+                    "product_description"),
                 "product_type": request.form.get("product_type"),
                 "product_image": request.form.get("product_image")
             }
