@@ -185,7 +185,7 @@ footer {
         border-bottom: 2px solid #38B000;
     }
 
-    .card-image {
+    .card-image-custom {
         max-height: 100px;
         width: auto;
     }
