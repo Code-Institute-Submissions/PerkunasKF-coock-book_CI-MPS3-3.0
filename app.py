@@ -245,12 +245,22 @@ def add_product():
 @app.route("/edit_product/<product_id>", methods=["GET", "POST"])
 def edit_product(product_id):
     if request.method == "POST":
-        product = {
-            "product_name": request.form.get("product_name"),
-            "product_description": request.form.getlist("product_description"),
-            "product_type": request.form.get("product_type"),
-            "product_image": request.form.get("product_image")
-        }
+        if request.form.get("product_image") == "":
+            product_image = mongo.db.products.find_one(
+                {"_id": ObjectId(product_id)})["product_image"]
+            product = {
+                "product_name": request.form.get("product_name"),
+                "product_description": request.form.getlist("product_description"),
+                "product_type": request.form.get("product_type"),
+                "product_image": product_image
+            }
+        else:
+            product = {
+                "product_name": request.form.get("product_name"),
+                "product_description": request.form.getlist("product_description"),
+                "product_type": request.form.get("product_type"),
+                "product_image": request.form.get("product_image")
+            }
         mongo.db.products.update({"_id": ObjectId(product_id)}, product)
         flash("Product edited Successfully")
 

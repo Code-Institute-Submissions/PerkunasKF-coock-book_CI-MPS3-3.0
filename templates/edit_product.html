@@ -11,10 +11,10 @@
                 {% for product in product_list %}
                     {% if product.product_name == product_select.product_name %}
                         <div class="col s4 recipe-images">
-                            <img src="{{ product_select.product_image }}" alt="">
+                            <img class="edit-recipe-img" src="{{ product_select.product_image }}" alt="">
                         </div>
                         <div class="input-field col s8">
-                            <input id="product_name" name="product_name" type="text" class="validate" maxlength="50"
+                            <input id="product_name" name="product_name" type="text" class="validate awarege-title" maxlength="50"
                             value="{{ product.product_name.capitalize()  }}" required>
                         </div>
                     {% endif %}
@@ -29,12 +29,12 @@
                     <ul>
                         <li>
                             <div class="col s12 product-images">
-                                <img src="{{ product_select.product_image }}" alt="">
+                                <img class="edit-recipe-img" src="{{ product_select.product_image }}" alt="">
                             </div>
                         </li>
                         <li>
                             <div class="input-field col s12">
-                                <input id="product_name" name="product_name" type="text" class="validate" maxlength="50"
+                                <input id="product_name" name="product_name" type="text" class="validate awarege-title" maxlength="50"
                                 value="{{ product.product_name.capitalize()  }}" required>
                             </div>
                         </li>
@@ -46,8 +46,8 @@
 
             <div class="row">
                 <div id="description-list" class="col s12">
-                    <h4 class="awarege-title add-title center">Ingredients</h4>
-                    <ul id="edit_description">
+                    <h4 class="awarege-title add-title">Description</h4>
+                    <ul id="edit_description" class="center">
                         {% for product in product_list %}
                             {% if product.product_name == product_select.product_name %}
                                 {% set count = namespace(value=0) %}
@@ -73,62 +73,35 @@
                 </div>
             </div>
 
-            <!-- Big screen radio buttons -->
-            <div class="row big-catalog">
-                <div class="col s4">
+            <!-- Meal type edit -->
+            <div class="row meal-type-select center">
+                <h4 class="awarege-title add-title center">Product Type</h4>
+                <div class="col s12 m4">
                     <p>
                         <label>
                             {% if product_select.product_type == "utensils" %}
-                                <input name="meal_type" type="radio" value="utensils" require checked/>
-                                <span>Utensil</span>
+                                <input name="product_type" type="radio" value="utensils" checked/>
                             {% else %}
-                                <input name="meal_type" type="radio" value="utensils" require/>
-                                <span>Utensil</span>
+                                <input name="product_type" type="radio" value="utensils"/>
                             {% endif %}
+                            <span class="awarege-text black-text">Utensils</span>
                         </label>
                     </p>
                 </div>
-                <div class="col s4">
+                <div class="col s12 m4">
                     <p>
                         <label>
                             {% if product_select.product_type == "potspans" %}
                                 <input name="product_type" type="radio" value="potspans" checked/>
-                                <span>Pots & Pands</span>
                             {% else %}
-                                <input name="product_type" type="radio" value="potspans" />
-                                <span>Pots & Pands</span>
+                                <input name="product_type" type="radio" value="potspans"/>
                             {% endif %}
+                            <span class="awarege-text black-text">Pots & Pans</span>
                         </label>
                     </p>
                 </div>
             </div>
-            <!-- End of: Big screen radio buttons -->
-
-            <!-- Small screen radio buttons -->
-            <div class="row meal-type-select center small-catalog">
-                <h4 class="awarege-title add-title center">Product Type</h4>
-                <ul>
-                    <li class="left">
-                        {% if product_select.product_type == "utensils" %}
-                            <input name="product_type" type="radio" value="utensils" require checked />
-                            <span>Utensils</span>
-                        {% else %}
-                            <input name="product_type" type="radio" value="utensils" require />
-                            <span>Utensils</span>
-                        {% endif %}
-                    </li>
-                    <li class="left">
-                        {% if product_select.product_type == "potspans" %}
-                            <input name="product_type" type="radio" value="potspans" checked />
-                            <span>Pots & Pands</span>
-                        {% else %}
-                            <input name="product_type" type="radio" value="potspans" />
-                            <span>Pots & Pands</span>
-                        {% endif %}
-                    </li>
-                </ul>
-            </div>
-            <!-- End of: Small screen radio buttons -->
+            <!-- End of: Meal type edit -->
 
             <div class="row center">
                 <div id="upload_widget" class="cloudinary-button" product="product">Change image</div>
@@ -138,8 +111,8 @@
                 <label for="product_image"></label>
             </div>
             <div class="row center">
-                <div class="col s6"><button type="submit" class="btn-large my-btn">Edit Product</button></div>
-                <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn-large my-btn">Cancel</a></div>
+                <div class="col s6"><button type="submit" class="btn add-btn">Edit Product</button></div>
+                <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn add-btn">Cancel</a></div>
             </div>
         </form>
     </div>
