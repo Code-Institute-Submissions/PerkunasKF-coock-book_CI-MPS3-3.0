@@ -3,7 +3,6 @@ var product = 0;
 // Start nessesary functions after the page content loads
 document.addEventListener('DOMContentLoaded', function () {
   callForRemuve();
-  addProducts ();
   enterproduct ();
   removeProduct();
 });
@@ -12,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Gets the length of the ingredient and directions list
 // Seds request for remove function to delete specifict item
 function callForRemuve() {
-  var list = document.getElementsByClassName("edit-ing-input-field");
+  var list = document.getElementsByClassName("edit-des-input-field");
 
   for (var i = 0; i < list.length; i++) {
     var parent = document.getElementById(`edit-description-list-item-${i}`);
@@ -33,8 +32,8 @@ return
 
 // ---
 // Generates a list item for recipe products
-function addProducts() {
-  var productList = document.getElementById("add_products");
+function addProductsEdit() {
+  var productList = document.getElementById("edit_description");
   var productDes = document.createElement("li");
 
   var productRow = document.createElement("div");
@@ -86,7 +85,7 @@ function addProducts() {
 // in add_recipe.html product list
 function enterproduct () {
   document.querySelector('#edit-descriptions-button').addEventListener('click', function () {
-    addProducts();
+    addProductsEdit();
     removeProduct ();
   });
 }
