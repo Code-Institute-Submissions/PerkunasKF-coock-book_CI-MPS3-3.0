@@ -261,6 +261,13 @@ def edit_product(product_id):
         product_select=product_select, product_list=product_list)
 
 
+@app.route("/delete_user/<user_id>")
+def delete_user(user_id):
+    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    flash("User Deleted Successfully")
+    return redirect(url_for("profile", username=session["user"]))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

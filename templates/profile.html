@@ -59,10 +59,12 @@
         <!-- End of: User recipes navigations -->
     
 
+
         <!-- User recipes list -->
         <div id="user-recipes" class="row">
             {% for recipe in recipes %}
                 {% if session.user|lower == recipe.author|lower %}
+                    <!-- Curent User recipes -->
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
                             <div class="card-image valign-wrapper">
@@ -78,7 +80,9 @@
                             </div>
                         </div>
                     </div>
+                    <!-- End of: Curent User recipes -->
 
+                    <!-- Recipe modal information -->
                     <div id="{{ recipe.recipe_name }}" class="modal">
                         <div class="modal-content">
                             <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
@@ -109,6 +113,9 @@
                             </div>
                         </div>
                     </div>
+                    <!-- End of: Recipe modal information -->
+
+                    <!-- Conformation to delete recipe -->
                     <div id="{{ recipe._id }}" class="modal">
                         <div class="modal-content">
                           <h4 class="center awarege-title">Delete: {{ recipe.recipe_name.capitalize() }}?</h4>
@@ -124,14 +131,18 @@
                             </div>
                         </div>
                     </div>
+                    <!-- End of: Conformation to delete recipe -->
                 {% endif %}
             {% endfor %}
         </div>        
         <!-- End of: User recipes list -->
 
-        <!-- All recipes -->
+
+
+        <!-- All users -->
         <div id="all-users" class="row">
             {% for user in all_users %}
+                <!-- All user preview -->
                 <div class="col s12 l4">
                     <div class="card horizontal display-card">
                         <div class="card-image valign-wrapper">
@@ -146,24 +157,52 @@
                         </div>
                     </div>
                 </div>
+                <!-- End of: All user preview -->
         
-            <div id="{{ user.username }}" class="modal">
-                <div class="modal-content">
-                    <img class="profile-image" src="{{ user.user_image }}">
-                    <h4 class="awarege-title center">{{ user.username.upper() }}</h4>
-                    <div class="row center">
-                        <div class="col s6">Block</div>
-                        <div class="col s6">Cancel</div>
+                <!-- User modal with information -->
+                <div id="{{ user.username }}" class="modal">
+                    <div class="modal-content">
+                        <img class="profile-image" src="{{ user.user_image }}">
+                        <h4 class="awarege-title center line-br">{{ user.username.upper() }}</h4>
+                        <div class="row center">
+                            <div class="col s6">
+                                <a class="modal-close btn add-btn awarege-text mobal-text"
+                                href="#!">Cancel</a></div>
+                            <div class="col s6">
+                                <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ user._id }}">Delete</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <!-- End of: User modal with information -->
+
+                <!-- Conformation to delete user -->
+                <div id="{{ user._id }}" class="modal">
+                    <div class="modal-content">
+                    <h4 class="center awarege-title">Delete: {{ user.username.upper() }}?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col s6 center">
+                            <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
+                        </div>
+                        <div class="col s6 center">
+                            <a href="{{ url_for('delete_user', user_id=user._id) }}"
+                                class="modal-close btn add-btn awarege-text">
+                                Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of: Conformation to delete user -->
             {% endfor %}
         </div>
-        <!-- End of: All recipes -->
+        <!-- End of: All users -->
+
+
 
         <!-- All recipes -->
         <div id="all-user-recipes" class="row">
             {% for recipe in recipes %}
+                    <!-- All recipe prewies -->
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
                             <div class="card-image valign-wrapper">
@@ -172,15 +211,17 @@
                             </div>
                             <div class="card-stacked">
                                 <div class="card-action">
-                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}-all-recipes">
                                         {{ recipe.recipe_name.upper() }}
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- End of: All recipe prewies -->
 
-                    <div id="{{ recipe.recipe_name }}" class="modal">
+                    <!-- Recipe modal information -->
+                    <div id="{{ recipe.recipe_name }}-all-recipes" class="modal">
                         <div class="modal-content">
                             <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
                             <div class="row instructions-field">
@@ -202,10 +243,29 @@
                                 </ol>
                             </div>
                             <div class="row center">
-                                <div class="col s6 offset-m3">Delete</div>
+                                <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ recipe._id }}-2">Delete</a>
                             </div>
                         </div>
                     </div>
+                    <!-- End of: Recipe modal information -->
+
+                    <!-- Conformation to delete recipe -->
+                <div id="{{ recipe._id }}-2" class="modal">
+                    <div class="modal-content">
+                    <h4 class="center awarege-title">Delete: {{ recipe.recipe_name.upper() }}?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col s6 center">
+                            <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
+                        </div>
+                        <div class="col s6 center">
+                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                                class="modal-close btn add-btn awarege-text">
+                                Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of: Conformation to delete recipe -->
             {% endfor %}
         </div>        
         <!-- End of: All recipes -->
