@@ -2,8 +2,8 @@ var product = 0;
 
 // Start nessesary functions after the page content loads
 document.addEventListener('DOMContentLoaded', function () {
-  addProducts ();
-  enterproduct ();
+  addProducts();
+  enterproduct();
   removeProduct();
 });
 

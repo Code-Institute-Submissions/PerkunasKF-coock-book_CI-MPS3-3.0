@@ -3,7 +3,7 @@ var product = 0;
 // Start nessesary functions after the page content loads
 document.addEventListener('DOMContentLoaded', function () {
   callForRemuve();
-  enterproduct ();
+  enterproductEdit ();
   removeProduct();
 });
 
@@ -83,7 +83,7 @@ function addProductsEdit() {
 
 // Generates a list after pressing enter after user input
 // in add_recipe.html product list
-function enterproduct () {
+function enterproductEdit () {
   document.querySelector('#edit-descriptions-button').addEventListener('click', function () {
     addProductsEdit();
     removeProduct ();
