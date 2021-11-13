@@ -68,7 +68,7 @@
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
                             <div class="card-image valign-wrapper">
-                                <img
+                                <img class="catalog-image"
                                     src="{{ recipe.recipe_image }}">
                             </div>
                             <div class="card-stacked">
@@ -140,22 +140,25 @@
         <!-- All users -->
         <div id="all-users" class="row">
             {% for user in all_users %}
-                {% if user.username.lower() != "admin" %}
-                    <!-- All user preview -->
-                    <div class="col s12 l4">
-                        <div class="card horizontal display-card">
-                            <div class="card-image valign-wrapper">
-                                <img src="{{ user.user_image }}">
-                            </div>
-                            <div class="card-stacked">
-                                <div class="card-action">
-                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ user.username }}">
-                                        {{ user.username.upper() }}
-                                    </a>
+                {% if session.user|lower == "admin" %}
+                    {% if user.username.lower() != "admin" %}
+                        <!-- All user preview -->
+                        <div class="col s12 l4">
+                            <div class="card horizontal display-card">
+                                <div class="card-image valign-wrapper">
+                                    <img class="catalog-image"
+                                    src="{{ user.user_image }}">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-action">
+                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ user.username }}">
+                                            {{ user.username.upper() }}
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    {% endif %}
                 {% endif %}
                 <!-- End of: All user preview -->
         
@@ -202,11 +205,12 @@
         <!-- All recipes -->
         <div id="all-user-recipes" class="row">
             {% for recipe in recipes %}
+                {% if session.user|lower == "admin" %}
                     <!-- All recipe prewies -->
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
                             <div class="card-image valign-wrapper">
-                                <img
+                                <img class="catalog-image"
                                     src="{{ recipe.recipe_image }}">
                             </div>
                             <div class="card-stacked">
@@ -266,6 +270,7 @@
                         </div>
                     </div>
                     <!-- End of: Conformation to delete recipe -->
+                {% endif %}
             {% endfor %}
         </div>        
         <!-- End of: All recipes -->
@@ -273,72 +278,74 @@
         <!-- Utensils catalog list -->
         <div id="utensils" class="row">
             {% for product in products %}
-                {% if product.product_type == "utensils" %}
-                    <!-- Utensels preview cards -->
-                    <div class="col s12 l4">
-                        <div class="card horizontal display-card">
-                            <div class="card-image valign-wrapper">
-                                <img
-                                    src="{{ product.product_image }}">
-                            </div>
-                            <div class="card-stacked">
-                                <div class="card-action">
-                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
-                                        {{ product.product_name }}
-                                    </a>
+                {% if session.user|lower == "admin" %}
+                    {% if product.product_type == "utensils" %}
+                        <!-- Utensels preview cards -->
+                        <div class="col s12 l4">
+                            <div class="card horizontal display-card">
+                                <div class="card-image valign-wrapper">
+                                    <img class="catalog-image"
+                                        src="{{ product.product_image }}">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-action">
+                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
+                                            {{ product.product_name }}
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End of: Utensels preview cards -->
+                        <!-- End of: Utensels preview cards -->
 
-                    <!-- Utensel description modal -->
-                    <div id="{{ product.product_name }}" class="modal">
-                        <div class="modal-content">
-                            <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
-                            <div class="row instructions-field">
-                                <p class="small-title center">Description</p>
-                                <ul class="ingredient-list">
-                                    {% for description in product.product_description %}
-                                        <li class="awarege-text ingredient-item">
-                                            - {{ description.capitalize() }}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
+                        <!-- Utensel description modal -->
+                        <div id="{{ product.product_name }}" class="modal">
+                            <div class="modal-content">
+                                <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
+                                <div class="row instructions-field">
+                                    <p class="small-title center">Description</p>
+                                    <ul class="ingredient-list">
+                                        {% for description in product.product_description %}
+                                            <li class="awarege-text ingredient-item">
+                                                - {{ description.capitalize() }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="col s6 center">
+                                        <a href="{{ url_for('edit_product', product_id=product._id) }}"
+                                    class="btn add-btn awarege-text mobal-text modal-trigger">
+                                    Edit</a>
+                                    </div>
+                                    <div class="col s6 center">
+                                        <a href="#{{ product._id }}" class="btn add-btn awarege-text mobal-text modal-trigger">
+                                            Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of: Utensel description modal -->
+
+                        <!-- Conformation to delete product -->
+                        <div id="{{ product._id }}" class="modal">
+                            <div class="modal-content">
+                            <h4 class="center awarege-title">Delete: {{ product.product_name.upper() }}?</h4>
                             </div>
                             <div class="modal-footer">
                                 <div class="col s6 center">
-                                    <a href="{{ url_for('edit_product', product_id=product._id) }}"
-                                  class="btn add-btn awarege-text mobal-text modal-trigger">
-                                  Edit</a>
+                                    <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
                                 </div>
                                 <div class="col s6 center">
-                                    <a href="#{{ product._id }}" class="btn add-btn awarege-text mobal-text modal-trigger">
-                                        Delete
-                                    </a>
+                                    <a href="{{ url_for('delete_product', product_id=product._id) }}"
+                                        class="modal-close btn add-btn awarege-text">
+                                        Delete</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End of: Utensel description modal -->
-
-                    <!-- Conformation to delete product -->
-                    <div id="{{ product._id }}" class="modal">
-                        <div class="modal-content">
-                        <h4 class="center awarege-title">Delete: {{ product.product_name.upper() }}?</h4>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="col s6 center">
-                                <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
-                            </div>
-                            <div class="col s6 center">
-                                <a href="{{ url_for('delete_product', product_id=product._id) }}"
-                                    class="modal-close btn add-btn awarege-text">
-                                    Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of: Conformation to delete product -->
+                        <!-- End of: Conformation to delete product -->
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         </div>
@@ -347,71 +354,74 @@
         <!-- Pots and Pans catalog list -->
         <div id="pots-pans" class="row">
             {% for product in products %}
-                {% if product.product_type == "potspans" %}
-                    <!-- Utensels preview cards -->
-                    <div class="col s12 l4">
-                        <div class="card horizontal display-card">
-                            <div class="card-image valign-wrapper">
-                                <img src="{{ product.product_image }}">
-                            </div>
-                            <div class="card-stacked">
-                                <div class="card-action">
-                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
-                                        {{ product.product_name }}
-                                    </a>
+                {% if session.user|lower == "admin" %}
+                    {% if product.product_type == "potspans" %}
+                        <!-- Utensels preview cards -->
+                        <div class="col s12 l4">
+                            <div class="card horizontal display-card">
+                                <div class="card-image valign-wrapper">
+                                    <img class="catalog-image"
+                                    src="{{ product.product_image }}">
+                                </div>
+                                <div class="card-stacked">
+                                    <div class="card-action">
+                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
+                                            {{ product.product_name }}
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End of: Utensels preview cards -->
-                    
-                    <!-- Utensel description modal -->
-                    <div id="{{ product.product_name }}" class="modal">
-                        <div class="modal-content">
-                            <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
-                            <div class="row instructions-field">
-                                <p class="small-title center">Description</p>
-                                <ul class="ingredient-list">
-                                    {% for description in product.product_description %}
-                                        <li class="awarege-text ingredient-item">
-                                            - {{ description.capitalize() }}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
+                        <!-- End of: Utensels preview cards -->
+                        
+                        <!-- Utensel description modal -->
+                        <div id="{{ product.product_name }}" class="modal">
+                            <div class="modal-content">
+                                <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
+                                <div class="row instructions-field">
+                                    <p class="small-title center">Description</p>
+                                    <ul class="ingredient-list">
+                                        {% for description in product.product_description %}
+                                            <li class="awarege-text ingredient-item">
+                                                - {{ description.capitalize() }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="col s6 center">
+                                        <a href="{{ url_for('edit_product', product_id=product._id) }}"
+                                            class="btn add-btn awarege-text mobal-text modal-trigger">
+                                            Edit</a>
+                                    </div>
+                                    <div class="col s6 center">
+                                        <a href="#{{ product._id }}" class="btn add-btn awarege-text mobal-text modal-trigger">
+                                            Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of: Utensel description modal -->
+                        
+                        <!-- Conformation to delete product -->
+                        <div id="{{ product._id }}" class="modal">
+                            <div class="modal-content">
+                                <h4 class="center awarege-title">Delete: {{ product.product_name.upper() }}?</h4>
                             </div>
                             <div class="modal-footer">
                                 <div class="col s6 center">
-                                    <a href="{{ url_for('edit_product', product_id=product._id) }}"
-                                        class="btn add-btn awarege-text mobal-text modal-trigger">
-                                        Edit</a>
+                                    <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
                                 </div>
                                 <div class="col s6 center">
-                                    <a href="#{{ product._id }}" class="btn add-btn awarege-text mobal-text modal-trigger">
-                                        Delete
-                                    </a>
+                                    <a href="{{ url_for('delete_product', product_id=product._id) }}"
+                                        class="modal-close btn add-btn awarege-text">
+                                        Delete</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- End of: Utensel description modal -->
-                    
-                    <!-- Conformation to delete product -->
-                    <div id="{{ product._id }}" class="modal">
-                        <div class="modal-content">
-                            <h4 class="center awarege-title">Delete: {{ product.product_name.upper() }}?</h4>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="col s6 center">
-                                <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
-                            </div>
-                            <div class="col s6 center">
-                                <a href="{{ url_for('delete_product', product_id=product._id) }}"
-                                    class="modal-close btn add-btn awarege-text">
-                                    Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of: Conformation to delete product -->
+                        <!-- End of: Conformation to delete product -->
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         </div>

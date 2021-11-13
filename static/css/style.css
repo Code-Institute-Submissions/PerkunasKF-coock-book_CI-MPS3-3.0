@@ -184,6 +184,17 @@ footer {
     .display-name:hover {
         border-bottom: 2px solid #38B000;
     }
+
+    .card-image {
+        max-height: 100px;
+        width: auto;
+    }
+
+    .catalog-image {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: cover;
+    }
     
 /* --------------------------- End of Global styles ---------------------------------------------------- */
 
@@ -206,6 +217,7 @@ footer {
     .carusel-img {
         max-height: 100%;
         max-width: 100%;
+        object-fit: contain;
     }
 
     .recipe-name-text {
