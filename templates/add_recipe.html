@@ -86,7 +86,8 @@
                 <label for="recipe_image"></label>
             </div>
             <div class="row center">
-                <button type="submit" class="btn add-recipe-btn awarege-text">Add Recipy</button>
+                <div class="col s6"><button type="submit" class="btn add-btn mobal-text">Add Recipy</button></div>
+                <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn add-btn mobal-text">Cancel</a></div>
             </div>
         </form>
     </div>

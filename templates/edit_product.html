@@ -28,7 +28,7 @@
                     {% if product.product_name == product_select.product_name %}
                     <ul>
                         <li>
-                            <div class="col s12 product-images">
+                            <div class="col s12 recipe-images">
                                 <img class="edit-recipe-img" src="{{ product_select.product_image }}" alt="">
                             </div>
                         </li>
@@ -45,7 +45,7 @@
             <!-- End of: Small screen display -->
 
             <div class="row">
-                <div id="description-list" class="col s12">
+                <div id="description-list" class="col s12 center">
                     <h4 class="awarege-title add-title">Description</h4>
                     <ul id="edit_description" class="center">
                         {% for product in product_list %}
@@ -70,6 +70,7 @@
                             {% endif %}
                         {% endfor %}
                     </ul>
+                    <div id="edit-descriptions-button" class="btn add-btn awarege-text">Add Description</div>
                 </div>
             </div>
 
@@ -111,8 +112,8 @@
                 <label for="product_image"></label>
             </div>
             <div class="row center">
-                <div class="col s6"><button type="submit" class="btn add-btn">Edit Product</button></div>
-                <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn add-btn">Cancel</a></div>
+                <div class="col s6"><button type="submit" class="btn add-btn mobal-text">Edit Product</button></div>
+                <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn add-btn mobal-text">Cancel</a></div>
             </div>
         </form>
     </div>

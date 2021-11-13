@@ -263,6 +263,7 @@ def edit_product(product_id):
             }
         mongo.db.products.update({"_id": ObjectId(product_id)}, product)
         flash("Product edited Successfully")
+        return redirect(url_for("profile", username=session["user"]))
 
     product_list = list(mongo.db.products.find())
     product_select = mongo.db.products.find_one({"_id": ObjectId(product_id)})

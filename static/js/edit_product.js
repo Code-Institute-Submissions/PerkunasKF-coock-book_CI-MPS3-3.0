@@ -85,17 +85,15 @@ function addProducts() {
 // Generates a list after pressing enter after user input
 // in add_recipe.html product list
 function enterproduct () {
-  document.querySelector('#add_products').addEventListener('click', function (e) {
-    if (e.key === 'Enter') {
-      addProducts();
-      removeProduct ();
-    }
+  document.querySelector('#edit-descriptions-button').addEventListener('click', function () {
+    addProducts();
+    removeProduct ();
   });
 }
 
 
 function removeProduct() {
-  var removeBtns = document.querySelectorAll(".ing-input-field");
+  var removeBtns = document.querySelectorAll(".des-input-field");
   var num;
 
   var num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;

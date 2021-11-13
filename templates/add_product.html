@@ -13,10 +13,11 @@
                 </div>
             </div>
             <div class="row">
-                <div id="product-list" class="col s12">
+                <div id="product-list" class="col s12 center">
                     <ul id="add_products">
                         <h4 class="awarege-title add-title center">Description</h4>
                     </ul>
+                    <div id="add-descriptions-button" class="btn add-btn awarege-text">Add Description</div>
                 </div>
             </div>
 
@@ -66,7 +67,8 @@
                 <label for="product_image"></label>
             </div>
             <div class="row center">
-                <button type="submit" class="btn add-recipe-btn awarege-text">Add Product</button>
+                <div class="col s6"><button type="submit" class="btn add-btn mobal-text">Add Product</button></div>
+                <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn add-btn mobal-text">Cancel</a></div>
             </div>
         </form>
     </div>
