@@ -250,22 +250,22 @@
                     <!-- End of: Recipe modal information -->
 
                     <!-- Conformation to delete recipe -->
-                <div id="{{ recipe._id }}-2" class="modal">
-                    <div class="modal-content">
-                    <h4 class="center awarege-title">Delete: {{ recipe.recipe_name.upper() }}?</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="col s6 center">
-                            <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
+                    <div id="{{ recipe._id }}-2" class="modal">
+                        <div class="modal-content">
+                        <h4 class="center awarege-title">Delete: {{ recipe.recipe_name.upper() }}?</h4>
                         </div>
-                        <div class="col s6 center">
-                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-                                class="modal-close btn add-btn awarege-text">
-                                Delete</a>
+                        <div class="modal-footer">
+                            <div class="col s6 center">
+                                <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
+                            </div>
+                            <div class="col s6 center">
+                                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                                    class="modal-close btn add-btn awarege-text">
+                                    Delete</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- End of: Conformation to delete recipe -->
+                    <!-- End of: Conformation to delete recipe -->
             {% endfor %}
         </div>        
         <!-- End of: All recipes -->
@@ -274,6 +274,7 @@
         <div id="utensils" class="row">
             {% for product in products %}
                 {% if product.product_type == "utensils" %}
+                    <!-- Utensels preview cards -->
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
                             <div class="card-image valign-wrapper">
@@ -289,7 +290,9 @@
                             </div>
                         </div>
                     </div>
+                    <!-- End of: Utensels preview cards -->
 
+                    <!-- Utensel description modal -->
                     <div id="{{ product.product_name }}" class="modal">
                         <div class="modal-content">
                             <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
@@ -306,15 +309,36 @@
                             <div class="modal-footer">
                                 <div class="col s6 center">
                                     <a href="{{ url_for('edit_product', product_id=product._id) }}"
-                                  class="btn add-btn modal-close waves-effect waves-green btn-flat">
+                                  class="btn add-btn awarege-text mobal-text modal-trigger">
                                   Edit</a>
                                 </div>
                                 <div class="col s6 center">
-                                    <a href="#!" class="btn add-btn modal-close waves-effect waves-green btn-flat">Delete</a>
+                                    <a href="#{{ product._id }}" class="btn add-btn awarege-text mobal-text modal-trigger">
+                                        Delete
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- End of: Utensel description modal -->
+
+                    <!-- Conformation to delete product -->
+                    <div id="{{ product._id }}" class="modal">
+                        <div class="modal-content">
+                        <h4 class="center awarege-title">Delete: {{ product.product_name.upper() }}?</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col s6 center">
+                                <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
+                            </div>
+                            <div class="col s6 center">
+                                <a href="{{ url_for('delete_product', product_id=product._id) }}"
+                                    class="modal-close btn add-btn awarege-text">
+                                    Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of: Conformation to delete product -->
                 {% endif %}
             {% endfor %}
         </div>
