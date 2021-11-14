@@ -37,7 +37,7 @@ def home():
 
 @app.route("/get_recipes")
 def get_recipes():
-    recipes = list(mongo.db.recipes.find())
+    recipes = list(mongo.db.recipes.find().sort("recipe_name", 1))
     random_recipe = random.sample(recipes, 3)
     return render_template(
         "recipes.html", recipes=recipes,
@@ -46,7 +46,7 @@ def get_recipes():
 
 @app.route("/get_products")
 def get_products():
-    products = list(mongo.db.products.find())
+    products = list(mongo.db.products.find().sort("product_name", 1))
     random_products = random.choices(products)
     products_onsale = random.sample(products, 2)
     return render_template(
@@ -111,8 +111,8 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    recipes = list(mongo.db.recipes.find())
-    products = list(mongo.db.products.find())
+    recipes = list(mongo.db.recipes.find().sort("recipe_name", 1))
+    products = list(mongo.db.products.find().sort("product_name", 1))
     user_id = mongo.db.users.find_one(
         {"username": session["user"]})["_id"]
     username = mongo.db.users.find_one(
