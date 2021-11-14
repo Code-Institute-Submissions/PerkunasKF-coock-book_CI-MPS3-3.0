@@ -52,17 +52,78 @@
     </div>
     <!-- End of: Title for product catalog -->
 
+    <!-- Search form -->
+    <div class="row center">
+        <form action="{{ url_for('search_products') }}" method="post" class="col s12">
+            <div class="row valign-wrapper">
+                <div class="input-field col s10 offset-s1">
+                    <i class="fas fa-search prefix light-green-text"></i>
+                    <input type="text" name="query_product" id="query_product" minlength="3" class="validate" required>
+                    <label for="query_product">Search Products</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="col s6"><a href="{{ url_for('get_products') }}" class="btn add-btn awarege-text mobal-text">Reset</a></div>
+                    <div class="col s6"><button type="submit" class="btn add-btn awarege-text mobal-text">
+                        <i class="fas fa-search center"></i>
+                    </button></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- End of Search form -->
+
     <!-- Container for products catalog -->
     <!-- Code block from Materialized -->
         <div id="product-catalog" class="row">
             <!-- Navigations for products catalog -->
             <div class="col s12">
                 <ul class="tabs productas-catalog-navigation">
-                    <li class="tab col s6"><a class="active black-text awarege-title center" href="#utensils">Utensils</a></li>
-                    <li class="tab col s6"><a class="black-text awarege-title center" href="#potspans">Pots & Pans</a></li>
+                    <li class="tab col s4"><a class="active black-text awarege-title center" href="#all-products">All Products</a></li>
+                    <li class="tab col s4"><a class="black-text awarege-title center" href="#utensils">Utensils</a></li>
+                    <li class="tab col s4"><a class="black-text awarege-title center" href="#potspans">Pots & Pans</a></li>
                 </ul>
             </div>
             <!-- End of: Navigations for products catalog -->
+
+            <!-- Poduct catalog all product section -->
+            <div id="all-products" class="row">
+                {% for product in products_search %}
+                    <div class="col s12 l4">
+                        <div class="card horizontal display-card">
+                            <div class="card-image card-image-custom valign-wrapper">
+                                <img class="catalog-image" src="{{ product.product_image }}">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-action">
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
+                                        {{ product.product_name }}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div id="{{ product.product_name }}" class="modal">
+                        <div class="modal-content">
+                            <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
+                            <div class="row instructions-field">
+                                <p class="small-title center">Description</p>
+                                <ul class="ingredient-list">
+                                    {% for feauter in product.product_description %}
+                                        <li class="awarege-text ingredient-item">
+                                            - {{ feauter.capitalize() }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                <p class="small-title left">Price : {{ product.product_price }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- End of: Poduct catalog all product section -->
 
             <!-- Poduct catalog utensils section -->
             <div id="utensils" class="row">

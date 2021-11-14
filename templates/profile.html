@@ -56,376 +56,371 @@
             </ul>
         </div>
     </div>
-        <!-- End of: User recipes navigations -->
+    <!-- End of: User recipes navigations -->
     
-
-
-        <!-- User recipes list -->
-        <div id="user-recipes" class="row">
-            {% for recipe in recipes %}
-                {% if session.user|lower == recipe.author|lower %}
-                    <!-- Curent User recipes -->
+    <!-- User recipes list -->
+    <div id="user-recipes" class="row">
+        {% for recipe in recipes %}
+            {% if session.user|lower == recipe.author|lower %}
+                <!-- Curent User recipes -->
+                <div class="col s12 l4">
+                    <div class="card horizontal display-card">
+                        <div class="card-image card-image-custom valign-wrapper">
+                            <img class="catalog-image" src="{{ recipe.recipe_image }}">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-action">
+                                <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
+                                    {{ recipe.recipe_name.upper() }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of: Curent User recipes -->
+            
+                <!-- Recipe modal information -->
+                <div id="{{ recipe.recipe_name }}" class="modal">
+                    <div class="modal-content">
+                        <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
+                        <div class="row instructions-field">
+                            <p class="small-title center">Ingredients</p>
+                            <ul class="ingredient-list">
+                                {% for ingredient in recipe.recipe_ingredients %}
+                                    <li class="awarege-text ingredient-item">
+                                        - {{ ingredient.capitalize() }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <p class="small-title center">Directions</p>
+                            <ol class="directions-list">
+                                {% for direction in recipe.recipe_directions %}
+                                    <li class="awarege-text direction-item">
+                                        {{ direction.capitalize() }}
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                        <div class="row center">
+                            <div class="col s6">
+                                <a class="btn add-btn awarege-text mobal-text"
+                                    href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit</a>
+                            </div>
+                            <div class="col s6">
+                                <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ recipe._id }}">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of: Recipe modal information -->
+            
+                <!-- Conformation to delete recipe -->
+                <div id="{{ recipe._id }}" class="modal">
+                    <div class="modal-content">
+                        <h4 class="center awarege-title">Delete: {{ recipe.recipe_name.capitalize() }}?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col s6 center">
+                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                                class="modal-close btn add-btn awarege-text">
+                                Delete</a>
+                        </div>
+                        <div class="col s6 center">
+                            <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of: Conformation to delete recipe -->
+            {% endif %}
+        {% endfor %}
+    </div>
+    <!-- End of: User recipes list -->
+    
+    <!-- All users -->
+    <div id="all-users" class="row">
+        {% for user in all_users %}
+            {% if session.user|lower == "admin" %}
+                {% if user.username.lower() != "admin" %}
+                    <!-- All user preview -->
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
                             <div class="card-image card-image-custom valign-wrapper">
-                                <img class="catalog-image"
-                                    src="{{ recipe.recipe_image }}">
+                                <img class="catalog-image" src="{{ user.user_image }}">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-action">
-                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
-                                        {{ recipe.recipe_name.upper() }}
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ user.username }}">
+                                        {{ user.username.upper() }}
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- End of: Curent User recipes -->
-
-                    <!-- Recipe modal information -->
-                    <div id="{{ recipe.recipe_name }}" class="modal">
-                        <div class="modal-content">
-                            <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
-                            <div class="row instructions-field">
-                                <p class="small-title center">Ingredients</p>
-                                <ul class="ingredient-list">
-                                    {% for ingredient in recipe.recipe_ingredients %}
-                                        <li class="awarege-text ingredient-item">
-                                            - {{ ingredient.capitalize() }}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                                <p class="small-title center">Directions</p>
-                                <ol class="directions-list">
-                                    {% for direction in recipe.recipe_directions %}
-                                        <li class="awarege-text direction-item">
-                                            {{ direction.capitalize() }}
-                                        </li>
-                                    {% endfor %}
-                                </ol>
-                            </div>
-                            <div class="row center">
-                                <div class="col s6">
-                                    <a class="btn add-btn awarege-text mobal-text" href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit</a></div>
-                                <div class="col s6">
-                                    <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ recipe._id }}">Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of: Recipe modal information -->
-
-                    <!-- Conformation to delete recipe -->
-                    <div id="{{ recipe._id }}" class="modal">
-                        <div class="modal-content">
-                          <h4 class="center awarege-title">Delete: {{ recipe.recipe_name.capitalize() }}?</h4>
-                        </div>
-                        <div class="modal-footer">
-                            <div class="col s6 center">
-                                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-                            class="modal-close btn add-btn awarege-text">
-                            Delete</a>
-                            </div>
-                            <div class="col s6 center">
-                                <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End of: Conformation to delete recipe -->
                 {% endif %}
-            {% endfor %}
-        </div>        
-        <!-- End of: User recipes list -->
-
-        <!-- All users -->
-        <div id="all-users" class="row">
-            {% for user in all_users %}
-                {% if session.user|lower == "admin" %}
-                    {% if user.username.lower() != "admin" %}
-                        <!-- All user preview -->
-                        <div class="col s12 l4">
-                            <div class="card horizontal display-card">
-                                <div class="card-image card-image-custom valign-wrapper">
-                                    <img class="catalog-image"
-                                    src="{{ user.user_image }}">
-                                </div>
-                                <div class="card-stacked">
-                                    <div class="card-action">
-                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ user.username }}">
-                                            {{ user.username.upper() }}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endif %}
-                <!-- End of: All user preview -->
+            {% endif %}
+            <!-- End of: All user preview -->
         
-                <!-- User modal with information -->
-                <div id="{{ user.username }}" class="modal">
-                    <div class="modal-content center">
-                        <img class="profile-image" src="{{ user.user_image }}">
-                        <h4 class="awarege-title center line-br">{{ user.username.upper() }}</h4>
-                        <div class="row center">
-                            <div class="col s6">
-                                <a class="modal-close btn add-btn awarege-text mobal-text"
-                                href="#!">Cancel</a></div>
-                            <div class="col s6">
-                                <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ user._id }}">Delete</a>
+            <!-- User modal with information -->
+            <div id="{{ user.username }}" class="modal">
+                <div class="modal-content center">
+                    <img class="profile-image" src="{{ user.user_image }}">
+                    <h4 class="awarege-title center line-br">{{ user.username.upper() }}</h4>
+                    <div class="row center">
+                        <div class="col s6">
+                            <a class="modal-close btn add-btn awarege-text mobal-text" href="#!">Cancel</a>
+                        </div>
+                        <div class="col s6">
+                            <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ user._id }}">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of: User modal with information -->
+        
+            <!-- Conformation to delete user -->
+            <div id="{{ user._id }}" class="modal">
+                <div class="modal-content">
+                    <h4 class="center awarege-title">Delete: {{ user.username.upper() }}?</h4>
+                </div>
+                <div class="modal-footer">
+                    <div class="col s6 center">
+                        <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
+                    </div>
+                    <div class="col s6 center">
+                        <a href="{{ url_for('delete_user', user_id=user._id) }}" class="modal-close btn add-btn awarege-text">
+                            Delete</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End of: Conformation to delete user -->
+        {% endfor %}
+    </div>
+    <!-- End of: All users -->
+    
+    
+    
+    <!-- All recipes -->
+    <div id="all-user-recipes" class="row">
+        {% for recipe in recipes %}
+            {% if session.user|lower == "admin" %}
+                <!-- All recipe prewies -->
+                <div class="col s12 l4">
+                    <div class="card horizontal display-card">
+                        <div class="card-image card-image-custom valign-wrapper">
+                            <img class="catalog-image" src="{{ recipe.recipe_image }}">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-action">
+                                <a class="modal-trigger black-text awarege-text display-name"
+                                    href="#{{ recipe.recipe_name }}-all-recipes">
+                                    {{ recipe.recipe_name.upper() }}
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- End of: User modal with information -->
-
-                <!-- Conformation to delete user -->
-                <div id="{{ user._id }}" class="modal">
+                <!-- End of: All recipe prewies -->
+            
+                <!-- Recipe modal information -->
+                <div id="{{ recipe.recipe_name }}-all-recipes" class="modal">
                     <div class="modal-content">
-                    <h4 class="center awarege-title">Delete: {{ user.username.upper() }}?</h4>
+                        <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
+                        <div class="row instructions-field">
+                            <p class="small-title center">Ingredients</p>
+                            <ul class="ingredient-list">
+                                {% for ingredient in recipe.recipe_ingredients %}
+                                    <li class="awarege-text ingredient-item">
+                                        - {{ ingredient.capitalize() }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <p class="small-title center">Directions</p>
+                            <ol class="directions-list">
+                                {% for direction in recipe.recipe_directions %}
+                                    <li class="awarege-text direction-item">
+                                        {{ direction.capitalize() }}
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                        <div class="row center">
+                            <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ recipe._id }}-2">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of: Recipe modal information -->
+            
+                <!-- Conformation to delete recipe -->
+                <div id="{{ recipe._id }}-2" class="modal">
+                    <div class="modal-content">
+                        <h4 class="center awarege-title">Delete: {{ recipe.recipe_name.upper() }}?</h4>
                     </div>
                     <div class="modal-footer">
                         <div class="col s6 center">
                             <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
                         </div>
                         <div class="col s6 center">
-                            <a href="{{ url_for('delete_user', user_id=user._id) }}"
+                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
                                 class="modal-close btn add-btn awarege-text">
                                 Delete</a>
                         </div>
                     </div>
                 </div>
-                <!-- End of: Conformation to delete user -->
-            {% endfor %}
-        </div>
-        <!-- End of: All users -->
-
-
-
-        <!-- All recipes -->
-        <div id="all-user-recipes" class="row">
-            {% for recipe in recipes %}
-                {% if session.user|lower == "admin" %}
-                    <!-- All recipe prewies -->
+                <!-- End of: Conformation to delete recipe -->
+            {% endif %}
+        {% endfor %}
+    </div>
+    <!-- End of: All recipes -->
+    
+    <!-- Utensils catalog list -->
+    <div id="utensils" class="row">
+        {% for product in products %}
+            {% if session.user|lower == "admin" %}
+                {% if product.product_type == "utensils" %}
+                <!-- Utensels preview cards -->
+                <div class="col s12 l4">
+                    <div class="card horizontal display-card">
+                        <div class="card-image card-image-custom valign-wrapper">
+                            <img class="catalog-image" src="{{ product.product_image }}">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-action">
+                                <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
+                                    {{ product.product_name }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of: Utensels preview cards -->
+            
+                <!-- Utensel description modal -->
+                <div id="{{ product.product_name }}" class="modal">
+                    <div class="modal-content">
+                        <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
+                        <div class="row instructions-field">
+                            <p class="small-title center">Description</p>
+                            <ul class="ingredient-list">
+                                {% for description in product.product_description %}
+                                    <li class="awarege-text ingredient-item">
+                                        - {{ description.capitalize() }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col s6 center">
+                                <a href="{{ url_for('edit_product', product_id=product._id) }}"
+                                    class="btn add-btn awarege-text mobal-text modal-trigger">
+                                    Edit</a>
+                            </div>
+                            <div class="col s6 center">
+                                <a href="#{{ product._id }}" class="btn add-btn awarege-text mobal-text modal-trigger">
+                                    Delete
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of: Utensel description modal -->
+            
+                <!-- Conformation to delete product -->
+                <div id="{{ product._id }}" class="modal">
+                    <div class="modal-content">
+                        <h4 class="center awarege-title">Delete: {{ product.product_name.upper() }}?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col s6 center">
+                            <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
+                        </div>
+                        <div class="col s6 center">
+                            <a href="{{ url_for('delete_product', product_id=product._id) }}"
+                                class="modal-close btn add-btn awarege-text">
+                                Delete</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of: Conformation to delete product -->
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <!-- End of: Utensils catalog list -->
+    
+    <!-- Pots and Pans catalog list -->
+    <div id="pots-pans" class="row">
+        {% for product in products %}
+            {% if session.user|lower == "admin" %}
+                {% if product.product_type == "potspans" %}
+                    <!-- Utensels preview cards -->
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
                             <div class="card-image card-image-custom valign-wrapper">
-                                <img class="catalog-image"
-                                    src="{{ recipe.recipe_image }}">
+                                <img class="catalog-image" src="{{ product.product_image }}">
                             </div>
                             <div class="card-stacked">
                                 <div class="card-action">
-                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}-all-recipes">
-                                        {{ recipe.recipe_name.upper() }}
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
+                                        {{ product.product_name }}
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- End of: All recipe prewies -->
-
-                    <!-- Recipe modal information -->
-                    <div id="{{ recipe.recipe_name }}-all-recipes" class="modal">
+                    <!-- End of: Utensels preview cards -->
+                
+                    <!-- Utensel description modal -->
+                    <div id="{{ product.product_name }}" class="modal">
                         <div class="modal-content">
-                            <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
+                            <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
                             <div class="row instructions-field">
-                                <p class="small-title center">Ingredients</p>
+                                <p class="small-title center">Description</p>
                                 <ul class="ingredient-list">
-                                    {% for ingredient in recipe.recipe_ingredients %}
+                                    {% for description in product.product_description %}
                                         <li class="awarege-text ingredient-item">
-                                            - {{ ingredient.capitalize() }}
+                                            - {{ description.capitalize() }}
                                         </li>
                                     {% endfor %}
                                 </ul>
-                                <p class="small-title center">Directions</p>
-                                <ol class="directions-list">
-                                    {% for direction in recipe.recipe_directions %}
-                                        <li class="awarege-text direction-item">
-                                            {{ direction.capitalize() }}
-                                        </li>
-                                    {% endfor %}
-                                </ol>
                             </div>
-                            <div class="row center">
-                                <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ recipe._id }}-2">Delete</a>
+                            <div class="modal-footer">
+                                <div class="col s6 center">
+                                    <a href="{{ url_for('edit_product', product_id=product._id) }}"
+                                        class="btn add-btn awarege-text mobal-text modal-trigger">
+                                        Edit</a>
+                                </div>
+                                <div class="col s6 center">
+                                    <a href="#{{ product._id }}" class="btn add-btn awarege-text mobal-text modal-trigger">
+                                        Delete
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- End of: Recipe modal information -->
-
-                    <!-- Conformation to delete recipe -->
-                    <div id="{{ recipe._id }}-2" class="modal">
+                    <!-- End of: Utensel description modal -->
+                
+                    <!-- Conformation to delete product -->
+                    <div id="{{ product._id }}" class="modal">
                         <div class="modal-content">
-                        <h4 class="center awarege-title">Delete: {{ recipe.recipe_name.upper() }}?</h4>
+                            <h4 class="center awarege-title">Delete: {{ product.product_name.upper() }}?</h4>
                         </div>
                         <div class="modal-footer">
                             <div class="col s6 center">
                                 <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
                             </div>
                             <div class="col s6 center">
-                                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                                <a href="{{ url_for('delete_product', product_id=product._id) }}"
                                     class="modal-close btn add-btn awarege-text">
                                     Delete</a>
                             </div>
                         </div>
                     </div>
-                    <!-- End of: Conformation to delete recipe -->
+                    <!-- End of: Conformation to delete product -->
                 {% endif %}
-            {% endfor %}
-        </div>        
-        <!-- End of: All recipes -->
-
-        <!-- Utensils catalog list -->
-        <div id="utensils" class="row">
-            {% for product in products %}
-                {% if session.user|lower == "admin" %}
-                    {% if product.product_type == "utensils" %}
-                        <!-- Utensels preview cards -->
-                        <div class="col s12 l4">
-                            <div class="card horizontal display-card">
-                                <div class="card-image card-image-custom valign-wrapper">
-                                    <img class="catalog-image"
-                                        src="{{ product.product_image }}">
-                                </div>
-                                <div class="card-stacked">
-                                    <div class="card-action">
-                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
-                                            {{ product.product_name }}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of: Utensels preview cards -->
-
-                        <!-- Utensel description modal -->
-                        <div id="{{ product.product_name }}" class="modal">
-                            <div class="modal-content">
-                                <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
-                                <div class="row instructions-field">
-                                    <p class="small-title center">Description</p>
-                                    <ul class="ingredient-list">
-                                        {% for description in product.product_description %}
-                                            <li class="awarege-text ingredient-item">
-                                                - {{ description.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="col s6 center">
-                                        <a href="{{ url_for('edit_product', product_id=product._id) }}"
-                                    class="btn add-btn awarege-text mobal-text modal-trigger">
-                                    Edit</a>
-                                    </div>
-                                    <div class="col s6 center">
-                                        <a href="#{{ product._id }}" class="btn add-btn awarege-text mobal-text modal-trigger">
-                                            Delete
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of: Utensel description modal -->
-
-                        <!-- Conformation to delete product -->
-                        <div id="{{ product._id }}" class="modal">
-                            <div class="modal-content">
-                            <h4 class="center awarege-title">Delete: {{ product.product_name.upper() }}?</h4>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="col s6 center">
-                                    <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
-                                </div>
-                                <div class="col s6 center">
-                                    <a href="{{ url_for('delete_product', product_id=product._id) }}"
-                                        class="modal-close btn add-btn awarege-text">
-                                        Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of: Conformation to delete product -->
-                    {% endif %}
-                {% endif %}
-            {% endfor %}
-        </div>
-        <!-- End of: Utensils catalog list -->
-
-        <!-- Pots and Pans catalog list -->
-        <div id="pots-pans" class="row">
-            {% for product in products %}
-                {% if session.user|lower == "admin" %}
-                    {% if product.product_type == "potspans" %}
-                        <!-- Utensels preview cards -->
-                        <div class="col s12 l4">
-                            <div class="card horizontal display-card">
-                                <div class="card-image card-image-custom valign-wrapper">
-                                    <img class="catalog-image"
-                                    src="{{ product.product_image }}">
-                                </div>
-                                <div class="card-stacked">
-                                    <div class="card-action">
-                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
-                                            {{ product.product_name }}
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of: Utensels preview cards -->
-                        
-                        <!-- Utensel description modal -->
-                        <div id="{{ product.product_name }}" class="modal">
-                            <div class="modal-content">
-                                <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
-                                <div class="row instructions-field">
-                                    <p class="small-title center">Description</p>
-                                    <ul class="ingredient-list">
-                                        {% for description in product.product_description %}
-                                            <li class="awarege-text ingredient-item">
-                                                - {{ description.capitalize() }}
-                                            </li>
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="col s6 center">
-                                        <a href="{{ url_for('edit_product', product_id=product._id) }}"
-                                            class="btn add-btn awarege-text mobal-text modal-trigger">
-                                            Edit</a>
-                                    </div>
-                                    <div class="col s6 center">
-                                        <a href="#{{ product._id }}" class="btn add-btn awarege-text mobal-text modal-trigger">
-                                            Delete
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of: Utensel description modal -->
-                        
-                        <!-- Conformation to delete product -->
-                        <div id="{{ product._id }}" class="modal">
-                            <div class="modal-content">
-                                <h4 class="center awarege-title">Delete: {{ product.product_name.upper() }}?</h4>
-                            </div>
-                            <div class="modal-footer">
-                                <div class="col s6 center">
-                                    <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
-                                </div>
-                                <div class="col s6 center">
-                                    <a href="{{ url_for('delete_product', product_id=product._id) }}"
-                                        class="modal-close btn add-btn awarege-text">
-                                        Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of: Conformation to delete product -->
-                    {% endif %}
-                {% endif %}
-            {% endfor %}
-        </div>
-        <!-- End of: Pots and Pans catalog list -->
+            {% endif %}
+        {% endfor %}
+    </div>
+    <!-- End of: Pots and Pans catalog list -->
         
     
     <!-- add recepy -->

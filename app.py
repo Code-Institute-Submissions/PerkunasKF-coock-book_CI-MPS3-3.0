@@ -47,12 +47,14 @@ def get_recipes():
 @app.route("/get_products")
 def get_products():
     products = list(mongo.db.products.find().sort("product_name", 1))
+    products_search = list(mongo.db.products.find().sort("product_name", 1))
     random_products = random.choices(products)
     products_onsale = random.sample(products, 2)
     return render_template(
         "products.html", products=products,
         random_products=random_products,
-        products_onsale=products_onsale)
+        products_onsale=products_onsale,
+        products_search=products_search)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -293,6 +295,24 @@ def delete_product(product_id):
     mongo.db.products.remove({"_id": ObjectId(product_id)})
     flash("Product Deleted Successfully")
     return redirect(url_for("profile", username=session["user"]))
+
+
+@app.route("/search_products", methods=["GET", "POST"])
+def search_products():
+    products = list(mongo.db.products.find().sort("product_name", 1))
+    random_products = random.choices(products)
+    products_onsale = random.sample(products, 2)
+
+    query_product = request.form.get("query_product")
+    products_search = list(
+        mongo.db.products.find(
+            {"$text": {"$search": query_product}}))
+
+    return render_template(
+        "products.html", products=products,
+        random_products=random_products,
+        products_onsale=products_onsale,
+        products_search=products_search)
 
 
 if __name__ == "__main__":
