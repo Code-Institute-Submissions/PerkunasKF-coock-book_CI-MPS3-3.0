@@ -179,6 +179,7 @@ footer {
 
     .display-card {
         border: 3px solid #38B000;
+        min-height: 100px;
     }
 
     .display-name:hover {
