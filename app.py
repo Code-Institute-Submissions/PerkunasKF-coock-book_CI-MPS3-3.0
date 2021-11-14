@@ -38,10 +38,12 @@ def home():
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find().sort("recipe_name", 1))
+    recipes_search = list(mongo.db.recipes.find().sort("recipe_name", 1))
     random_recipe = random.sample(recipes, 3)
     return render_template(
         "recipes.html", recipes=recipes,
-        random_recipe=random_recipe)
+        random_recipe=random_recipe,
+        recipes_search=recipes_search)
 
 
 @app.route("/get_products")
@@ -299,20 +301,33 @@ def delete_product(product_id):
 
 @app.route("/search_products", methods=["GET", "POST"])
 def search_products():
+    query_product = request.form.get("query_product")
+    products_search = list(
+        mongo.db.products.find({"$text": {"$search": query_product}}))
+
     products = list(mongo.db.products.find().sort("product_name", 1))
     random_products = random.choices(products)
     products_onsale = random.sample(products, 2)
-
-    query_product = request.form.get("query_product")
-    products_search = list(
-        mongo.db.products.find(
-            {"$text": {"$search": query_product}}))
-
     return render_template(
         "products.html", products=products,
         random_products=random_products,
         products_onsale=products_onsale,
         products_search=products_search)
+
+
+@app.route("/search_recipes", methods=["GET", "POST"])
+def search_recipes():
+    query_recipe = request.form.get("query_recipe")
+    recipes_search = list(
+        mongo.db.recipes.find(
+            {"$text": {"$search": query_recipe}}))
+
+    recipes = list(mongo.db.recipes.find().sort("recipe_name", 1))
+    random_recipe = random.sample(recipes, 3)
+    return render_template(
+        "recipes.html", recipes=recipes,
+        random_recipe=random_recipe,
+        recipes_search=recipes_search)
 
 
 if __name__ == "__main__":

@@ -51,6 +51,28 @@
     {% endfor %}
         <!-- End of: Model for recipes in carucel description -->
 
+    <!-- Search form -->
+    <div class="row center">
+        <form action="{{ url_for('search_recipes') }}" method="post" class="col s12">
+            <div class="row valign-wrapper">
+                <div class="input-field col s10 offset-s1">
+                    <i class="fas fa-search prefix light-green-text"></i>
+                    <input type="text" name="query_recipe" id="query_recipe" minlength="3" class="validate" required>
+                    <label for="query_recipe">Search Recipe</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="col s6"><a href="{{ url_for('get_recipes') }}" class="btn add-btn awarege-text mobal-text">Reset</a></div>
+                    <div class="col s6"><button type="submit" class="btn add-btn awarege-text mobal-text">
+                        <i class="fas fa-search center"></i>
+                    </button></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- End of Search form -->
+
 
     <div class="row title-container center">
         <h2 class="section-title">Recipe Catalog</h2>
@@ -60,12 +82,58 @@
         <!-- Navigations for recipe catalog -->
         <div class="col s12">
             <ul class="tabs productas-catalog-navigation">
-                <li class="tab col s4"><a class="active black-text awarege-title center" href="#breakfast-recipes">Breakfast Recipes</a></li>
-                <li class="tab col s4"><a class="black-text awarege-title center" href="#lunch-recipes">Lunch Recipes</a></li>
-                <li class="tab col s4"><a class="black-text awarege-title center" href="#dinner-recipes">Dinner Recipes</a></li>
+                <li class="tab col s3"><a class="active black-text awarege-title center" href="#all-recipes">All Recipes</a></li>
+                <li class="tab col s3"><a class="black-text awarege-title center" href="#breakfast-recipes">Breakfast Recipes</a></li>
+                <li class="tab col s3"><a class="black-text awarege-title center" href="#lunch-recipes">Lunch Recipes</a></li>
+                <li class="tab col s3"><a class="black-text awarege-title center" href="#dinner-recipes">Dinner Recipes</a></li>
             </ul>
         </div>
         <!-- End of: Navigations for recipe catalog -->
+
+        <!-- All recipes recipes catalog list -->
+        <div id="all-recipes" class="row">
+            {% for recipe in recipes_search %}
+                <div class="col s12 l4">
+                    <div class="card horizontal display-card">
+                        <div class="card-image card-image-custom">
+                            <img class="catalog-image" src="{{ recipe.recipe_image }}">
+                        </div>
+                        <div class="col">
+                            <div class="left">
+                                <a class="modal-trigger black-text awarege-text" href="#{{ recipe.recipe_name }}">
+                                    {{ recipe.recipe_name }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="{{ recipe.recipe_name }}" class="modal">
+                    <div class="modal-content">
+                        <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
+                        <div class="row instructions-field">
+                            <p class="small-title center">Ingredients</p>
+                            <ul class="ingredient-list">
+                                {% for ingredient in recipe.recipe_ingredients %}
+                                    <li class="awarege-text ingredient-item">
+                                        - {{ ingredient.capitalize() }}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            <p class="small-title center">Directions</p>
+                            <ol class="directions-list">
+                                {% for direction in recipe.recipe_directions %}
+                                    <li class="awarege-text direction-item">
+                                        {{ direction.capitalize() }}
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- End of: All recipes recipes catalog list -->
 
         <!-- Breakfast recipes catalog list -->
         <div id="breakfast-recipes" class="row">
@@ -77,8 +145,8 @@
                                 <img class="catalog-image"
                                     src="{{ recipe.recipe_image }}">
                             </div>
-                            <div class="card-stacked">
-                                <div class="card-action">
+                            <div class="col">
+                                <div class="left">
                                     <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
                                         {{ recipe.recipe_name }}
                                     </a>
@@ -126,8 +194,8 @@
                                 <img class="catalog-image"
                                     src="{{ recipe.recipe_image }}">
                             </div>
-                            <div class="card-stacked">
-                                <div class="card-action">
+                            <div class="col">
+                                <div class="left">
                                     <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
                                         {{ recipe.recipe_name }}
                                     </a>
@@ -175,8 +243,8 @@
                                 <img class="catalog-image"
                                     src="{{ recipe.recipe_image }}">
                             </div>
-                            <div class="card-stacked">
-                                <div class="card-action">
+                            <div class="col">
+                                <div class="left">
                                     <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
                                         {{ recipe.recipe_name }}
                                     </a>

@@ -188,6 +188,8 @@ footer {
     .card-image-custom {
         max-height: 100px;
         width: auto;
+        margin: 0;
+        padding: 0;
     }
 
     .catalog-image {
@@ -195,7 +197,10 @@ footer {
         max-width: 100%;
         object-fit: cover;
     }
-    
+
+    .horizontal {
+        max-height: 100px;
+    }
 /* --------------------------- End of Global styles ---------------------------------------------------- */
 
 
@@ -586,6 +591,10 @@ footer {
 
     .productas-catalog-navigation {
         height: 75px;
+    }
+
+    .mobal-text-tite {
+        font-size: 16px
     }
 }
 
