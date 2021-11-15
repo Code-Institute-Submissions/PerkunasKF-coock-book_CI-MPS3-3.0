@@ -116,9 +116,9 @@ A scope was defined to clearly identify what needed to be done to align features
 
 <strong>3. <u>Structure</u></strong>
 
-The entire game was fitted in one page for ease of use and all information is easily reached true the main page. The **hierarchial tree structure**:
+The web page content is divided through multiple pages in a tree like pattern for easy navigating and distinguishing content. The **hierarchial tree structure**:
 
-![Site Map](assets/img/threa-2.png)
+![Site Map](assets/readme-images/navigation.png)
 
 <strong>4. <u>Skeleton</u></strong>
 
