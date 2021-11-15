@@ -1,108 +1,264 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center">
+  Cook Book
+</h1>
+  
+<h2 align="center">
+  Share your favorite recipes
+</h2>
+  
+<div align="center">
+  Find and share recipes with people all over the world.
 
-Welcome PerkunasKF,
+[View the live project here](http://coock-book-ci-msp3.herokuapp.com/home)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+</div>
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Table of contents
+1. [UX](#UX)
+    1. [Project Goals](#Project-Goals)
+    2. [User Stories](#User-Stories)
+    3. [Development Planes](#Development-Planes)
+2. [Features](#Features)
+3. [Issues and Bugs](#Issues-and-Bugs)
+4. [Technologies Used](#Technologies-Used)
+     1. [Main Languages Used](#Main-Languages-Used)
+     2. [Frameworks, Libraries & Programs Used](#Frameworks-Libraries-&-Programs-Used)
+5. [Testing](#Testing) ☞ **[Testing.md](TESTING.md)**
+6. [Deployment](#Deployment)
+     1. [Deploying on GitHub Pages](#Deploying-on-GitHub-Pages)
+     2. [Forking the Repository](#Forking-the-Repository)
+     3. [Creating a Clone](#Creating-a-Clone)
+7. [Credits](#Credits)
+     1. [Audio](#Audio)
+     2. [Code](#Code)
+***
 
-## Gitpod Reminders
+![Blank! Responsiveness](assets/img/am-i-resposive-2.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+***
 
-`python3 -m http.server`
+## UX 
+### Project Goals
+The primary goal of "Simon Says Color Game" is to provide a web-based interactive game that is entertaining and usis the original "Simon (game)" made by: Ralph H. Baer and Howard J. Morrison. Game is designed to test and train players memmory skills.
 
-A blue button should appear to click: _Make Public_,
+This is the second of four Milestone Projects that the developer must complete during their Full Stack Web Development Program at The Code Institute. 
 
-Another blue button should appear to click: _Open Browser_.
+The main requirements were to design, develop and implement a dynamic front-end web application using **HTML5**, **CSS3** and **JavaScript**.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+#### Player Goals
+The player is looking for:
+- A fun game to play.
+- Instructions on how to play the game.
+- An intuitive interface.
+- A track of their achievements in the game.
 
-A blue button should appear to click: _Make Public_,
+#### Developer Goals
+The Developer is looking to:
+- Create a fun game to pass the time.
+- Demonstrate their skills in software development, using newly learned languages and libraries.
+- Deploy a project on their portfolio.
 
-Another blue button should appear to click: _Open Browser_.
+### User Stories
+**As a player, I want to:**
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+1. Intuitive controls.
+2. Have a score counter and a high score board to see how well am I doing.
+3. Get a visual feedback to see when the game starts and when it is over.
+4. Provide feedback to the developer to improve the game.
+5. Get easy to find and understand instruction on how to play the game.
 
-To log into the Heroku toolbelt CLI:
+### Development Planes
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+To create and design a web-based interactive game, the developer distinguished the necessary functionality of the game and how it would answer to the user stories:
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+<strong>1. <u>Strategy</u></strong>
 
-------
+Broken into two categories, the website will focus on the following target audiences:
+- **Roles:**
+     - New Players
+     - Current Players
+     - Returning Players
 
-## Release History
+- **Demographic:**
+     - Chalenge lovers
+     - Age 5 years and up
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+The website needs to enable the **user** to:
+- Find instructions with ease
+- Choose their preferred game mode
+- Be able to see theirs or someone else high score
+- Provide feedback to the developer
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+With these goals in mind, a strategy table was created:
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+![Strategy Table](assets/img/assestment.png)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+<strong>2. <u>Scope</u></strong>
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+A scope was defined to clearly identify what needed to be done to align features with the strategy:
+- **Content Requirements**
+     - The user will be looking for:
+          - Easy to find instruction
+          - Current accumulated score
+          - High score board
+          - Appealing game environment
+- **Functionality Requirements**
+     - The user will be able to:
+          - Responsive game design
+          - Clearly defined interactive elements
+          - Clearly define game area
+          - Toggle between game modes
+          - Send feedback to the developer
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+<strong>3. <u>Structure</u></strong>
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+The entire game was fitted in one page for ease of use and all information is easily reached true the main page. The **hierarchial tree structure**:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+![Site Map](assets/img/threa-2.png)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+<strong>4. <u>Skeleton</u></strong>
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+Wireframe mockup was created in a [Figma Workspace](https://www.figma.com/file/vt1vlEaqolTvRzSvSoxpvp/Color-Game?node-id=0%3A1 "Link to Blank! Figma Workspace"). The original design was not kept because it provided to high on a screen so some of the information was not usable. Also the design was too plain and not as appealing.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+![First Mode](assets/img/first-model.png)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+[Back to top ⇧](#table-of-contents)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+## Features
+All features are responsive and intuitive:
+- **Reset** - On the top left corner there is an icon witch will reset the game any time the player wishes.
+- **Tutorial** - On the top right corner there is an icon witch will open tutorial container with the game instructions:
+     - On small screens it will open the tutorial icon and a game mode change button.
+- **Start/Score/Game Over** - In the middle of the screen there is the game area with four colors and the start button:  
+     - Start button changes into the current score holder after the game starts.
+     - Start button changes into game over indicator after the player makes a mistake.
+- **Classic/Extreme** - On the left side of the screen there is a mode button after click the game mode changes from classic to extreme.
+     - Classic mode features same extending color pattern after players correct answer.
+     - Extreme mode features new extending color pattern after players correct answer.
+- **High score** - On the right side of the screen there button to open high score board.
+     - High scores board features classic game high score and extreme high score sections.
+     - Names and score are saved in local storage.
+- **Feedback** - On the bottom left corner there is and icon which will open feedback forum after clicking it.
+     - Name area requires input or send feedback.
+     - Email area requires an email to be input to send feedback.
+     - Text area requires a message to be written to send feedback.
+     - Feedback is sent to developer and user get an email with "Thank you for your feedback" message.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+[Back to top ⇧](#table-of-contents)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Issues and Bugs 
+The developer ran into a number of issues during the development of the game, with the noteworthy ones listed below, along with solutions.
 
-------
+**All color blink at once** - At the early stages of the game development, developer ran into a bug where all colors blink at once. The console log testing message was showing the correct number pattern (every color had a number assigned for faster bug tracking), But the color would flash at once. A solution was found on https://stackoverflow.com/ (Also new feature learned). The code is going fast and so the color seem to blink at the same time, by adding **setTimeout** functions to the for loop developer manage to get all the color to blink in 0,5 s intervals.
 
-## FAQ about the uptime script
+**Same color patter blink only once** - After getting the same color in a row, more than once, the color only blinks ones. The solution was to add a **setTimeout** function after the entire loop, seen the color blink starts without a pause. Now, after each blink there is a 0.5 s delay before the color blink.
 
-**Why have you added this script?**
+**Answer Eco** - After clicking the color button you would get multiple same values. A solution was found on https://stackoverflow.com/. Add a Jquarry functionality to the button witch would save only one click and send only one value ($('#id').off().on()('click', function(){})).
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+**After wrong answer double patter** - After clicking the wrong color two color patterns would start. The problem was that game start function would start simultaneously at the game over pattern. Simply adding one extra if statement fixed this problem.
 
-**How will this affect me?**
+**Sound not playing on a hosted page** - While implementing a sound for color blinks, a bug occurred where there was no sound on the hosted page, but he previews page was playing the sound. After careful inspection of the code problem was found on the directory link, there was one extra '/' at the beginning of the directory ink.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+**After mistake Start button not clickable** - After game over palter the start button would not reset and be clickable again. The problem was in the index.html file. The button was put inside the red button div witch is disabled before the start of the game. So after disabling the div the start button would become disabled as well. Moved the start button to it own container, that fixed the problem.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+**Game loads on top of the screen** - In higher screen game would load on top of the screen. The solution was to make a container witch was fixed to the middle of the screen and put all of the content inside the container.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+[Back to top ⇧](#table-of-contents)
 
-**So….?**
+## Technologies Used
+### Main Languages Used
+- [HTML5](https://en.wikipedia.org/wiki/HTML5 "Link to HTML Wiki")
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets "Link to CSS Wiki")
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript "Link to JavaScript Wiki")
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+### Frameworks, Libraries & Programs Used
+- [Bootstrap](https://getbootstrap.com/ "Link to Bootstrap page")
+     - Bootstrap was used to implement the responsiveness of the site, using bootstrap classes.
+- [jQuery](https://jquery.com/download/ "Link to jQuery page")
+     - jQuery was used to simplify the JavaScript code used.
+- [Google Fonts](https://fonts.google.com/ "Link to Google Fonts")
+    - Google fonts was used to import the font "Roboto".
+- [Font Awesome](https://fontawesome.com/ "Link to FontAwesome")
+     - Font Awesome was used for graphical indication of features buttons.
+- [Git](https://git-scm.com/ "Link to Git homepage")
+     - Git was used for version control by utilizing the GitPod terminal to commit to Git and push to GitHub.
+- [GitHub](https://github.com/ "Link to GitHub")
+     - GitHub was used to store the project after pushing.
+- [jQuery Validation](https://jqueryvalidation.org/ "Link to jQuery Validation page")
+     - jQuery Validation was used to simplify form validation for the **Feedback Form**.
+- [Figma](https://www.figma.com/ "Link to Figma homepage")
+     - Figma was used to create the wireframes during the design phase of the project.
+- [Am I Responsive?](http://ami.responsivedesign.is/# "Link to Am I Responsive Homepage")
+     - Am I Responsive was used in order to validate the responsiveness of the design.
 
-**Can I opt out?**
+[Back to top ⇧](#table-of-contents)
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+## Testing
 
+Testing information can be found in a separate testing [file] Prideti testing fila
+
+## Deployment
+
+This project was developed using [Visual GitHub](https://github.com/ "Link to GitHub site").
+
+### Deploying on GitHub Pages
+To deploy this page to GitHub Pages from its GitHub repository, the following steps were taken:
+
+1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+2. Locate the [GitHub Repository](https://github.com/PerkunasKF/msp2-games "Link to GitHub Repo").
+3. At the top of the repository, select Settings from the menu items.
+4. Scroll down the Settings page to the "GitHub Pages" section.
+5. Under "Source" click the drop-down menu labelled "None" and select "Master Branch".
+6. Upon selection, the page will automatically refresh meaning that the website is now deployed.
+7. Scroll back down to the "GitHub Pages" section to retrieve the deployed link.
+8. At the time of submitting this Milestone project the Development Branch and Master Branch are identical.
+
+### Forking the Repository
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps:
+
+1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+2. Locate the [GitHub Repository](https://github.com/PerkunasKF/msp2-games "Link to GitHub Repo").
+3. At the top of the repository, on the right side of the page, select "Fork".
+4. You should now have a copy of the original repository in your GitHub account.
+
+### Creating a Clone
+How to run this project locally:
+1. Install the [GitPod Browser](https://www.gitpod.io/docs/browser-extension/ "Link to Gitpod Browser extension download") Extension for Chrome.
+2. After installation, restart the browser.
+3. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+2. Locate the [GitHub Repository](https://github.com/PerkunasKF/msp2-games "Link to GitHub Repo").
+5. Click the green "GitPod" button in the top right corner of the repository.
+This will trigger a new gitPod workspace to be created from the code in github where you can work locally.
+
+How to run this project within a local IDE, such as VSCode:
+
+1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+2. Locate the [GitHub Repository](https://github.com/PerkunasKF/msp2-games "Link to GitHub Repo").
+3. Under the repository name, click "Clone or download".
+4. In the Clone with HTTPs section, copy the clone URL for the repository.
+5. In your local IDE open the terminal.
+6. Change the current working directory to the location where you want the cloned directory to be made.
+7. Type 'git clone', and then paste the URL you copied in Step 3.
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+git clone https://github.com/USERNAME/REPOSITORY
 ```
+8. Press Enter. Your local clone will be created.
 
-**Anything more?**
+Further reading and troubleshooting on cloning a repository from GitHub [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "Link to GitHub troubleshooting")
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+[Back to top ⇧](#table-of-contents)
 
----
+## Credits 
 
-Happy coding!
+### Audio
+The sound effects and song lyrics that are used in this website are for educational purposes only. There is no copyright infringement intended.
+
+Sorce for sound effects used: [Freesound](https://freesound.org/ "Link to ")
+
+### Code 
+The developer consulted multiple sites in order to better understand the code they were trying to implement. For code that was copied and edited, the developer made sure to reference this within the code. The following sites were used on a more regular basis:
+- [Stack Overflow](https://stackoverflow.com/ "Link to Stack Overflow page")
+- [W3Schools](https://www.w3schools.com/ "Link to W3Schools page")
+- [Bootstrap](https://getbootstrap.com/ "Link to BootStrap page")
+
+[Back to top ⇧](#table-of-contents)
