@@ -95,24 +95,24 @@ The website needs to enable the **user** to:
 
 With these goals in mind, a strategy table was created:
 
-![Strategy Table](assets/img/assestment.png)
+![Strategy Table](assets/readme-images/strategic-plan.png)
 
 <strong>2. <u>Scope</u></strong>
 
 A scope was defined to clearly identify what needed to be done to align features with the strategy:
 - **Content Requirements**
      - The user will be looking for:
-          - Easy to find instruction
-          - Current accumulated score
-          - High score board
-          - Appealing game environment
+          - Easy to find recipes
+          - Easy to find products
+          - See their own recipes
+          - See all users (for admin)
 - **Functionality Requirements**
      - The user will be able to:
-          - Responsive game design
-          - Clearly defined interactive elements
-          - Clearly define game area
-          - Toggle between game modes
-          - Send feedback to the developer
+          - Be able to register to web page easily
+          - Easily find wanted recipe
+          - Easily navigate through the pages
+          - Customize the profile
+          - Control all content (for admin)
 
 <strong>3. <u>Structure</u></strong>
 
