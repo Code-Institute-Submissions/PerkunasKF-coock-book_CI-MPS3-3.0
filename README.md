@@ -166,8 +166,8 @@ All features are responsive and intuitive:
 
 ## Admin User Information
 
-     **Username** - Admin
-     **Password** - Admin (key sensitive)
+     Username - Admin
+     Password - Admin (key sensitive)
 
 ## Issues and Bugs 
 The developer ran into a number of issues during the development of the game, with the noteworthy ones listed below, along with solutions.
