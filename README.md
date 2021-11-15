@@ -219,50 +219,44 @@ Testing information can be found in a separate testing [file] Prideti testing fi
 
 This project was developed using [Visual GitHub](https://github.com/ "Link to GitHub site").
 
-### Deploying on GitHub Pages
-To deploy this page to GitHub Pages from its GitHub repository, the following steps were taken:
+### Deploying on Heroku Pages
+To deploy this page to Heroku Pages from GitHub repository, the following steps were taken:
 
-1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
-2. Locate the [GitHub Repository](https://github.com/PerkunasKF/msp2-games "Link to GitHub Repo").
-3. At the top of the repository, select Settings from the menu items.
-4. Scroll down the Settings page to the "GitHub Pages" section.
-5. Under "Source" click the drop-down menu labelled "None" and select "Master Branch".
-6. Upon selection, the page will automatically refresh meaning that the website is now deployed.
-7. Scroll back down to the "GitHub Pages" section to retrieve the deployed link.
-8. At the time of submitting this Milestone project the Development Branch and Master Branch are identical.
+**Enabling GitHub integration**
 
-### Forking the Repository
-By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps:
+1. You can configure GitHub integration in the Deploy tab of apps in the [Heroku Dashboard](https://dashboard.heroku.com/apps "Link to Herocku Dashboaard").
 
-1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
-2. Locate the [GitHub Repository](https://github.com/PerkunasKF/msp2-games "Link to GitHub Repo").
-3. At the top of the repository, on the right side of the page, select "Fork".
-4. You should now have a copy of the original repository in your GitHub account.
+2. To configure GitHub integration, you have to authenticate with GitHub. You only have to do this once per Heroku account.
 
-### Creating a Clone
-How to run this project locally:
-1. Install the [GitPod Browser](https://www.gitpod.io/docs/browser-extension/ "Link to Gitpod Browser extension download") Extension for Chrome.
-2. After installation, restart the browser.
-3. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
-2. Locate the [GitHub Repository](https://github.com/PerkunasKF/msp2-games "Link to GitHub Repo").
-5. Click the green "GitPod" button in the top right corner of the repository.
-This will trigger a new gitPod workspace to be created from the code in github where you can work locally.
+3. After you link your Heroku app to a GitHub repo, you can selectively deploy from branches or configure auto-deploys.
 
-How to run this project within a local IDE, such as VSCode:
+**Automatic deploys**
 
-1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
-2. Locate the [GitHub Repository](https://github.com/PerkunasKF/msp2-games "Link to GitHub Repo").
-3. Under the repository name, click "Clone or download".
-4. In the Clone with HTTPs section, copy the clone URL for the repository.
-5. In your local IDE open the terminal.
-6. Change the current working directory to the location where you want the cloned directory to be made.
-7. Type 'git clone', and then paste the URL you copied in Step 3.
-```
-git clone https://github.com/USERNAME/REPOSITORY
-```
-8. Press Enter. Your local clone will be created.
+1. When you enable automatic deploys for a GitHub branch, Heroku builds and deploys all pushes to that branch. If, for example, you have a development app on Heroku, you can configure pushes to your GitHub development branch to be automatically built and deployed to that app.
 
-Further reading and troubleshooting on cloning a repository from GitHub [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "Link to GitHub troubleshooting")
+2. If you’ve configured your GitHub repo to use automated Continuous Integration (with Travis CI, for example), you can check the “Wait for CI to pass before deploy” checkbox. When enabled, Heroku will only auto-deploy after all the commit statuses of the relevant commit show success.
+This commit won’t auto-deploy because one of the checks shows a pending status.
+
+3. This commit will auto-deploy because all of the checks show a status of success.
+
+**Review apps**
+
+With review apps enabled for a Heroku app, Heroku will create temporary test apps for each pull request that’s opened on the GitHub repo that’s connected to the parent app. Review apps are great if you’re using GitHub Flow to propose, discuss, and merge changes to your code base. Because pull request branches are deployed to new apps on Heroku, it’s very simple for you and your collaborators to test and debug code branches. You can also run automated integration tests on the Heroku app representing a GitHub branch.
+
+See the [Review apps article](https://devcenter.heroku.com/articles/github-integration-review-apps "Link for app article") for details.
+
+**Heroku CI**
+
+Once you’ve connected your GitHub repo to your Pipeline, you can turn on [Heroku CI](https://devcenter.heroku.com/articles/heroku-ci "Link to Heroku CI"), our visual, low-configuration test runner that integrates easily with Heroku Pipelines (and so complements Review apps, existing Heroku apps, and our GitHub integrations). Any Heroku Pipeline is already Heroku CI ready – just turn it on in the Pipeline’s Settings tab.
+
+**Links to diffs**
+
+For apps that are linked to GitHub repos, releases in the Dashboard Activity tab will include a “View Diff” link. Following the link will take you to the GitHub comparison view, showing the changes made since the last release.
+
+**Disconnecting from GitHub**
+
+Individual apps can be disconnected in the GitHub pane of the Deploy tab for the app.
+
 
 [Back to top ⇧](#table-of-contents)
 
