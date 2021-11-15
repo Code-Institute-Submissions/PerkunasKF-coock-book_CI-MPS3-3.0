@@ -1,13 +1,12 @@
 import os
+import random
+
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
-import random
-import cloudinary
-from cloudinary.uploader import upload
 
 if os.path.exists("env.py"):
     import env
@@ -190,7 +189,7 @@ def add_recipe():
             "recipe_sug": request.form.get("recipe_sug")
         }
         mongo.db.recipes.insert_one(recipe)
-        flash("Recipy added Successfully")
+        flash("Recipe added Successfully")
         return redirect(url_for("profile", username=session["user"]))
     return render_template("add_recipe.html")
 

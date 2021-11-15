@@ -37,6 +37,29 @@
             </div>
         </div>
     </div>
+
+    <!-- Add buttons -->
+    {% if session.user|lower == "admin" %}
+        <div class="row">
+            <div class="col s6 add-recipe-btn-container center">
+                <a href="{{ url_for('add_recipe') }}" class="btn add-btn awarege-text mobal-text">
+                    Add Recipe
+                </a>
+            </div>
+            <div class="col s6 add-recipe-btn-container center">
+                <a href="{{ url_for('add_product') }}" class="btn add-btn awarege-text mobal-text">
+                    Add Product
+                </a>
+            </div>
+        </div>
+    {% else %}
+        <div class="row add-recipe-btn-container center">
+            <a href="{{ url_for('add_recipe') }}" class="btn add-recipe-btn awarege-text mobal-text">
+                Add Recipe
+            </a>
+        </div>
+    {% endif %}
+    <!-- End of: Add buttons -->
     
     <!-- User recipes -->
     <div class="row">
@@ -421,28 +444,5 @@
         {% endfor %}
     </div>
     <!-- End of: Pots and Pans catalog list -->
-        
-    
-    <!-- add recepy -->
-    {% if session.user|lower == "admin" %}
-        <div class="row">
-            <div class="col s6 add-recipe-btn-container center">
-                <a href="{{ url_for('add_recipe') }}" class="btn add-btn awarege-text mobal-text">
-                    Add Recipe
-                </a>
-            </div>
-            <div class="col s6 add-recipe-btn-container center">
-                <a href="{{ url_for('add_product') }}" class="btn add-btn awarege-text mobal-text">
-                    Add Product
-                </a>
-            </div>
-        </div>
-    {% else %}
-        <div class="row add-recipe-btn-container center">
-            <a href="{{ url_for('add_recipe') }}" class="btn add-recipe-btn awarege-text mobal-text">
-                Add Recipe
-            </a>
-        </div>
-    {% endif %}
 
 {% endblock %}
