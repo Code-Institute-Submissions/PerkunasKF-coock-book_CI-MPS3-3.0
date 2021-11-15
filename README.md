@@ -162,42 +162,25 @@ All features are responsive and intuitive:
      - Admin users can see all users and delete any user. After clicking on a user a modal display appears. After clicking the delete button another modal appears to verify the delete action.
      - The Tdmin user can add/edit products. The add/edit product function works the same way it was described above.
 
-- **Reset** - On the top left corner there is an icon witch will reset the game any time the player wishes.
-- **Tutorial** - On the top right corner there is an icon witch will open tutorial container with the game instructions:
-     - On small screens it will open the tutorial icon and a game mode change button.
-- **Start/Score/Game Over** - In the middle of the screen there is the game area with four colors and the start button:  
-     - Start button changes into the current score holder after the game starts.
-     - Start button changes into game over indicator after the player makes a mistake.
-- **Classic/Extreme** - On the left side of the screen there is a mode button after click the game mode changes from classic to extreme.
-     - Classic mode features same extending color pattern after players correct answer.
-     - Extreme mode features new extending color pattern after players correct answer.
-- **High score** - On the right side of the screen there button to open high score board.
-     - High scores board features classic game high score and extreme high score sections.
-     - Names and score are saved in local storage.
-- **Feedback** - On the bottom left corner there is and icon which will open feedback forum after clicking it.
-     - Name area requires input or send feedback.
-     - Email area requires an email to be input to send feedback.
-     - Text area requires a message to be written to send feedback.
-     - Feedback is sent to developer and user get an email with "Thank you for your feedback" message.
-
 [Back to top ⇧](#table-of-contents)
+
+## Admin User Information
+
+     **Username** - Admin
+     **Password** - Admin (key sensitive)
 
 ## Issues and Bugs 
 The developer ran into a number of issues during the development of the game, with the noteworthy ones listed below, along with solutions.
 
-**All color blink at once** - At the early stages of the game development, developer ran into a bug where all colors blink at once. The console log testing message was showing the correct number pattern (every color had a number assigned for faster bug tracking), But the color would flash at once. A solution was found on https://stackoverflow.com/ (Also new feature learned). The code is going fast and so the color seem to blink at the same time, by adding **setTimeout** functions to the for loop developer manage to get all the color to blink in 0,5 s intervals.
+**Upload Image to Database** - At the early stages of the page development, developer ran into uploading image to the dababes. Uploading images to MongoDb is possible, but considered bad practice, this was determined after more research about media uploading to the database. A substituted database was found for media upload: [Cloudinary](https://cloudinary.com/). Cloudinary datastorig allows to save links to the image and store that link in MongoDB.
 
-**Same color patter blink only once** - After getting the same color in a row, more than once, the color only blinks ones. The solution was to add a **setTimeout** function after the entire loop, seen the color blink starts without a pause. Now, after each blink there is a 0.5 s delay before the color blink.
+**Ingredients Storing Ass List** - Getting multiple ingredients or directions as a list or array to store in the database. A solution was found in Code Institute Back-end Development Mini Project videos. Getting all input fields with the same list and storing them as a list by adding getlist (request. form. getlist ("recipe_ingredient")). The data was stored as an array.
 
-**Answer Eco** - After clicking the color button you would get multiple same values. A solution was found on https://stackoverflow.com/. Add a Jquarry functionality to the button witch would save only one click and send only one value ($('#id').off().on()('click', function(){})).
+**Can not Edit Meal Type for a Recipe** - After loading a recipe on the edit recipe page radio button would not show what type of meal it was on the big screens. On small it would be stuck on one of the selections with no way to change them. Problem was, there were too many selections and active buttons ate both big and small screens. The solution was to optimize and reduce the complexity of the code.
 
-**After wrong answer double patter** - After clicking the wrong color two color patterns would start. The problem was that game start function would start simultaneously at the game over pattern. Simply adding one extra if statement fixed this problem.
+**Can't Remove or Add Ingredients/Directions** - After loading a recipe on the edit recipe page could not add another input after clicking add an ingredient or add direction button. Could not remove ingredient or direction after clicking remove button next to the direction or ingredient. The problem was they use the same script with the same id names. The solution was to create separate scripts to add/edit recipes/products with different id names.
 
-**Sound not playing on a hosted page** - While implementing a sound for color blinks, a bug occurred where there was no sound on the hosted page, but he previews page was playing the sound. After careful inspection of the code problem was found on the directory link, there was one extra '/' at the beginning of the directory ink.
-
-**After mistake Start button not clickable** - After game over palter the start button would not reset and be clickable again. The problem was in the index.html file. The button was put inside the red button div witch is disabled before the start of the game. So after disabling the div the start button would become disabled as well. Moved the start button to it own container, that fixed the problem.
-
-**Game loads on top of the screen** - In higher screen game would load on top of the screen. The solution was to make a container witch was fixed to the middle of the screen and put all of the content inside the container.
+**Upload Image Widjet Script** - After using [Cloudinary's](https://cloudinary.com/) upload image widget for adding recipe page for adding an image for the recipe, it would not work for profile and product image upload. The problem was that the script could only get one id and could not recognize witch widget button to use. The solution was to create custom attributes and custom values and add custom code for Cloudinary script, to check if the value is true or not, so as to know which widget was being used.
 
 [Back to top ⇧](#table-of-contents)
 
@@ -206,14 +189,15 @@ The developer ran into a number of issues during the development of the game, wi
 - [HTML5](https://en.wikipedia.org/wiki/HTML5 "Link to HTML Wiki")
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets "Link to CSS Wiki")
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript "Link to JavaScript Wiki")
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language) "Link to Python Wiki")
 
 ### Frameworks, Libraries & Programs Used
-- [Bootstrap](https://getbootstrap.com/ "Link to Bootstrap page")
-     - Bootstrap was used to implement the responsiveness of the site, using bootstrap classes.
+- [Materialize](https://materializecss.com/ "Link to Materialize page")
+     - Materialize was used to implement the responsiveness of the site, using materialize classes.
 - [jQuery](https://jquery.com/download/ "Link to jQuery page")
      - jQuery was used to simplify the JavaScript code used.
 - [Google Fonts](https://fonts.google.com/ "Link to Google Fonts")
-    - Google fonts was used to import the font "Roboto".
+    - Google fonts was used to import the fonts "Open Sans" and "Lobster".
 - [Font Awesome](https://fontawesome.com/ "Link to FontAwesome")
      - Font Awesome was used for graphical indication of features buttons.
 - [Git](https://git-scm.com/ "Link to Git homepage")
@@ -222,8 +206,6 @@ The developer ran into a number of issues during the development of the game, wi
      - GitHub was used to store the project after pushing.
 - [jQuery Validation](https://jqueryvalidation.org/ "Link to jQuery Validation page")
      - jQuery Validation was used to simplify form validation for the **Feedback Form**.
-- [Figma](https://www.figma.com/ "Link to Figma homepage")
-     - Figma was used to create the wireframes during the design phase of the project.
 - [Am I Responsive?](http://ami.responsivedesign.is/# "Link to Am I Responsive Homepage")
      - Am I Responsive was used in order to validate the responsiveness of the design.
 
