@@ -33,57 +33,59 @@
      2. [Code](#Code)
 ***
 
-![Blank! Responsiveness](assets/readme-images/am-i-respocive.png)
+![Blank! Responsiveness](assets/readme-images/am-i-responcive.png)
 
 ***
 
 ## UX 
 ### Project Goals
-The primary goal of "Simon Says Color Game" is to provide a web-based interactive game that is entertaining and usis the original "Simon (game)" made by: Ralph H. Baer and Howard J. Morrison. Game is designed to test and train players memmory skills.
+The primary goal of "Cook Book" is to provide a web page for people to write their own recipes or to find someone else recipes.
 
-This is the second of four Milestone Projects that the developer must complete during their Full Stack Web Development Program at The Code Institute. 
+This is the third of four Milestone Projects that the developer must complete during their Full Stack Web Development Program at The Code Institute. 
 
-The main requirements were to design, develop and implement a dynamic front-end web application using **HTML5**, **CSS3** and **JavaScript**.
+The main requirements were to design, develop and implement a web application using **HTML5**, **CSS3**, **JavaScript**, **Python+Flask**, **MongoDB**.
 
-#### Player Goals
-The player is looking for:
-- A fun game to play.
-- Instructions on how to play the game.
+#### User Goals
+The user is looking for:
+- A place to find new recipes.
+- A place to write down their own recipes.
 - An intuitive interface.
-- A track of their achievements in the game.
+- To find some products to use on their recipes.
 
 #### Developer Goals
 The Developer is looking to:
-- Create a fun game to pass the time.
+- Create a web page for user to share recipes.
+- Create a web page for owner to upload products.
 - Demonstrate their skills in software development, using newly learned languages and libraries.
 - Deploy a project on their portfolio.
 
 ### User Stories
-**As a player, I want to:**
+**As a user, I want to:**
 
-1. Intuitive controls.
-2. Have a score counter and a high score board to see how well am I doing.
-3. Get a visual feedback to see when the game starts and when it is over.
-4. Provide feedback to the developer to improve the game.
-5. Get easy to find and understand instruction on how to play the game.
+1. Intuitive navigations.
+2. Have a catalogue of available recipes.
+3. Have a catalogue of their own recipes.
+4. Have a catalogue of available products.
+5. To customize my profile.
 
 ### Development Planes
 
-To create and design a web-based interactive game, the developer distinguished the necessary functionality of the game and how it would answer to the user stories:
+To create and design a web recipe book, the developer distinguishes the necessary functionality of the web page and how it would answer to the user stories:
 
 <strong>1. <u>Strategy</u></strong>
 
 Broken into two categories, the website will focus on the following target audiences:
 - **Roles:**
-     - New Players
-     - Current Players
-     - Returning Players
+     - New users
+     - Current users
+     - Owner
 
 - **Demographic:**
-     - Chalenge lovers
-     - Age 5 years and up
+     - Cooking enthusiasts
+     - Product supplier
 
 The website needs to enable the **user** to:
+- Get easaly 
 - Find instructions with ease
 - Choose their preferred game mode
 - Be able to see theirs or someone else high score
