@@ -262,15 +262,73 @@ Individual apps can be disconnected in the GitHub pane of the Deploy tab for the
 
 ## Credits 
 
-### Audio
-The sound effects and song lyrics that are used in this website are for educational purposes only. There is no copyright infringement intended.
+### Images and Recipes
+All images were uploaded from [Unsplash](https://unsplash.com "Link to Unsplash page")
 
-Sorce for sound effects used: [Freesound](https://freesound.org/ "Link to ")
+- **User**
+     - Admin profile picture - Author: Ben Parker
+- **Utensils**
+     - Knife 5000 picture - Author: Marios Gkortsilas
+     - Fork Forkametic picture - Author: Matt Popovich
+     - Spoon picture - Author: Anna Kumpan
+- **Pons & Pans**
+     - Orign Pot "Boiler" picture - Author: Cooker King
+     - Charcol friingpan picture - Author: Helinton Fantin
+     - Full set picture - Author: Cooker King
+
+**Recipes**
+
+- **Boild Egg**
+     - Recipe Author - Goop
+     - Image Author - freeimages
+- **Scrambled Egg**
+     - Recipe Author - Goop
+     - Image Author - Gian Cescon
+- **POACHED Egg**
+     - Recipe Author - Goop
+     - Image Author - Seriously Low Carb
+- **FRIED Egg**
+     - Recipe Author - Goop
+     - Image Author - Scott Eckersley
+- **FRIED Egg**
+     - Recipe Author - Goop
+     - Image Author - Priscilla Du Preez
+- **Classic Banh Mi**
+     - Recipe Author - Mae Mu
+     - Image Author - KAT BOYTSOVA
+- **Best Grilled Cheese**
+     - Recipe Author - David Thielen
+     - Image Author - MAKINZE GORE
+- **Eaters Collective**
+     - Recipe Author - Reuben Sandwich
+     - Image Author - MAKINZE GORE
+- **The World's Greatest Ham Sandwich**
+     - Recipe Author - Wilfred Wong
+     - Image Author - MAKINZE GORE
+- **Best-Ever French Dip**
+     - Recipe Author - The Matter of Food
+     - Image Author - LENA ABRAHAM
+- **Baked Feta Pasta**
+     - Recipe Author - Jason Leung
+     - Image Author - LAUREN MIYASHIRO
+- **One-Pan Creamy Chicken & Gnocchi**
+     - Recipe Author - Ira G
+     - Image Author - MAKINZE GORE
+- **Honey Garlic Glazed Salmon**
+     - Recipe Author - Caroline Attwood
+     - Image Author - MAKINZE GORE
+- **5-Ingredient Black Bean Tostadas**
+     - Recipe Author - Israel Albornoz
+     - Image Author - LENA ABRAHAM
+- **Bucatini all'Amatriciana**
+     - Recipe Author - Olayinka Babalola
+     - Image Author - MAKINZE GORE)
 
 ### Code 
 The developer consulted multiple sites in order to better understand the code they were trying to implement. For code that was copied and edited, the developer made sure to reference this within the code. The following sites were used on a more regular basis:
 - [Stack Overflow](https://stackoverflow.com/ "Link to Stack Overflow page")
 - [W3Schools](https://www.w3schools.com/ "Link to W3Schools page")
 - [Bootstrap](https://getbootstrap.com/ "Link to BootStrap page")
+- [Cloudinary](https://cloudinary.com/ "Link to Coudinary page")
 
 [Back to top ⇧](#table-of-contents)
