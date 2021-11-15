@@ -85,11 +85,13 @@ Broken into two categories, the website will focus on the following target audie
      - Product supplier
 
 The website needs to enable the **user** to:
-- Get easaly 
-- Find instructions with ease
-- Choose their preferred game mode
-- Be able to see theirs or someone else high score
-- Provide feedback to the developer
+- Easily register
+- Easily log in to their profile
+- Be able to see all recipes
+- Be able to search for a recipe
+- Be able to see available products
+- Be able to customize their profile
+- Easily upload their own recipe
 
 With these goals in mind, a strategy table was created:
 
