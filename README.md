@@ -122,14 +122,46 @@ The web page content is divided through multiple pages in a tree like pattern fo
 
 <strong>4. <u>Skeleton</u></strong>
 
-Wireframe mockup was created in a [Figma Workspace](https://www.figma.com/file/vt1vlEaqolTvRzSvSoxpvp/Color-Game?node-id=0%3A1 "Link to Blank! Figma Workspace"). The original design was not kept because it provided to high on a screen so some of the information was not usable. Also the design was too plain and not as appealing.
-
-![First Mode](assets/img/first-model.png)
+Wireframe mockup was created on paper.
 
 [Back to top ⇧](#table-of-contents)
 
 ## Features
 All features are responsive and intuitive:
+- **Navigation Bar** - Navigation bar is fixed to the top of the screen. The bar contains all links to the web pages on Cook Book. On smaller screens the navigation bar unfolds on the ride side of the screen after pressing the bar icon.
+- **Home Page/Recipe Page Recipe Carousel** - Carousel displays three random recipes from the database. Clicking and dragging it the image to the side slides the image to the side and reveals next image. Clicking on the recipe opens a model with the ingredient list and directions list.
+- **Home Page/Product Page Product Carousel** - Caraouel displays two random products from the database. Clicking and dragging it the image to the side slides the image to the side and reveals next image. Clicking on the product opens a model with the products descriptions.
+- **Footer Navigations** - The footer contains the link to the home page and links to the Facebook and YouTube pages.
+- **Search** - Recipe and product page have a sear feature. Entering a word or words and clicking the search icon displays, recipes/products in the recipes/product catalog under the all recipes/all products section. The sear engine looks for the relevant word in the name or the descriptions section (for products) on the database.
+- **Catalogs** - Recipe and product pages contain a catalog for all recipes of catalogs. The catalog is separated by types of recipes or products. Clicking on the catalog link will display the selected type of recipes or catalogs:
+     - For recipes. The links on the catalog are: all recipes, breakfast recipes, lunch recipes, dinner recipes.
+     - For products. The links on the catalog are: all products, utensils, pots and pans.
+- **Register** - On registering page new user can register an account.
+     - The user must enter all form inputs top successfully register.
+     - If password does not match a flash message appears after clicking register button.
+     - After user register the user data is stored in the database.
+     - If username already exists a flash message appear telling the user that the username already exists.
+- **Log In** - Registered user can log in. If the user enters the wrong username or password a flash message appears telling the user they entered wrong username or/and password.
+- **Registered user functions** - All user functions are accessible from the user profile page witch appears on the navigation bar after user logs in:
+     - After clicking the edit button under the profile image user can change their profile image or password. The password can be changed only if the user enters password correctly two times.
+     - User can see all their recipes under their profile information.
+     - User can edit or delete any recipe they entered.
+     - User can add any new recipe after clicking add recipe button.
+- **Add Recipe/Product Form** - After clicking add recipe/add product a user is redirected to add recipe/add product form.
+     - Recipe name input will store recipe name in the database.
+     - Clicking remove button next to the ingredient input file will remove that ingredient. 
+     - Clicking add ingredient button will add an empty input field.
+     - Clicking the remove button next to direction input field will remove that direction. 
+     - Clicking add directions button will add an empty direction input field.
+     - Selecting one of the radio buttons will set the meal type.
+     - Clicking the upload image will open "Cloudinery" widjet and will be able to upload image from there onwe device.
+     - Clicking add recipe button will add a recipe to the database, clicking cancel button will return to the profile page.
+- **Edit Recipe/Product Form** - An edit form opens after the user clicks on the edit recipe/edit product button on recipe/product modal display. The form features all functions like add form described above.
+- **Admin Functions** - Admin user has all the functions like a regular user plus some extra functions. Extra functions:
+     - The Admin user can see all the recipes on the profile page and delete any recipe. After selecting a recipe a modal display appears and on the bottom of the modal there is a delete button. Clicking delete button will display another modal to confirm delete action.
+     - Admin users can see all users and delete any user. After clicking on a user a modal display appears. After clicking the delete button another modal appears to verify the delete action.
+     - The Tdmin user can add/edit products. The add/edit product function works the same way it was described above.
+
 - **Reset** - On the top left corner there is an icon witch will reset the game any time the player wishes.
 - **Tutorial** - On the top right corner there is an icon witch will open tutorial container with the game instructions:
      - On small screens it will open the tutorial icon and a game mode change button.
