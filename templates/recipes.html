@@ -1,56 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <!-- Carusesl for random recipes -->
-    <!-- Materialized model code block -->
-    <div class="row title-container center">
-        <h2 class="section-title">Try Out Something New</h2>
-    </div>
-    <div class="carousel">
-        <div class="carousel carousel-slider carousle-container">
-            {% for recipe in random_recipe %}
-                <!-- Carusel random recipes -->
-                <a class="carousel-item center modal-trigger" href="#{{ recipe.recipe_name }}">
-                    <h2 class="recipe-name-text">{{ recipe.recipe_name.capitalize() }}</h2>
-                    <img class="carusel-img valign-wrapper" src="{{ recipe.recipe_image }}">
-                </a>
-            {% endfor %}
-        </div>
-    </div>
-    <!-- End of: Carusesl for random recipes -->
-    
-
-
-    <!-- Model for recipes in carucel description -->
-    {% for recipe in random_recipe %}
-        <div class="row">
-            <div id="{{ recipe.recipe_name }}" class="modal home-modal">
-                <div class="modal-content">
-                    <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
-                    <div class="row instructions-field">
-                        <p class="small-title center">Ingredients</p>
-                        <ul class="ingredient-list">
-                            {% for ingredient in recipe.recipe_ingredients %}
-                                <li class="awarege-text ingredient-item">
-                                    - {{ ingredient.capitalize() }}
-                                </li>
-                            {% endfor %}
-                        </ul>
-                        <p class="small-title center">Directions</p>
-                        <ol class="directions-list">
-                            {% for direction in recipe.recipe_directions %}
-                                <li class="awarege-text direction-item">
-                                    {{ direction.capitalize() }}
-                                </li>
-                            {% endfor %}
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-        <!-- End of: Model for recipes in carucel description -->
-
     <!-- Search form -->
     <div class="row center">
         <form action="{{ url_for('search_recipes') }}" method="post" class="col s12">
@@ -283,6 +233,56 @@
 
     </div>
         <!-- End of: Breakfast recipes catalog list -->
+
+    <!-- Carusesl for random recipes -->
+    <!-- Materialized model code block -->
+    <div class="row title-container center">
+        <h2 class="section-title">Try Out Something New</h2>
+    </div>
+    <div class="carousel">
+        <div class="carousel carousel-slider carousle-container">
+            {% for recipe in random_recipe %}
+                <!-- Carusel random recipes -->
+                <a class="carousel-item center modal-trigger" href="#{{ recipe.recipe_name }}">
+                    <h2 class="recipe-name-text">{{ recipe.recipe_name.capitalize() }}</h2>
+                    <img class="carusel-img valign-wrapper" src="{{ recipe.recipe_image }}">
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- End of: Carusesl for random recipes -->
+    
+
+
+    <!-- Model for recipes in carucel description -->
+    {% for recipe in random_recipe %}
+        <div class="row">
+            <div id="{{ recipe.recipe_name }}" class="modal home-modal">
+                <div class="modal-content">
+                    <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
+                    <div class="row instructions-field">
+                        <p class="small-title center">Ingredients</p>
+                        <ul class="ingredient-list">
+                            {% for ingredient in recipe.recipe_ingredients %}
+                                <li class="awarege-text ingredient-item">
+                                    - {{ ingredient.capitalize() }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <p class="small-title center">Directions</p>
+                        <ol class="directions-list">
+                            {% for direction in recipe.recipe_directions %}
+                                <li class="awarege-text direction-item">
+                                    {{ direction.capitalize() }}
+                                </li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+        <!-- End of: Model for recipes in carucel description -->
 
 
 {% endblock %}
