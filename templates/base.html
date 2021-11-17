@@ -18,6 +18,7 @@
 
 <body>
 
+    <!-- Navigation bar wraper to kip the bar at the top of the sreen -->
     <div class="navbar-fixed">
         <header>
             <!-- Navigation bar -->
@@ -55,8 +56,11 @@
                     </ul>
                 </div>
             </nav>
+            <!-- End of: navigation bar -->
         </header>
     </div>
+    <!-- End of: Navigation bar wraper to kip the bar at the top of the sreen -->
+
 
     
             <!-- Mobile navigations -->
@@ -81,6 +85,8 @@
                     <li><a class="main-navtext" href="{{ url_for('register') }}">Register</a></li>
                 {% endif %}
             </ul>
+            <!-- End of: Mobile navigations -->
+
     
     <!-- section to display flash messages -->
     <section>
@@ -94,31 +100,40 @@
             {% endif %}
         {% endwith %}
     </section>
+    <!-- End of: section to display flash messages -->
 
+    <!-- All content holder section -->
     <main class="container content">
         {% block content %}
         {% endblock %}
     </main>
+    <!-- End of: All content holder section -->
+
 
     <footer>
         <div class="row valign-wrapper">
+            <!-- Home link -->
             <div class="col s3">
                 <a href="{{ url_for('home') }}" class="brand-logo left">
                     <i class="fas fa-apple-alt footer-logo logo"></i>
                 </a>
             </div>
+            <!-- Social media links -->
             <div class="col s9">
+                <!-- Facebook link -->
                <div class="col s3 right">
                    <a href="https://www.facebook.com/" target="_blank">
                        <i class="fab fa-facebook-square footer-icons logo"></i>
                     </a>
                 </div>
+                <!-- Youtube link -->
                <div class="col s3 right">
                     <a href="https://www.youtube.com/" target="_blank">
                         <i class="fab fa-youtube footer-icons logo right"></i>
                     </a>
                </div>
             </div>
+            <!-- End of: Social media links -->
         </div>
     </footer>
 
@@ -128,12 +143,15 @@
     <!-- Script for materialize 1.0-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <!-- Custom scrip links -->
     <script src="{{ url_for('static', filename='js/mat-script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/add_recipe.js') }}"></script>
     <script src="{{ url_for('static', filename='js/edit_recipe.js') }}"></script>
     <script src="{{ url_for('static', filename='js/add_product.js') }}"></script>
     <script src="{{ url_for('static', filename='js/edit_product.js') }}"></script>
+    <!-- End of: Custom scrip links -->
 
+    <!-- Cloudinary widget link and script -->
     <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
     <script src="{{ url_for('static', filename='js/upload-img.js') }}"></script>
 
