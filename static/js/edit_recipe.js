@@ -1,12 +1,11 @@
 var ingredient = 0;
 
 document.addEventListener('DOMContentLoaded', function () {
-  callForRemuve();
+  console.log("Pradzia");
+  callForRemuveRecipe();
 
   enterIngredientEdit();
   enterDirectionsEdit();
-  removeIngredient();
-  removeDirection();
 });
 
 
@@ -15,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Gets the length of the ingredient and directions list
 // Seds request for remove function to delete specifict item
-function callForRemuve() {
+function callForRemuveRecipe() {
+  console.log("callForRemuve");
   var list = document.getElementsByClassName("edit-ing-input-field");
   var directionList = document.getElementsByClassName("edit-dir-input-field");
 
@@ -37,6 +37,7 @@ function callForRemuve() {
 function remuve(parent, btn) {
     btn.addEventListener("click", () => {
       parent.remove(parent);
+      console.log("Helo");
     });
   return
 }
@@ -46,6 +47,7 @@ function remuve(parent, btn) {
 function remuve02(parent, btn) {
   btn.addEventListener("click", () => {
     parent.remove(parent);
+    console.log("Helo");
   });
 return
 }
@@ -104,7 +106,7 @@ function addIngredientsEdit () {
 // Generates a list after pressing enter after user input
 // in add_recipe.html ingredient list
 function enterIngredientEdit () {
-  document.querySelector('#edit-ingredients-buttno').addEventListener('click', function () {
+  document.querySelector('#edit-ingredients-button').addEventListener('click', function () {
       addIngredientsEdit ();
       removeIngredient();
   });
