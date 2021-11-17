@@ -7,22 +7,26 @@
 
                 <!-- user information -->
                 <div class="card-image profile-image-container">
+                    <!-- User image -->
                     {% if user_image == "" %}
                         <img id="user-img" class="profile-image" src="https://res.cloudinary.com/silorak/image/upload/v1636472037/coock_book-img/blank-profile-picture-973460_960_720_cqroec.webp">
                     {% else %}
                         <img class="profile-image" src="{{ user_image }}">
                     {% endif %}
+                    <!-- End of: User image -->
                     <!-- Cloudinery winget popo up -->
                     <a class="btn-floating right-alighn halfway-fab waves-effect waves-light">
                         <i id="upload_widget" class="fas fa-pen profile-pic-edit" profile="profile"></i>
                     </a>
+                    <!-- Hidden class to get data to the database -->
                     <div class="row" style="display: none;">
                         <input id="user_image" name="user_image" type="text" value="{{ user_image }}">
                         <label for="user_image"></label>
                     </div>
-                    <!-- End of: Cloudinery winjet pop up -->
                 </div>
+
                 <div class="card-content">
+                    <!-- User name title -->
                     <h4 id="edit-name" class="form-title line-br black-text" name="username" value="{{ username.capitalize() }}">
                         {{ username.capitalize() }}
                     </h4>
@@ -38,9 +42,11 @@
                             maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$">
                         <label for="password_confirm">Confirm Password</label>
                     </div>
+                    <!-- Save changes button -->
                     <div class="row">
                         <button type="submit" class="btn forum-submit-btn mobal-text">Save Changes</button>
                     </div>
+                    <!-- Cancel button -->
                     <div class="row">
                         <a class="btn forum-submit-btn mobal-text" href="{{ url_for('profile', username=session['user']) }}">Cancel</a>
                     </div>
