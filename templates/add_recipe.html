@@ -2,16 +2,22 @@
 {% block content %}
 
     <div class="row add-recipe-form title-container">
+        <!-- Title for add recipe form -->
         <div class="row title-container">
             <h4 class="section-title center">Add Recipe</h4>
         </div>
+
+        <!-- Start of the form -->
         <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+            <!-- Recipes name title -->
             <div class="row">
                 <div class="input-field col s12">
                     <input id="recipe_name" name="recipe_name" type="text" class="validate" maxlength="50" required>
                     <label for="recipe_name">Recipe Name</label>
                 </div>
             </div>
+
+            <!-- recipes Ingredient field -->
             <div class="row">
                 <div id="ingredient-list" class="col s12 center">
                     <ul id="add_ingredients">
@@ -20,6 +26,8 @@
                     <div id="add-ingredients-button" class="btn add-btn awarege-text">Add Ingredient</div>
                 </div>
             </div>
+
+            <!-- recipes direcetions field -->
             <div class="row">
                 <div id="direction-list" class="col s12 center">
                     <ul id="add-directions">
@@ -28,6 +36,7 @@
                     <div id="add-direction-button" class="btn add-btn awarege-text">Add Directions</div>
                 </div>
             </div>
+
             <!-- Big screen radio buttons -->
             <div class="row meal-type-select center big-catalog">
                 <h4 class="awarege-title add-title center">Meal Type</h4>
@@ -78,18 +87,23 @@
             </div>
             <!-- End of: Small screen radio buttons -->
 
+            <!-- Cloudinary button to open the widget -->
             <div class="row center">
                 <div id="upload_widget" class="cloudinary-button">Upload image</div>
             </div>
+            <!-- Hiddent clas for getting the data to log to database -->
             <div class="row" style="display: none;">
                 <input id="recipe_image" name="recipe_image" type="text">
                 <label for="recipe_image"></label>
             </div>
+            <!-- Buttons to finish form input -->
             <div class="row center">
                 <div class="col s6"><button type="submit" class="btn add-btn mobal-text">Add Recipy</button></div>
                 <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn add-btn mobal-text">Cancel</a></div>
             </div>
         </form>
+        <!-- End of the form -->
+
     </div>
 
 {% endblock %}
