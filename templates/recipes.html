@@ -45,9 +45,11 @@
             {% for recipe in recipes_search %}
                 <div class="col s12 l4">
                     <div class="card horizontal display-card">
+                        <!-- Recipe catalog image -->
                         <div class="card-image card-image-custom">
                             <img class="catalog-image" src="{{ recipe.recipe_image }}">
                         </div>
+                        <!-- Recipe catalog name -->
                         <div class="col">
                             <div class="left">
                                 <a class="modal-trigger black-text awarege-text" href="#{{ recipe.recipe_name }}">
@@ -58,10 +60,13 @@
                     </div>
                 </div>
                 
+                <!-- Recipe modal infomation -->
                 <div id="{{ recipe.recipe_name }}" class="modal">
                     <div class="modal-content">
+                        <!-- Recipe modal name -->
                         <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
                         <div class="row instructions-field">
+                            <!-- Recipe modal ingredients -->
                             <p class="small-title center">Ingredients</p>
                             <ul class="ingredient-list">
                                 {% for ingredient in recipe.recipe_ingredients %}
@@ -70,6 +75,7 @@
                                     </li>
                                 {% endfor %}
                             </ul>
+                            <!-- Recipe modal directios -->
                             <p class="small-title center">Directions</p>
                             <ol class="directions-list">
                                 {% for direction in recipe.recipe_directions %}
@@ -91,10 +97,12 @@
                 {% if recipe.meal_type == "breakfast" %}
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
+                            <!-- Breakfas catalog recipe images -->
                             <div class="card-image card-image-custom valign-wrapper">
                                 <img class="catalog-image"
                                     src="{{ recipe.recipe_image }}">
                             </div>
+                            <!-- Breakfas catalog recipe names -->
                             <div class="col">
                                 <div class="left">
                                     <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
@@ -105,10 +113,13 @@
                         </div>
                     </div>
 
+                    <!-- Breakfas catalo modal information -->
                     <div id="{{ recipe.recipe_name }}" class="modal">
                         <div class="modal-content">
+                            <!-- Breakfas recipe modal name -->
                             <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
                             <div class="row instructions-field">
+                                <!-- Breakfas recipe modal ingredients -->
                                 <p class="small-title center">Ingredients</p>
                                 <ul class="ingredient-list">
                                     {% for ingredient in recipe.recipe_ingredients %}
@@ -117,6 +128,7 @@
                                         </li>
                                     {% endfor %}
                                 </ul>
+                                <!-- Breakfas recipe modal directions -->
                                 <p class="small-title center">Directions</p>
                                 <ol class="directions-list">
                                     {% for direction in recipe.recipe_directions %}
@@ -140,10 +152,12 @@
                 {% if recipe.meal_type == "lunch" %}
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
+                            <!-- Lunch recipe catalog image -->
                             <div class="card-image card-image-custom valign-wrapper">
                                 <img class="catalog-image"
                                     src="{{ recipe.recipe_image }}">
                             </div>
+                            <!-- Lunch recipe catalog name -->
                             <div class="col">
                                 <div class="left">
                                     <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
@@ -154,10 +168,13 @@
                         </div>
                     </div>
 
+                    <!-- Lunch recipe modal information -->
                     <div id="{{ recipe.recipe_name }}" class="modal">
                         <div class="modal-content">
+                            <!-- Lunch recipe modal name -->
                             <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
                             <div class="row instructions-field">
+                                <!-- Lunch recipe modal ingredients -->
                                 <p class="small-title center">Ingredients</p>
                                 <ul class="ingredient-list">
                                     {% for ingredient in recipe.recipe_ingredients %}
@@ -166,6 +183,7 @@
                                         </li>
                                     {% endfor %}
                                 </ul>
+                                <!-- Lunch recipe modal directions -->
                                 <p class="small-title center">Directions</p>
                                 <ol class="directions-list">
                                     {% for direction in recipe.recipe_directions %}
@@ -189,10 +207,12 @@
                 {% if recipe.meal_type == "dinner" %}
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
+                            <!-- Dinner recipe catalog image -->
                             <div class="card-image card-image-custom valign-wrapper">
                                 <img class="catalog-image"
                                     src="{{ recipe.recipe_image }}">
                             </div>
+                            <!-- Dinner recipe catalog name -->
                             <div class="col">
                                 <div class="left">
                                     <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
@@ -203,10 +223,13 @@
                         </div>
                     </div>
 
+                    <!-- Dinner recipe modal information -->
                     <div id="{{ recipe.recipe_name }}" class="modal">
                         <div class="modal-content">
+                        <!-- Dinner recipe modal name -->
                             <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
                             <div class="row instructions-field">
+                                <!-- Dinner recipe modal ingredients -->
                                 <p class="small-title center">Ingredients</p>
                                 <ul class="ingredient-list">
                                     {% for ingredient in recipe.recipe_ingredients %}
@@ -215,6 +238,7 @@
                                         </li>
                                     {% endfor %}
                                 </ul>
+                                <!-- Dinner recipe modal directions -->
                                 <p class="small-title center">Directions</p>
                                 <ol class="directions-list">
                                     {% for direction in recipe.recipe_directions %}
