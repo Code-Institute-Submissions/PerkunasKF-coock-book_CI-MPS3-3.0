@@ -21,6 +21,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# Render the home page
 @app.route("/")
 @app.route("/home")
 def home():
@@ -34,6 +35,7 @@ def home():
         products_onsale=products_onsale)
 
 
+# Render the recipe page with all recipes
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find().sort("recipe_name", 1))
@@ -45,6 +47,7 @@ def get_recipes():
         recipes_search=recipes_search)
 
 
+# Render product page with all products
 @app.route("/get_products")
 def get_products():
     products = list(mongo.db.products.find().sort("product_name", 1))
@@ -58,6 +61,8 @@ def get_products():
         products_search=products_search)
 
 
+# Renders redister page
+# If user information is valid register and store user data to the database
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -68,8 +73,8 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
-        if request.form.get("password") != request.form.get(
-            "password_confirm"):
+        if request.form.get(
+            "password") != request.form.get("password_confirm"):
             flash("Password does not match!")
             return redirect(url_for('register'))
 
@@ -86,6 +91,9 @@ def register():
     return render_template("register.html")
 
 
+# Render login page
+# If user information is valid logs in usr to the website
+# If information is not valid flashes a warnin message
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -112,6 +120,9 @@ def login():
     return render_template("login.html")
 
 
+# Render profile page
+# Users ssesion user to get the right usr id to show corect users information
+# Send user image, name and recipes to user profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     recipes = list(mongo.db.recipes.find().sort("recipe_name", 1))
@@ -133,6 +144,10 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# Render edit profile page
+# Check is user change any data if no changes
+# then send back the same information
+# If changes the information then send and store new informtion on database
 @app.route("/edit_profile/<user_id>", methods=["GET", "POST"])
 def edit_profile(user_id):
     user_image = mongo.db.users.find_one(
@@ -169,6 +184,7 @@ def edit_profile(user_id):
         user_image=user_image)
 
 
+# Redirects user to log in page
 @app.route("/logout")
 def logout():
     flash("You have been logged out")
@@ -176,6 +192,8 @@ def logout():
     return redirect(url_for("login"))
 
 
+# Reders add recipe form
+# Stored users inputs to databse
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if request.method == "POST":
@@ -194,6 +212,9 @@ def add_recipe():
     return render_template("add_recipe.html")
 
 
+# Renders edit recipe page
+# Gets and show recipe information base on recipes id
+# Store curent information to database
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
     if request.method == "POST":
@@ -230,6 +251,8 @@ def edit_recipe(recipe_id):
         recipe_select=recipe_select, recipes_list=recipes_list)
 
 
+# Redirects user to profile page
+# Deletes recipe form database
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
@@ -237,6 +260,8 @@ def delete_recipe(recipe_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
+# Renders add product form
+# Store forms information to database
 @app.route("/add_product", methods=["GET", "POST"])
 def add_product():
     if request.method == "POST":
@@ -252,6 +277,9 @@ def add_product():
     return render_template("add_product.html")
 
 
+# Renders edit product form
+# Get selectede products information base on products id
+# Sednd new information to databse and owerides the old one
 @app.route("/edit_product/<product_id>", methods=["GET", "POST"])
 def edit_product(product_id):
     if request.method == "POST":
@@ -284,6 +312,8 @@ def edit_product(product_id):
         product_select=product_select, product_list=product_list)
 
 
+# Rediercts admin user to profile page
+# Deletes user from databse
 @app.route("/delete_user/<user_id>")
 def delete_user(user_id):
     mongo.db.users.remove({"_id": ObjectId(user_id)})
@@ -291,6 +321,8 @@ def delete_user(user_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
+# Redirects admin user to profile page
+# Deletes product for database
 @app.route("/delete_product/<product_id>")
 def delete_product(product_id):
     mongo.db.products.remove({"_id": ObjectId(product_id)})
@@ -298,6 +330,8 @@ def delete_product(product_id):
     return redirect(url_for("profile", username=session["user"]))
 
 
+# Reload product page with serched objects
+# Resets the page
 @app.route("/search_products", methods=["GET", "POST"])
 def search_products():
     query_product = request.form.get("query_product")
@@ -314,6 +348,8 @@ def search_products():
         products_search=products_search)
 
 
+# Reload recipe page with serched objects
+# Resets the page
 @app.route("/search_recipes", methods=["GET", "POST"])
 def search_recipes():
     query_recipe = request.form.get("query_recipe")
