@@ -1,5 +1,5 @@
 <h1 align="center">
-  Cook Book
+  COOK BOOK
 </h1>
   
 <h2 align="center">
@@ -20,14 +20,12 @@
     3. [Development Planes](#Development-Planes)
 2. [Features](#Features)
 3. [Issues and Bugs](#Issues-and-Bugs)
+4. [Admin User Information](#Admin-User-Information)
 4. [Technologies Used](#Technologies-Used)
      1. [Main Languages Used](#Main-Languages-Used)
      2. [Frameworks, Libraries & Programs Used](#Frameworks-Libraries-&-Programs-Used)
 5. [Testing](#Testing) ☞ **[Testing.md](TESTING.md)**
 6. [Deployment](#Deployment)
-     1. [Deploying on GitHub Pages](#Deploying-on-GitHub-Pages)
-     2. [Forking the Repository](#Forking-the-Repository)
-     3. [Creating a Clone](#Creating-a-Clone)
 7. [Credits](#Credits)
      1. [Audio](#Audio)
      2. [Code](#Code)
