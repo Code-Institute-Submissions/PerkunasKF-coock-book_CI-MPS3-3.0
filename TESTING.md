@@ -98,7 +98,45 @@
 
 - Clicking add an ingredient or add directions will add an input field. Clicking remove button will remove input file:
 
-    ![Clicking add/remove buttons](assets/testing/add-recipe-form.gif)
+    ![Clicking add/remove buttons](assets/testing/add-remove-buttons.gif)
+
+- Clicking upload image will open Cloudinary widget, only uploads from devise is currently working:
+
+    ![Uploading recipe image](assets/testing/add-recipe-img.gif)
+
+- Clicking on a recipe on profile page will open a modal with descriptions, edit and delete buttons:
+
+    ![User recipe modal](assets/testing/user-recipe-modal.gif)
+
+- Clicking edit button will open edit recipe form with recipe information:
+
+    ![Edit recipe form](assets/testing/edit-recipe-form.gif)
+
+- Edit recipe form can change images, add, remove or edit ingredients and directions:
+
+    ![Edit form functions](assets/testing/edit-recipe-form-functions.gif)
+
+- After clicking delete for a recipe a confirmation window opens:
+
+    ![Delete recipe](assets/testing/delete-recipe.gif)
+
+- Admin users can add products by clicking add products button. Form works the same as add recipe form:
+
+    ![Add product form](assets/testing/add-product-form.gif)
+
+- Admin users can see all users in all user sections on the profile page. Admin users can delete any user except for admin user:
+
+    ![Delete user](assets/testing/dlete-user.gif)
+
+- Admin users can see all recipes and delete any recipe:
+
+    ![Delete recipe by admin](assets/testing/admin-delete-recipe.gif)
+
+- Clicking on footers social media icons will open a new window to that site:
+
+    ![Clicking social media icon](assets/testing/social-media-icons.gif)
+
+
 
 
 
