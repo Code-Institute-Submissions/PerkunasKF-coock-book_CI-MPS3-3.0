@@ -96,6 +96,10 @@
 
     ![Clicking add recipe button](assets/testing/add-recipe-form.gif)
 
+- Clicking add an ingredient or add directions will add an input field. Clicking remove button will remove input file:
+
+    ![Clicking add/remove buttons](assets/testing/add-recipe-form.gif)
+
 
 
 

@@ -49,7 +49,7 @@ function addProducts() {
   remuveBtnCol.appendChild(remuveBtnTextSmall);
 
   remuveBtnText.setAttribute("class", "remuve-btn-text center awarege-text big-catalog");
-  remuveBtnText.appendChild(document.createTextNode("Remuve"));
+  remuveBtnText.appendChild(document.createTextNode("Remove"));
 
   remuveBtnTextSmall.setAttribute("class", "remuve-btn-text center awarege-text small-catalog");
   remuveBtnTextSmall.appendChild(document.createTextNode("X"));
