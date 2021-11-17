@@ -1,25 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
+<!-- Add product form -->
+
 
     <div class="row add-recipe-form title-container">
+        <!-- Titel for the form -->
         <div class="row title-container">
             <h4 class="section-title center">Add Product</h4>
         </div>
+        <!-- End of: Titel for the form -->
+
+        <!-- Start of the form -->
         <form class="col s12" method="POST" action="{{ url_for('add_product') }}">
+            
+            <!-- Product input informatin field -->
+            <!-- Product name -->
             <div class="row">
                 <div class="input-field col s12">
                     <input id="product_name" name="product_name" type="text" class="validate" maxlength="50" required>
                     <label for="product_name">Product Name</label>
                 </div>
             </div>
+            <!-- Product description -->
             <div class="row">
                 <div id="product-list" class="col s12 center">
                     <ul id="add_products">
                         <h4 class="awarege-title add-title center">Description</h4>
                     </ul>
+                    <!-- Button to add extra input field -->
                     <div id="add-descriptions-button" class="btn add-btn awarege-text">Add Description</div>
                 </div>
             </div>
+            <!-- End of: Product input informatin field -->
+
 
             <!-- Big screen radio buttons -->
             <div class="row meal-type-select center big-catalog">
@@ -59,18 +72,22 @@
             </div>
             <!-- End of: Small screen radio buttons -->
 
+            <!-- Button for cloudinary widget -->
             <div class="row center">
                 <div id="upload_widget" class="cloudinary-button" product="product">Upload image</div>
             </div>
+            <!-- Hidden style to get infromation of the imag to store to database -->
             <div class="row" style="display: none;">
                 <input id="product_image" name="product_image" type="text">
                 <label for="product_image"></label>
             </div>
+            <!-- Button to end forum inputs -->
             <div class="row center">
                 <div class="col s6"><button type="submit" class="btn add-btn mobal-text">Add Product</button></div>
                 <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn add-btn mobal-text">Cancel</a></div>
             </div>
         </form>
+        <!-- End of the form -->
     </div>
 
 {% endblock %}
