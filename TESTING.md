@@ -78,7 +78,25 @@
 
 - Clicking on catalog item will pop up a modal with the item's description:
 
-    ![Clicking on a catalog item](assets/testing/product-catalog-nav.gif)
+    ![Clicking on a catalog item](assets/testing/catalog-modal.gif)
+
+- Registering a user. If username already exists a flash message appears. Passwords must match:
+
+    ![Registering a user](assets/testing/register-user.gif)
+
+- Logging in. If username or password is incorrect a flash message appears:
+
+    ![Logging in](assets/testing/log-in.gif)
+
+- Changing image for user profile. (Using saved screenshot). Cloudinary widget appears, only upload from devise is currently working:
+
+    ![Image change](assets/testing/profile-img.gif)
+
+- Clicking add recipe button will open add recipe form:
+
+    ![Clicking add recipe button](assets/testing/add-recipe-form.gif)
+
+
 
 
 
