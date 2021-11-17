@@ -2,11 +2,16 @@
 {% block content %}
 
     <div class="row add-recipe-form title-container">
+        <!-- Tile for edit product page -->
         <div class="row title-container">
             <h4 class="section-title center">Edit Product</h4>
         </div>
+        <!-- End of: Tile for edit product page -->
+
+        <!-- Start of form -->
         <form class="col s12" method="POST" action="{{ url_for('edit_product', product_id=product_select._id) }}">
-            <!-- Big screen display -->
+
+            <!-- Big screen display for name and image-->
             <div class="row big-catalog">
                 {% for product in product_list %}
                     {% if product.product_name == product_select.product_name %}
@@ -20,9 +25,9 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <!-- End of: Big screen display -->
+            <!-- End of: Big screen display for name and image--->
 
-            <!-- Small screen display -->
+            <!-- Small screen display for name and image--->
             <div class="row small-catalog">
                 {% for product in product_list %}
                     {% if product.product_name == product_select.product_name %}
@@ -42,8 +47,9 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <!-- End of: Small screen display -->
+            <!-- End of: Small screen display for name and image--->
 
+            <!-- input field for old infromation and to add new information -->
             <div class="row">
                 <div id="description-list" class="col s12 center">
                     <h4 class="awarege-title add-title">Description</h4>
@@ -55,14 +61,18 @@
                                     <li class="edit-des-input-field" id="edit-description-list-item-{{ count.value }}"
                                         number="{{ count.value }}">
                                         <div class="row">
+                                            <!-- Input field -->
                                             <div class="col s9">
                                                 <input name="product_description" type="text" class="recipe_ing" value="{{- description -}}" required="">
                                             </div>
+                                            <!-- End of: Input field -->
+                                            <!-- Remove btn -->
                                             <div class="col s3 edit-item-remuve remuve-btn"
                                                 id="edit-description-list-item-remuve-{{ count.value }}" number="{{ count.value }}">
                                                 <p class="remuve-btn-text center awarege-text big-catalog">Remuve</p>
                                                 <p class="remuve-btn-text center awarege-text small-catalog">X</p>
                                             </div>
+                                            <!-- End of: Remove btn -->
                                         </div>
                                     </li>
                                 {% set count.value = count.value + 1 %}
@@ -73,6 +83,7 @@
                     <div id="edit-descriptions-button" class="btn add-btn awarege-text">Add Description</div>
                 </div>
             </div>
+            <!-- End of: input field for old infromation and to add new information -->
 
             <!-- Meal type edit -->
             <div class="row meal-type-select center">
@@ -104,18 +115,23 @@
             </div>
             <!-- End of: Meal type edit -->
 
+            <!-- Cloudinary button to open widget for image input -->
             <div class="row center">
                 <div id="upload_widget" class="cloudinary-button" product="product">Change image</div>
             </div>
+            <!-- Hiden image info field to upload to database -->
             <div class="row" style="display: none;">
                 <input id="product_image" name="product_image" type="text">
                 <label for="product_image"></label>
             </div>
+            <!-- Buttons for form input end -->
             <div class="row center">
                 <div class="col s6"><button type="submit" class="btn add-btn mobal-text">Edit Product</button></div>
                 <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn add-btn mobal-text">Cancel</a></div>
             </div>
         </form>
+        <!-- End of form -->
+
     </div>
 
 {% endblock %}
