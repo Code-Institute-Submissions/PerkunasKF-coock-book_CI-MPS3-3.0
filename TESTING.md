@@ -22,7 +22,7 @@
 
 ***
 
-![Blank! Responsiveness](assets/img/am-i-resposive-2.png)
+![Blank! Responsiveness](assets/readme-images/am-i-responcive.png)
 
 ***
 ## Testing User Stories
@@ -53,6 +53,32 @@
 
 ## Manual Testing
 - Clicking or hovering on the links on the navigation bar will change the link's appearance:
+
+    ![Hovering over the navigationbar elements](assets/testing/navigationbar-links.gif)
+
+- Clicking on the bar icon on the small screen will unfold the navigation menu on the right of the screen:
+
+    ![Clicking on the bar icon](assets/testing/navigationbar-links-mobale.gif)
+
+- Holding and dragging carousel item will scroll to the next carousel item:
+
+    ![Dragging carousel item](assets/testing/carusel-modal.gif)
+
+- Clicking carousel item will pop up a modal with the item description:
+
+    ![Clicking carousels item](assets/testing/carusel-drag.gif)
+
+- Entering a word or phrase will display specific items in the product catalog under all products section:
+
+    ![Using a search feature](assets/testing/search-product.gif)
+
+- Clicking on catalog section will display the type of product:
+
+    ![Using the catalog section navigation](assets/testing/product-catalog-nav.gif)
+
+- Clicking on catalog item will pop up a modal with the item's description:
+
+    ![Clicking on a catalog item](assets/testing/product-catalog-nav.gif)
 
 
 
