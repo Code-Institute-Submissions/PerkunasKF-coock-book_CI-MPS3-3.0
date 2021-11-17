@@ -2,17 +2,21 @@
 {% block content %}
 
     <div class="row add-recipe-form title-container">
+        <!-- Edit recipe title -->
         <div class="row title-container">
             <h4 class="section-title center">Edit Recipe</h4>
         </div>
+
         <form class="col s12" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe_select._id) }}">
             <!-- Big screen display -->
             <div class="row big-catalog">
                 {% for recipe in recipes_list %}
                     {% if recipe.recipe_name == recipe_select.recipe_name %}
+                        <!-- Recipe image -->
                         <div class="col s4 recipe-images">
                             <img class="edit-recipe-img" src="{{ recipe_select.recipe_image }}" alt="">
                         </div>
+                        <!-- Recipe name input field -->
                         <div class="input-field col s8">
                             <input id="recipe_name" name="recipe_name" type="text" class="validate awarege-title" maxlength="50"
                             value="{{ recipe.recipe_name.capitalize()  }}" required>
@@ -28,11 +32,13 @@
                     {% if recipe.recipe_name == recipe_select.recipe_name %}
                     <ul>
                         <li>
+                            <!-- Recipe image -->
                             <div class="col s12 recipe-images">
                                 <img class="edit-recipe-img" src="{{ recipe_select.recipe_image }}" alt="">
                             </div>
                         </li>
                         <li>
+                            <!-- Recipe name input field -->
                             <div class="input-field col s12">
                                 <input id="recipe_name" name="recipe_name" type="text" class="validate awarege-title" maxlength="50"
                                 value="{{ recipe.recipe_name.capitalize()  }}" required>
@@ -44,6 +50,7 @@
             </div>
             <!-- End of: Small screen display -->
             
+            <!-- recipe ingredients input field -->
             <div id="ingredient-list" class="col s12 center">
                 <h4 class="awarege-title add-title">Ingredients</h4>
                 <ul id="edit_ingredients" class="center">
@@ -53,10 +60,12 @@
                             {% for ingredient in recipe.recipe_ingredients %}
                                 <li class="edit-ing-input-field" id="edit-ingredient-list-item-{{ count.value }}" number="{{ count.value }}">
                                     <div class="row">
+                                        <!-- Ingredient field -->
                                         <div class="col s9">
                                             <input name="recipe_ingredient" type="text" class="recipe_ing" value="{{- ingredient -}}"
                                                 required="">
                                         </div>
+                                        <!-- Remove button -->
                                         <div class="col s3 edit-item-remuve remuve-btn" id="edit-ingredient-list-item-remuve-{{ count.value }}"
                                             number="{{ count.value }}">
                                             <p class="remuve-btn-text center awarege-text big-catalog">Remuve</p>
@@ -71,6 +80,9 @@
                 </ul>
                 <div id="edit-ingredients-button" class="btn add-btn awarege-text">Add Ingredient</div>
             </div>
+            <!-- End of: recipe ingredients input field -->
+
+            <!-- Recipe directions input field -->
             <div class="row">
                 <div id="direction-list" class="col s12 center">
                     <ul id="edit-directions">
@@ -81,12 +93,14 @@
                                 {% for direction in recipe.recipe_directions %}
                                     <li class="edit-dir-input-field" id="edit-directions-list-item-{{ count.value }}" number="{{ count.value }}">
                                         <div class="row">
+                                            <!-- recipe direction input -->
                                             <div class="col s9">
                                                 <textarea name="recipe_direction" type="text" class="recipe_dir"
                                                 required="">
                                                 {{- direction -}}
                                             </textarea>
                                             </div>
+                                            <!-- Remove button -->
                                             <div class="col s3 remuve-btn" id="edit-direction-list-item-remuve-{{ count.value }}">
                                                 <p class="remuve-btn-text center awarege-text big-catalog">Remove</p>
                                                 <p class="remuve-btn-text center awarege-text small-catalog">X</p>
@@ -101,6 +115,8 @@
                     <div id="edit-direction-buttno" class="btn add-btn awarege-text">Add Direction</div>
                 </div>
             </div>
+            <!-- End of; Recipe directions input field -->
+
 
             <!-- Meal type edit -->
             <div class="row meal-type-select center">
@@ -144,14 +160,16 @@
             </div>
             <!-- End of: Meal type edit -->
 
-
+            <!-- Cloudinary button to opem widget for image upload -->
             <div class="row center">
                 <div id="upload_widget" class="cloudinary-button" recipe="recipe">Change image</div>
             </div>
+            <!-- Hidden class to store image data and upload to database -->
             <div class="row" style="display: none;">
                 <input id="recipe_image" name="recipe_image" type="text">
                 <label for="recipe_image"></label>
             </div>
+            <!-- For submit buttons or cancel button -->
             <div class="row center">
                 <div class="col s6"><button type="submit" class="btn add-btn mobal-text">Edit Recipe</button></div>
                 <div class="col s6"><a href="{{ url_for('profile', username=session['user']) }}" class="btn add-btn mobal-text">Cancel</a></div>
