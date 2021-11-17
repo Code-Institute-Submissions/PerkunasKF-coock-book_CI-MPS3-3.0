@@ -14,11 +14,7 @@
 ## Table of contents
 1. [Testing User Stories](#Testing-User-Stories)
 2. [Manual Testing](#Manual-Testing)
-3. [Automated Testing](#Automated-Testing) 
-     - [Code Validation](#Code-Validation)
-     - [Browser Validation](#Browser-Validation)
-     - [Lighthouse Auditing](#Lighthouse-Auditing)
-4. [User Testing](#User-Testing)
+3. [User Testing](#User-Testing)
 
 ***
 
@@ -136,46 +132,12 @@
 
     ![Clicking social media icon](assets/testing/social-media-icons.gif)
 
-## Automated Testing
-
-### Code Validation
-
-#### [W3C Markup Validator](https://validator.w3.org/ "Link to W3C Markup Validator") was used to validate the `HTML` code used:
-
-**Result:**
-
-![Page HTML Validation Results](assets/validation/HTML-validation.png)
-
-#### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/ "Link to W3C CSS Validator") was used to validate the `CSS` code used:
-
-**Result:**
-
-![CSS Validation Results](assets/validation/CSS-validation.png)
-
-#### [JSHint](https://jshint.com/ "Link to JSHint") was used to validate the `JavaScript` and `JQuery` code used:
-
-**Results:**
-
-- There were no errors for:
-    - `sendEmail.js`
-
-- The warrning for `color-game.js` :
-
-    ![Warning declared in JSHint](assets/validation/js-warning.png)
-    
-### Lighthouse Auditing
-
-![Lighthous Validation](assets/validation/lighthouse.png)
-
-[Back to top ⇧](#table-of-contents)
-
 ## User testing 
-Family members and friends, also mentor, Seun Owonikoko, were asked to review the site and documentation to point out any bugs and/or user experience issues. 
+Family members and friends, were asked to review the site and documentation to point out any bugs and/or user experience issues. 
 
 It was through this testing that the following changes were made:
-- Added extreme mode.
-- The sound was added to the color blinks.
-- Graphic design was remade.
-- More clearly defined modes and buttons.
+- Change the layout of the pages.
+- Navigation bar was fixed to the top.
+- Change the catalog for list to grid.
 
 [Back to top ⇧](#table-of-contents)
