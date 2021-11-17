@@ -68,33 +68,41 @@ function addIngredientsEdit () {
 
   ingredientList.appendChild(ingredientItem);
 
+  // Creates clases and ids for li and host row
   ingredientItem.setAttribute("class", "ing-input-field");
   ingredientItem.setAttribute("id", `ingredient-list-item-${ingredient}`);
   ingredientItem.setAttribute("number", `${ingredient}`);
   ingredientItem.appendChild(ingredientRow);
 
+  // Creats a row for input field and remuve button
   ingredientRow.setAttribute("class", "row");
   ingredientRow.appendChild(ingredientImputCol);
   ingredientRow.appendChild(remuveBtnCol);
   
+  // Creates container for input field
   ingredientImputCol.setAttribute("class", "col s9");
   ingredientImputCol.appendChild(ingredientInput);
 
+  // Creates input field
   ingredientInput.setAttribute("name", "recipe_ingredient");
   ingredientInput.setAttribute("type", "text");
   ingredientInput.setAttribute("class", "recipe_ing");
   ingredientInput.setAttribute("required", "");
 
+  // Creates remuve button
   remuveBtnCol.setAttribute("class", "col s3 remuve-btn");
   remuveBtnCol.setAttribute("id", `ingredient-list-item-remuve-${ingredient}`);
   remuveBtnCol.setAttribute("number", `${ingredient}`);
   
+  // Moves text to remove button
   remuveBtnCol.appendChild(remuveBtnText);
   remuveBtnCol.appendChild(remuveBtnTextSmall);
 
+  // create text for big screens
   remuveBtnText.setAttribute("class", "remuve-btn-text center awarege-text big-catalog");
   remuveBtnText.appendChild(document.createTextNode("Remove"));
 
+  // Creates text for small screens
   remuveBtnTextSmall.setAttribute("class", "remuve-btn-text center awarege-text small-catalog");
   remuveBtnTextSmall.appendChild(document.createTextNode("X"));
 
@@ -113,6 +121,8 @@ function enterIngredientEdit () {
 }
 
 
+// Selects all of the list items generated with induvidual ids
+// Add remove function for all remuve buttons
 function removeIngredient() {
   var removeBtns = document.querySelectorAll(".ing-input-field");
   var num;
@@ -146,31 +156,40 @@ function addDirectionsEdit () {
 
   directiontList.appendChild(directionItem);
 
+  // Creates clases and ids for li and host row
   directionItem.setAttribute("class", "dir-input-field");
   directionItem.setAttribute("id", `directions-list-item-${direction}`);
   directionItem.setAttribute("number", `${direction}`);
   directionItem.appendChild(directiontRow);
 
-
+  // Creats a row for input field and remuve button
   directiontRow.setAttribute("class", "row");
   directiontRow.appendChild(directiontImputCol);
   directiontRow.appendChild(remuveBtnCol);
   
+  // Creates container for input field
   directiontImputCol.setAttribute("class", "col s9");
   directiontImputCol.appendChild(directiontInput);
 
+  // Creates input field
   directiontInput.setAttribute("name", "recipe_direction");
   directiontInput.setAttribute("type", "text");
   directiontInput.setAttribute("class", "recipe_dir");
   directiontInput.setAttribute("required", "");
 
+  // Creates remuve button
   remuveBtnCol.setAttribute("class", "col s3 remuve-btn");
   remuveBtnCol.setAttribute("id", `direction-list-item-remuve-${direction}`);
-  remuveBtnCol.appendChild(remuveBtnText);
 
+  // Moves text to remove button
+  remuveBtnCol.appendChild(remuveBtnText);
+  remuveBtnCol.appendChild(remuveBtnTextSmall);
+
+  // create text for big screens
   remuveBtnText.setAttribute("class", "remuve-btn-text center awarege-text big-catalog");
   remuveBtnText.appendChild(document.createTextNode("Remove"));
 
+  // Creates text for small screens
   remuveBtnTextSmall.setAttribute("class", "remuve-btn-text center awarege-text small-catalog");
   remuveBtnTextSmall.appendChild(document.createTextNode("X"));
 
@@ -188,6 +207,9 @@ function enterDirectionsEdit () {
   });
 }
 
+
+// Selects all of the list items generated with induvidual ids
+// Add remove function for all remuve buttons
 function removeDirection() {
   var removeBtns = document.querySelectorAll(".dir-input-field");
   var num;
