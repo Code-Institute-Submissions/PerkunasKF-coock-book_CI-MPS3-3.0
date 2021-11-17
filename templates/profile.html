@@ -3,9 +3,9 @@
 
     <div class="row">
         <div class="col s12 m6 offset-m3">
+            <!-- user information -->
             <div class="card profile-card">
-        
-                <!-- user information -->
+                <!-- User Image -->
                 <div class="card-image profile-image-container">
                     {% if user_image == "" %}
                         <img id="user-img" class="profile-image"
@@ -17,35 +17,31 @@
                         href="{{ url_for('edit_profile', user_id=user_id)}}">
                         <i class="fas fa-pen profile-pic-edit"></i>
                     </a>
-        
-                    <!-- Veikianti miktukas nuotraukos kelimui -->
-                    <!-- <a class="btn-floating right-alighn halfway-fab waves-effect waves-light">
-                        <i id="upload_widget" class="fas fa-pen profile-pic-edit" profile="profile"></i>
-                    </a>
-                    <div class="row" style="display: none;">
-                        <input id="user_image" name="user_image" type="text" value="">
-                        <label for="user_image"></label>
-                    </div> -->
-                    <!--  -->
-        
                 </div>
+                <!-- End of: User Image -->
+                <!-- Usr name -->
                 <div class="card-content">
                     <h4 class="form-title line-br black-text" name="username">
                         {{ username.capitalize() }}
                     </h4>
                 </div>
+                <!-- End of: Usr name -->
             </div>
+            <!-- End of: user information -->
         </div>
     </div>
 
     <!-- Add buttons -->
     {% if session.user|lower == "admin" %}
+        <!-- Add buttons for admin -->
         <div class="row">
+            <!-- Add recipe button -->
             <div class="col s6 add-recipe-btn-container center">
                 <a href="{{ url_for('add_recipe') }}" class="btn add-btn awarege-text mobal-text">
                     Add Recipe
                 </a>
             </div>
+            <!-- Add product button -->
             <div class="col s6 add-recipe-btn-container center">
                 <a href="{{ url_for('add_product') }}" class="btn add-btn awarege-text mobal-text">
                     Add Product
@@ -53,6 +49,7 @@
             </div>
         </div>
     {% else %}
+        <!-- Add recipe button for all registered users -->
         <div class="row add-recipe-btn-container center">
             <a href="{{ url_for('add_recipe') }}" class="btn add-recipe-btn awarege-text mobal-text">
                 Add Recipe
@@ -67,12 +64,14 @@
         <div class="col s12">
             <ul class="tabs productas-catalog-navigation">
                 {% if session.user|lower == "admin" %}
+                    <!-- Navigation true sections for admin users -->
                     <li class="tab col s6 l2 offset-m1 offset-l1"><a class="black-text awarege-title center" href="#user-recipes">Your Recipes</a></li>
                     <li class="tab active col s6 l2"><a class="black-text awarege-title center" href="#all-users">All Users</a></li>
                     <li class="tab col s6 l2"><a class="black-text awarege-title center" href="#all-user-recipes">All Recipes</a></li>
                     <li class="tab col s6 l2"><a class="black-text awarege-title center" href="#utensils">Utensils</a></li>
                     <li class="tab col s6 l2"><a class="black-text awarege-title center" href="#pots-pans">Pots & Pans</a></li>
                 {% else %}
+                    <!-- Section for all registered users -->
                     <li class="tab active col s12"><a class="black-text awarege-title center" href="#user-recipes">Your Recipes</a></li>
                 {% endif %}
             </ul>
@@ -104,8 +103,10 @@
                 <!-- Recipe modal information -->
                 <div id="{{ recipe.recipe_name }}" class="modal">
                     <div class="modal-content">
+                        <!-- Recipe name -->
                         <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
                         <div class="row instructions-field">
+                            <!-- Recipe ingredients -->
                             <p class="small-title center">Ingredients</p>
                             <ul class="ingredient-list">
                                 {% for ingredient in recipe.recipe_ingredients %}
@@ -114,6 +115,7 @@
                                     </li>
                                 {% endfor %}
                             </ul>
+                            <!-- Recipe direction -->
                             <p class="small-title center">Directions</p>
                             <ol class="directions-list">
                                 {% for direction in recipe.recipe_directions %}
@@ -123,6 +125,7 @@
                                 {% endfor %}
                             </ol>
                         </div>
+                        <!-- Buttons to edti recipe -->
                         <div class="row center">
                             <div class="col s6">
                                 <a class="btn add-btn awarege-text mobal-text"
@@ -132,6 +135,7 @@
                                 <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ recipe._id }}">Delete</a>
                             </div>
                         </div>
+                        <!-- End of: Buttons to edti recipe -->
                     </div>
                 </div>
                 <!-- End of: Recipe modal information -->
@@ -166,9 +170,12 @@
                     <!-- All user preview -->
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
+
+                            <!-- User image -->
                             <div class="card-image card-image-custom valign-wrapper">
                                 <img class="catalog-image" src="{{ user.user_image }}">
                             </div>
+                            <!-- User name -->
                             <div class="col">
                                 <div class="left">
                                     <a class="modal-trigger black-text awarege-text display-name" href="#{{ user.username }}">
@@ -176,6 +183,7 @@
                                     </a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 {% endif %}
@@ -221,16 +229,18 @@
     
     
     
-    <!-- All recipes -->
+    <!-- All recipes for admin user-->
     <div id="all-user-recipes" class="row">
         {% for recipe in recipes %}
             {% if session.user|lower == "admin" %}
                 <!-- All recipe prewies -->
                 <div class="col s12 l4">
                     <div class="card horizontal display-card">
+                        <!-- Recipe image for catalog -->
                         <div class="card-image card-image-custom valign-wrapper">
                             <img class="catalog-image" src="{{ recipe.recipe_image }}">
                         </div>
+                        <!-- Recipe name for catalog -->
                         <div class="col">
                             <div class="left">
                                 <a class="modal-trigger black-text awarege-text display-name"
@@ -246,8 +256,10 @@
                 <!-- Recipe modal information -->
                 <div id="{{ recipe.recipe_name }}-all-recipes" class="modal">
                     <div class="modal-content">
+                        <!-- Recipe modal name -->
                         <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
                         <div class="row instructions-field">
+                            <!-- Recipe modal ingredients -->
                             <p class="small-title center">Ingredients</p>
                             <ul class="ingredient-list">
                                 {% for ingredient in recipe.recipe_ingredients %}
@@ -256,6 +268,7 @@
                                     </li>
                                 {% endfor %}
                             </ul>
+                            <!-- Recipe modal directions -->
                             <p class="small-title center">Directions</p>
                             <ol class="directions-list">
                                 {% for direction in recipe.recipe_directions %}
@@ -265,6 +278,7 @@
                                 {% endfor %}
                             </ol>
                         </div>
+                        <!-- Delete button for recipe -->
                         <div class="row center">
                             <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ recipe._id }}-2">Delete</a>
                         </div>
@@ -292,9 +306,9 @@
             {% endif %}
         {% endfor %}
     </div>
-    <!-- End of: All recipes -->
+    <!-- End of: All recipes for admin user -->
     
-    <!-- Utensils catalog list -->
+    <!-- Utensils catalog list only for admin user-->
     <div id="utensils" class="row">
         {% for product in products %}
             {% if session.user|lower == "admin" %}
@@ -302,9 +316,11 @@
                 <!-- Utensels preview cards -->
                 <div class="col s12 l4">
                     <div class="card horizontal display-card">
+                        <!-- Product image -->
                         <div class="card-image card-image-custom valign-wrapper">
                             <img class="catalog-image" src="{{ product.product_image }}">
                         </div>
+                        <!-- Product name -->
                         <div class="col">
                             <div class="left">
                                 <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
@@ -319,8 +335,10 @@
                 <!-- Utensel description modal -->
                 <div id="{{ product.product_name }}" class="modal">
                     <div class="modal-content">
+                        <!-- Product modal name -->
                         <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
                         <div class="row instructions-field">
+                            <!-- Product modal description -->
                             <p class="small-title center">Description</p>
                             <ul class="ingredient-list">
                                 {% for description in product.product_description %}
@@ -330,6 +348,8 @@
                                 {% endfor %}
                             </ul>
                         </div>
+
+                        <!-- Product edit buttons -->
                         <div class="modal-footer">
                             <div class="col s6 center">
                                 <a href="{{ url_for('edit_product', product_id=product._id) }}"
@@ -342,6 +362,7 @@
                                 </a>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <!-- End of: Utensel description modal -->
@@ -367,9 +388,9 @@
             {% endif %}
         {% endfor %}
     </div>
-    <!-- End of: Utensils catalog list -->
+    <!-- End of: Utensils catalog list only for admin user -->
     
-    <!-- Pots and Pans catalog list -->
+    <!-- Pots and Pans catalog list only for admin user-->
     <div id="pots-pans" class="row">
         {% for product in products %}
             {% if session.user|lower == "admin" %}
@@ -394,8 +415,10 @@
                     <!-- Utensel description modal -->
                     <div id="{{ product.product_name }}" class="modal">
                         <div class="modal-content">
+                            <!-- Product modal name -->
                             <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
                             <div class="row instructions-field">
+                                <!-- Product modal description -->
                                 <p class="small-title center">Description</p>
                                 <ul class="ingredient-list">
                                     {% for description in product.product_description %}
@@ -405,6 +428,8 @@
                                     {% endfor %}
                                 </ul>
                             </div>
+
+                            <!-- Product modal edit buttons -->
                             <div class="modal-footer">
                                 <div class="col s6 center">
                                     <a href="{{ url_for('edit_product', product_id=product._id) }}"
@@ -417,6 +442,7 @@
                                     </a>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                     <!-- End of: Utensel description modal -->
@@ -442,6 +468,6 @@
             {% endif %}
         {% endfor %}
     </div>
-    <!-- End of: Pots and Pans catalog list -->
+    <!-- End of: Pots and Pans catalog list only for admin user -->
 
 {% endblock %}
