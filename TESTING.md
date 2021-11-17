@@ -6,9 +6,9 @@
 
 [Main README.md file](README.md "Link to README file")
 
-[View live project](https://perkunaskf.github.io/msp2-games/ "Link to Live project")
+[View live project](http://coock-book-ci-msp3.herokuapp.com/home "Link to Live project")
 
-[View website in GitHub Pages](https://github.com/PerkunasKF/msp2-games "Link to Blank! Repository")
+[View website in GitHub Pages](https://github.com/PerkunasKF/coock-book_CI-MPS3-3.0 "Link to Blank! Repository")
 
 ***
 ## Table of contents
@@ -27,32 +27,34 @@
 ***
 ## Testing User Stories
 
-#### Player Goals:
-1. As a player I am looking for a fun game to play:
-    - Game page features a colorful and pleasing design for the player.
-    - All functions are responsive and easy to understand.
-    - The game is supported on all screen sizes for ease of use.
-2. As a player I am looking for instructions on how to play the game:
-    - The tutorial button is easy to find on top of the screen with a clear icon. 
-    - On mouse cursor hover mouse cursor changes to indicate icon is interactive. 
-    - On click a box with all instructions and features pop up in the middle of the screen.
-3. As a player I am looking for intuitive interface:
-    - Reset button has an icon witch intuitively means reset the game. 
-    - Tutorial button has an icon witch intuitively mean to ask something. 
-    - Mode changing button changes on click to indicate which mode player is using. 
-    - High score button is clearly defined and marked by "High Score" text. 
-    - Feedback button is defined by an envelope icon.
-    - Start button is clearly defined in the middle of the screen with "START" text. 
-    - Game area is clearly defined and designed to be in the middle of the screen. 
-    - The shape of the game area is designed to look like the original Symon Says game.
-4. As a player I am looking for a track of my achievements in the game:
-    - Clicking high score button pops up a high score board for classic and extreme game modes. 
-    - On achieving high enough score player gets to write down their name or nickname. 
-    - The high score is saved on their browser so they can always see their high achievement.
+#### User Goals:
+1. As a user I am looking for a place to find new recipes.
+    - After entering the page user can see suggested recipes on the recipe carousel.
+    - The user can go to the recipe catalog just by clicking the recipe link on the navigation bar.
+    - The catalog contains all recipes, breakfast, lunch and dinner sections so the user can easily find what they want.
+    - The recipe page contains a search feature for the user to find a specific recipe.
+2. As a user I am looking for a place to write down their own recipes.
+    - On user profile page user can find add recipe button to add any recipe they want.
+    - After clicking the add recipe page a forum page opens for adding the recipe. The form separates recipe name, ingredients, descriptions and add recipe image.
+3. As a user I am looking for an intuitive interface.
+    - Navigation bar is easy to find on top of the page with all the links.
+    - Clicking on any recipe or product will pop up a modal with the descriptions of the recipe or modal.
+    - Navigations for products or recipes in catalog pages are easy to understand and find.
+    - Adding recipe or product is intuitively understood.
+    - Editing recipes or products is intuitively understood.
+    - Editing the profile image or password is marked on the profile page with an edit icon.
+    - The footer contains home link in a shape of the page logo also links to the social pages in social pages icons.
+4. As a user I am looking to find some products to use on their recipes.
+    - After entering the page user can find a carousel with new products for sale.
+    - The product page contains a catalog of all products for sale. Product catalog is separated into three groups: all products, utensils and pots & pans.
+    - Product page contains a search feature for users to find something specific.
 
 [Back to top ⇧](#table-of-contents)
 
 ## Manual Testing
+- Clicking or hovering on the links on the navigation bar will change the link's appearance:
+
+
 
 - Clicking the hovering over interactive elements will change the cursor and the button styles:
 
