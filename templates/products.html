@@ -49,7 +49,7 @@
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
                             <div class="card-image card-image-custom valign-wrapper">
-                                <img class="catalog-image" src="{{ product.product_image }}" href="Image of {{ product.product_name }}">
+                                <img class="catalog-image" src="{{ product.product_image }}" alt="Image of {{ product.product_name }}">
                             </div>
                             <div class="col">
                                 <div class="left">
@@ -90,7 +90,7 @@
                             <div class="card horizontal display-card">
                                 <div class="card-image card-image-custom valign-wrapper">
                                     <img class="catalog-image"
-                                        src="{{ product.product_image }}" href="Image of {{ product.product_name }}">
+                                        src="{{ product.product_image }}" alt="Image of {{ product.product_name }}">
                                 </div>
                                 <div class="col">
                                     <div class="left">
@@ -132,7 +132,7 @@
                             <div class="card horizontal display-card">
                                 <div class="card-image card-image-custom valign-wrapper">
                                     <img class="catalog-image"
-                                        src="{{ product.product_image }}" href="Image of {{ product.product_name }}">
+                                        src="{{ product.product_image }}" alt="Image of {{ product.product_name }}">
                                 </div>
                                 <div class="col">
                                     <div class="left">
@@ -182,7 +182,7 @@
                     <!-- Carusel producs -->
                     <a class="carousel-item center modal-trigger" href="#{{ product._id }}">
                         <h2 class="recipe-name-text">{{ product.product_name.capitalize() }}</h2>
-                        <img class="carusel-img valign-wrapper" src="{{ product.product_image }}" href="Image of {{ product.product_name }}">
+                        <img class="carusel-img valign-wrapper" src="{{ product.product_image }}" alt="Image of {{ product.product_name }}">
                     </a>
                 {% endfor %}
             </div>
