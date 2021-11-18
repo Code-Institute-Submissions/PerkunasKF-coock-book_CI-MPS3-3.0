@@ -159,6 +159,7 @@ All features are responsive and intuitive:
      - The Admin user can see all the recipes on the profile page and delete any recipe. After selecting a recipe a modal display appears and on the bottom of the modal there is a delete button. Clicking delete button will display another modal to confirm delete action.
      - Admin users can see all users and delete any user. After clicking on a user a modal display appears. After clicking the delete button another modal appears to verify the delete action.
      - The Tdmin user can add/edit products. The add/edit product function works the same way it was described above.
+- **Cloudinary Widged** - Only upload files from the device are working for image upload to cloydinary.
 
 [Back to top ⇧](#table-of-contents)
 
