@@ -53,7 +53,7 @@
                             </div>
                             <div class="col">
                                 <div class="left">
-                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ product._id }}">
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ product._id }}-all">
                                         {{ product.product_name }}
                                     </a>
                                 </div>
@@ -62,7 +62,7 @@
                     </div>
                     
                     <!-- Modal for product description -->
-                    <div id="{{ product._id }}" class="modal">
+                    <div id="{{ product._id }}-all" class="modal">
                         <div class="modal-content">
                             <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
                             <div class="row instructions-field">
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="left">
-                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product._id }}">
+                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product._id }}-utensils">
                                             {{ product.product_name }}
                                         </a>
                                     </div>
@@ -103,7 +103,7 @@
                         </div>
 
                         <!-- Modal for product description -->
-                        <div id="{{ product._id }}" class="modal">
+                        <div id="{{ product._id }}-utensils" class="modal">
                             <div class="modal-content">
                                 <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
                                 <div class="row instructions-field">
@@ -136,7 +136,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="left">
-                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product._id }}">
+                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product._id }}-potspans">
                                             {{ product.product_name }}
                                         </a>
                                     </div>
@@ -145,7 +145,7 @@
                         </div>
 
                         <!-- Modal for product description -->
-                        <div id="{{ product._id }}" class="modal">
+                        <div id="{{ product._id }}-potspans" class="modal">
                             <div class="modal-content">
                                 <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
                                 <div class="row instructions-field">
@@ -180,7 +180,7 @@
             <div class="carousel carousel-slider carousle-container">
                 {% for product in products_onsale %}
                     <!-- Carusel producs -->
-                    <a class="carousel-item center modal-trigger" href="#{{ product._id }}">
+                    <a class="carousel-item center modal-trigger" href="#{{ product._id }}-carusel">
                         <h2 class="recipe-name-text">{{ product.product_name.capitalize() }}</h2>
                         <img class="carusel-img valign-wrapper" src="{{ product.product_image }}" alt="Image of {{ product.product_name }}">
                     </a>
@@ -192,7 +192,7 @@
     <!-- Modul pop up content for products -->
     {% for product in products_onsale %}
         <div class="row">
-            <div id="{{ product._id }}" class="modal home-modal">
+            <div id="{{ product._id }}-carusel" class="modal home-modal">
                 <div class="modal-content">
                     <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
                     <div class="row instructions-field">
