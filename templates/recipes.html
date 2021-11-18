@@ -100,12 +100,12 @@
                             <!-- Breakfas catalog recipe images -->
                             <div class="card-image card-image-custom valign-wrapper">
                                 <img class="catalog-image"
-                                    src="{{ recipe.recipe_image }}" href="#{{ recipe._id }}-breakfast">
+                                    src="{{ recipe.recipe_image }}" alt="Image of: {{ recipe.recipe_name }}">
                             </div>
                             <!-- Breakfas catalog recipe names -->
                             <div class="col">
                                 <div class="left">
-                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe._id }}-breakfast">
                                         {{ recipe.recipe_name }}
                                     </a>
                                 </div>
@@ -155,12 +155,12 @@
                             <!-- Lunch recipe catalog image -->
                             <div class="card-image card-image-custom valign-wrapper">
                                 <img class="catalog-image"
-                                    src="{{ recipe.recipe_image }}" href="#{{ recipe._id }}-lunch">
+                                    src="{{ recipe.recipe_image }}" alt="Image of {{ recipe.recipe_name }}">
                             </div>
                             <!-- Lunch recipe catalog name -->
                             <div class="col">
                                 <div class="left">
-                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe._id }}-lunch">
                                         {{ recipe.recipe_name }}
                                     </a>
                                 </div>
@@ -210,12 +210,12 @@
                             <!-- Dinner recipe catalog image -->
                             <div class="card-image card-image-custom valign-wrapper">
                                 <img class="catalog-image"
-                                    src="{{ recipe.recipe_image }}" href="#{{ recipe._id }}-dinner">
+                                    src="{{ recipe.recipe_image }}" alt="Image of {{ recipe.recipe_name }}">
                             </div>
                             <!-- Dinner recipe catalog name -->
                             <div class="col">
                                 <div class="left">
-                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe.recipe_name }}">
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ recipe._id }}-dinner">
                                         {{ recipe.recipe_name }}
                                     </a>
                                 </div>
@@ -266,7 +266,7 @@
                 <!-- Carusel random recipes -->
                 <a class="carousel-item center modal-trigger" href="#{{ recipe._id }}-carusel">
                     <h2 class="recipe-name-text">{{ recipe.recipe_name.capitalize() }}</h2>
-                    <img class="carusel-img valign-wrapper" src="{{ recipe.recipe_image }}" href="#{{ recipe.recipe_name }}">
+                    <img class="carusel-img valign-wrapper" src="{{ recipe.recipe_image }}" alt="Image of {{ recipe.recipe_name }}">
                 </a>
             {% endfor %}
         </div>
