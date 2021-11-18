@@ -16,8 +16,6 @@
 2. [Manual Testing](#Manual-Testing)
 3. [Automated Testing](#Automated-Testing) 
      - [Code Validation](#Code-Validation)
-     - [Browser Validation](#Browser-Validation)
-     - [Python Validation](#ExtendsClass)
      - [Lighthouse Auditing](#Lighthouse-Auditing)
 4. [User Testing](#User-Testing)
 
