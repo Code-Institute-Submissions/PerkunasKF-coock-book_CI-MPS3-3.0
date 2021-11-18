@@ -41,7 +41,7 @@ var myWidget = cloudinary.applyUploadWidget(
         console.log(profileImg);
         console.log(check);
       }
-      if (check.getAttribute("product") == "product") {
+      if (check.getAttribute("data-product") == "product") {
         productImg = true;
         console.log(check);
       }
