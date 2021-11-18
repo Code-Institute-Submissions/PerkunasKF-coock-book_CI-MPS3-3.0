@@ -146,8 +146,11 @@
 Home page
 ![Home page HTML Validation Results](assets/testing/html-validation.png)
 
-Home page
-![Home page HTML Validation Results](assets/testing/html-validation.png)
+Product page
+![Product page HTML Validation Results](assets/testing/htm-validation-product.png)
+
+Product page
+![Product page HTML Validation Results](assets/testing/htm-validation-product.png)
 
 #### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/ "Link to W3C CSS Validator") was used to validate the `CSS` code used:
 

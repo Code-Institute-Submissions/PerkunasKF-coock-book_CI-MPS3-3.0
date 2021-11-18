@@ -47,12 +47,12 @@
                     <div class="card horizontal display-card">
                         <!-- Recipe catalog image -->
                         <div class="card-image card-image-custom">
-                            <img class="catalog-image" src="{{ recipe.recipe_image }}">
+                            <img class="catalog-image" src="{{ recipe.recipe_image }}" alt="Image of {{ recipe.recipe_name }}">
                         </div>
                         <!-- Recipe catalog name -->
                         <div class="col">
                             <div class="left">
-                                <a class="modal-trigger black-text awarege-text" href="#{{ recipe.recipe_name }}">
+                                <a class="modal-trigger black-text awarege-text" href="#{{ recipe._id }}-all">
                                     {{ recipe.recipe_name }}
                                 </a>
                             </div>
@@ -61,7 +61,7 @@
                 </div>
                 
                 <!-- Recipe modal infomation -->
-                <div id="{{ recipe.recipe_name }}" class="modal">
+                <div id="{{ recipe._id }}-all" class="modal">
                     <div class="modal-content">
                         <!-- Recipe modal name -->
                         <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
@@ -100,7 +100,7 @@
                             <!-- Breakfas catalog recipe images -->
                             <div class="card-image card-image-custom valign-wrapper">
                                 <img class="catalog-image"
-                                    src="{{ recipe.recipe_image }}">
+                                    src="{{ recipe.recipe_image }}" href="#{{ recipe._id }}-breakfast">
                             </div>
                             <!-- Breakfas catalog recipe names -->
                             <div class="col">
@@ -114,7 +114,7 @@
                     </div>
 
                     <!-- Breakfas catalo modal information -->
-                    <div id="{{ recipe.recipe_name }}" class="modal">
+                    <div id="{{ recipe._id }}-breakfast" class="modal">
                         <div class="modal-content">
                             <!-- Breakfas recipe modal name -->
                             <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
@@ -155,7 +155,7 @@
                             <!-- Lunch recipe catalog image -->
                             <div class="card-image card-image-custom valign-wrapper">
                                 <img class="catalog-image"
-                                    src="{{ recipe.recipe_image }}">
+                                    src="{{ recipe.recipe_image }}" href="#{{ recipe._id }}-lunch">
                             </div>
                             <!-- Lunch recipe catalog name -->
                             <div class="col">
@@ -169,7 +169,7 @@
                     </div>
 
                     <!-- Lunch recipe modal information -->
-                    <div id="{{ recipe.recipe_name }}" class="modal">
+                    <div id="{{ recipe._id }}-lunch" class="modal">
                         <div class="modal-content">
                             <!-- Lunch recipe modal name -->
                             <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
@@ -210,7 +210,7 @@
                             <!-- Dinner recipe catalog image -->
                             <div class="card-image card-image-custom valign-wrapper">
                                 <img class="catalog-image"
-                                    src="{{ recipe.recipe_image }}">
+                                    src="{{ recipe.recipe_image }}" href="#{{ recipe._id }}-dinner">
                             </div>
                             <!-- Dinner recipe catalog name -->
                             <div class="col">
@@ -224,7 +224,7 @@
                     </div>
 
                     <!-- Dinner recipe modal information -->
-                    <div id="{{ recipe.recipe_name }}" class="modal">
+                    <div id="{{ recipe._id }}-dinner" class="modal">
                         <div class="modal-content">
                         <!-- Dinner recipe modal name -->
                             <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
@@ -255,9 +255,6 @@
         </div>
         <!-- End of: Dinner recipes catalog list -->
 
-    </div>
-        <!-- End of: Breakfast recipes catalog list -->
-
     <!-- Carusesl for random recipes -->
     <!-- Materialized model code block -->
     <div class="row title-container center">
@@ -267,9 +264,9 @@
         <div class="carousel carousel-slider carousle-container">
             {% for recipe in random_recipe %}
                 <!-- Carusel random recipes -->
-                <a class="carousel-item center modal-trigger" href="#{{ recipe.recipe_name }}">
+                <a class="carousel-item center modal-trigger" href="#{{ recipe._id }}-carusel">
                     <h2 class="recipe-name-text">{{ recipe.recipe_name.capitalize() }}</h2>
-                    <img class="carusel-img valign-wrapper" src="{{ recipe.recipe_image }}">
+                    <img class="carusel-img valign-wrapper" src="{{ recipe.recipe_image }}" href="#{{ recipe.recipe_name }}">
                 </a>
             {% endfor %}
         </div>
@@ -281,7 +278,7 @@
     <!-- Model for recipes in carucel description -->
     {% for recipe in random_recipe %}
         <div class="row">
-            <div id="{{ recipe.recipe_name }}" class="modal home-modal">
+            <div id="{{ recipe._id }}-carusel" class="modal home-modal">
                 <div class="modal-content">
                     <h4 class="awarege-title center">{{ recipe.recipe_name.upper() }}</h4>
                     <div class="row instructions-field">
