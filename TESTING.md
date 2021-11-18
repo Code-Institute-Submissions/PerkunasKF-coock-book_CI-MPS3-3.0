@@ -136,7 +136,18 @@
     ![Clicking social media icon](assets/testing/social-media-icons.gif)
 
 
-![Page HTML Validation Results](assets/validation/HTML-validation.png)
+
+### Code Validation
+
+#### [W3C Markup Validator](https://validator.w3.org/ "Link to W3C Markup Validator") was used to validate the `HTML` code used:
+
+**Result:**
+
+Home page
+![Home page HTML Validation Results](assets/testing/html-validation.png)
+
+Home page
+![Home page HTML Validation Results](assets/testing/html-validation.png)
 
 #### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/ "Link to W3C CSS Validator") was used to validate the `CSS` code used:
 
