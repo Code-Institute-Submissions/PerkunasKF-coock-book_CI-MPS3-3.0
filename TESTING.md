@@ -152,8 +152,11 @@ Product page
 Recipe page
 ![Recipe page HTML Validation Results](assets/testing/htm-validation-recipe.png)
 
-Recipe page
-![Recipe page HTML Validation Results](assets/testing/htm-validation-recipe.png)
+LogIn page
+![LogIn page HTML Validation Results](assets/testing/login-validation.png)
+
+LogIn page
+![LogIn page HTML Validation Results](assets/testing/login-validation.png)
 
 #### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/ "Link to W3C CSS Validator") was used to validate the `CSS` code used:
 
