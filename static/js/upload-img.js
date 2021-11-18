@@ -36,7 +36,7 @@ var myWidget = cloudinary.applyUploadWidget(
 
   document.getElementById("upload_widget").addEventListener("click", function () {
     var check = document.getElementById("upload_widget");
-      if (check.getAttribute("profile") == "profile") {
+      if (check.getAttribute("data-profile") == "profile") {
         profileImg = true;
         console.log(profileImg);
         console.log(check);

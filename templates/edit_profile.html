@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <form class="row center" method="POST" method="{{ url_for('edit_profile', user_id=userdata._id) }}">
+    <form class="row center" method="POST" action="{{ url_for('edit_profile', user_id=userdata._id) }}">
         <div class="col s12 m6 offset-m3">
             <div class="card profile-card">
 
@@ -9,14 +9,15 @@
                 <div class="card-image profile-image-container">
                     <!-- User image -->
                     {% if user_image == "" %}
-                        <img id="user-img" class="profile-image" src="https://res.cloudinary.com/silorak/image/upload/v1636472037/coock_book-img/blank-profile-picture-973460_960_720_cqroec.webp">
+                        <img id="user-img" class="profile-image" src="https://res.cloudinary.com/silorak/image/upload/v1636472037/coock_book-img/blank-profile-picture-973460_960_720_cqroec.webp"
+                        alt="Profile Image">
                     {% else %}
-                        <img class="profile-image" src="{{ user_image }}">
+                        <img class="profile-image" src="{{ user_image }}" alt="Profile Image">
                     {% endif %}
                     <!-- End of: User image -->
                     <!-- Cloudinery winget popo up -->
                     <a class="btn-floating right-alighn halfway-fab waves-effect waves-light">
-                        <i id="upload_widget" class="fas fa-pen profile-pic-edit" profile="profile"></i>
+                        <i id="upload_widget" class="fas fa-pen profile-pic-edit" data-profile="profile"></i>
                     </a>
                     <!-- Hidden class to get data to the database -->
                     <div class="row" style="display: none;">
@@ -27,9 +28,8 @@
 
                 <div class="card-content">
                     <!-- User name title -->
-                    <h4 id="edit-name" class="form-title line-br black-text" name="username" value="{{ username.capitalize() }}">
+                    <input id="edit-name" class="form-title line-br black-text" name="username" value="{{ username.capitalize() }}">
                         {{ username.capitalize() }}
-                    </h4>
                     <!-- password -->
                     <div class="input-field row">
                         <input id="password" name="password" type="password" class="validate" minlength="5"

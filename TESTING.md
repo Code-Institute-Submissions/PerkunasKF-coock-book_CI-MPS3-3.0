@@ -161,6 +161,9 @@ Register page
 Profile page
 ![Profile page HTML Validation Results](assets/testing/profile-page-validation.png)
 
+Edit Profile page
+![Edit Profile page HTML Validation Results](assets/testing/edit-profile-validation.png)
+
 Add Recipe page
 ![Add Recipe page HTML Validation Results](assets/testing/add-recipe-validation.png)
 
