@@ -49,11 +49,11 @@
                     <div class="col s12 l4">
                         <div class="card horizontal display-card">
                             <div class="card-image card-image-custom valign-wrapper">
-                                <img class="catalog-image" src="{{ product.product_image }}">
+                                <img class="catalog-image" src="{{ product.product_image }}" href="Image of {{ product.product_name }}">
                             </div>
                             <div class="col">
                                 <div class="left">
-                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
+                                    <a class="modal-trigger black-text awarege-text display-name" href="#{{ product._id }}">
                                         {{ product.product_name }}
                                     </a>
                                 </div>
@@ -90,11 +90,11 @@
                             <div class="card horizontal display-card">
                                 <div class="card-image card-image-custom valign-wrapper">
                                     <img class="catalog-image"
-                                        src="{{ product.product_image }}">
+                                        src="{{ product.product_image }}" href="Image of {{ product.product_name }}">
                                 </div>
                                 <div class="col">
                                     <div class="left">
-                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
+                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product._id }}">
                                             {{ product.product_name }}
                                         </a>
                                     </div>
@@ -103,7 +103,7 @@
                         </div>
 
                         <!-- Modal for product description -->
-                        <div id="{{ product.product_name }}" class="modal">
+                        <div id="{{ product._id }}" class="modal">
                             <div class="modal-content">
                                 <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
                                 <div class="row instructions-field">
@@ -132,11 +132,11 @@
                             <div class="card horizontal display-card">
                                 <div class="card-image card-image-custom valign-wrapper">
                                     <img class="catalog-image"
-                                        src="{{ product.product_image }}">
+                                        src="{{ product.product_image }}" href="Image of {{ product.product_name }}">
                                 </div>
                                 <div class="col">
                                     <div class="left">
-                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product.product_name }}">
+                                        <a class="modal-trigger black-text awarege-text display-name" href="#{{ product._id }}">
                                             {{ product.product_name }}
                                         </a>
                                     </div>
@@ -145,7 +145,7 @@
                         </div>
 
                         <!-- Modal for product description -->
-                        <div id="{{ product.product_name }}" class="modal">
+                        <div id="{{ product._id }}" class="modal">
                             <div class="modal-content">
                                 <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
                                 <div class="row instructions-field">
@@ -180,9 +180,9 @@
             <div class="carousel carousel-slider carousle-container">
                 {% for product in products_onsale %}
                     <!-- Carusel producs -->
-                    <a class="carousel-item center modal-trigger" href="#{{ product.product_name }}">
+                    <a class="carousel-item center modal-trigger" href="#{{ product._id }}">
                         <h2 class="recipe-name-text">{{ product.product_name.capitalize() }}</h2>
-                        <img class="carusel-img valign-wrapper" src="{{ product.product_image }}">
+                        <img class="carusel-img valign-wrapper" src="{{ product.product_image }}" href="Image of {{ product.product_name }}">
                     </a>
                 {% endfor %}
             </div>
@@ -192,7 +192,7 @@
     <!-- Modul pop up content for products -->
     {% for product in products_onsale %}
         <div class="row">
-            <div id="{{ product.product_name }}" class="modal home-modal">
+            <div id="{{ product._id }}" class="modal home-modal">
                 <div class="modal-content">
                     <h4 class="awarege-title center">{{ product.product_name.upper() }}</h4>
                     <div class="row instructions-field">
