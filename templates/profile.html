@@ -132,7 +132,7 @@
                                     href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">Edit</a>
                             </div>
                             <div class="col s6">
-                                <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ recipe._id }}">Delete</a>
+                                <a class="btn delete-btn awarege-text mobal-text modal-trigger" href="#{{ recipe._id }}">Delete</a>
                             </div>
                         </div>
                         <!-- End of: Buttons to edti recipe -->
@@ -143,12 +143,12 @@
                 <!-- Conformation to delete recipe -->
                 <div id="{{ recipe._id }}" class="modal">
                     <div class="modal-content">
-                        <h4 class="center awarege-title">Delete: {{ recipe.recipe_name.capitalize() }}?</h4>
+                        <h4 class="center awarege-title">Do you realy wan to delete: {{ recipe.recipe_name.capitalize() }}?</h4>
                     </div>
                     <div class="modal-footer">
                         <div class="col s6 center">
                             <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-                                class="modal-close btn add-btn awarege-text">
+                                class="modal-close btn delete-btn awarege-text">
                                 Delete</a>
                         </div>
                         <div class="col s6 center">
@@ -200,7 +200,7 @@
                             <a class="modal-close btn add-btn awarege-text mobal-text" href="#!">Cancel</a>
                         </div>
                         <div class="col s6">
-                            <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ user._id }}">Delete</a>
+                            <a class="btn delete-btn awarege-text mobal-text modal-trigger" href="#{{ user._id }}">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -210,14 +210,14 @@
             <!-- Conformation to delete user -->
             <div id="{{ user._id }}" class="modal">
                 <div class="modal-content">
-                    <h4 class="center awarege-title">Delete: {{ user.username.upper() }}?</h4>
+                    <h4 class="center awarege-title">Are you sure you want to delete: {{ user.username.upper() }}?</h4>
                 </div>
                 <div class="modal-footer">
                     <div class="col s6 center">
                         <a href="#!" class="modal-close btn add-btn awarege-text">Cancel</a>
                     </div>
                     <div class="col s6 center">
-                        <a href="{{ url_for('delete_user', user_id=user._id) }}" class="modal-close btn add-btn awarege-text">
+                        <a href="{{ url_for('delete_user', user_id=user._id) }}" class="modal-close btn delete-btn awarege-text">
                             Delete</a>
                     </div>
                 </div>
@@ -280,7 +280,7 @@
                         </div>
                         <!-- Delete button for recipe -->
                         <div class="row center">
-                            <a class="btn add-btn awarege-text mobal-text modal-trigger" href="#{{ recipe._id }}-2">Delete</a>
+                            <a class="btn delete-btn awarege-text mobal-text modal-trigger" href="#{{ recipe._id }}-2">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -289,7 +289,7 @@
                 <!-- Conformation to delete recipe -->
                 <div id="{{ recipe._id }}-2" class="modal">
                     <div class="modal-content">
-                        <h4 class="center awarege-title">Delete: {{ recipe.recipe_name.upper() }}?</h4>
+                        <h4 class="center awarege-title">Are you sure you want to delete: {{ recipe.recipe_name.upper() }}?</h4>
                     </div>
                     <div class="modal-footer">
                         <div class="col s6 center">
@@ -297,7 +297,7 @@
                         </div>
                         <div class="col s6 center">
                             <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-                                class="modal-close btn add-btn awarege-text">
+                                class="modal-close btn delete-btn awarege-text">
                                 Delete</a>
                         </div>
                     </div>
@@ -357,7 +357,7 @@
                                     Edit</a>
                             </div>
                             <div class="col s6 center">
-                                <a href="#{{ product._id }}" class="btn add-btn awarege-text mobal-text modal-trigger">
+                                <a href="#{{ product._id }}" class="btn delete-btn awarege-text mobal-text modal-trigger">
                                     Delete
                                 </a>
                             </div>
@@ -370,7 +370,7 @@
                 <!-- Conformation to delete product -->
                 <div id="{{ product._id }}" class="modal">
                     <div class="modal-content">
-                        <h4 class="center awarege-title">Delete: {{ product.product_name.upper() }}?</h4>
+                        <h4 class="center awarege-title">Are you sure you want to delete: {{ product.product_name.upper() }}?</h4>
                     </div>
                     <div class="modal-footer">
                         <div class="col s6 center">
@@ -378,7 +378,7 @@
                         </div>
                         <div class="col s6 center">
                             <a href="{{ url_for('delete_product', product_id=product._id) }}"
-                                class="modal-close btn add-btn awarege-text">
+                                class="modal-close btn delete-btn awarege-text">
                                 Delete</a>
                         </div>
                     </div>
@@ -437,7 +437,7 @@
                                         Edit</a>
                                 </div>
                                 <div class="col s6 center">
-                                    <a href="#{{ product._id }}" class="btn add-btn awarege-text mobal-text modal-trigger">
+                                    <a href="#{{ product._id }}" class="btn delete-btn awarege-text mobal-text modal-trigger">
                                         Delete
                                     </a>
                                 </div>
@@ -450,7 +450,7 @@
                     <!-- Conformation to delete product -->
                     <div id="{{ product._id }}" class="modal">
                         <div class="modal-content">
-                            <h4 class="center awarege-title">Delete: {{ product.product_name.upper() }}?</h4>
+                            <h4 class="center awarege-title">Are you sure you want to delete: {{ product.product_name.upper() }}?</h4>
                         </div>
                         <div class="modal-footer">
                             <div class="col s6 center">
@@ -458,7 +458,7 @@
                             </div>
                             <div class="col s6 center">
                                 <a href="{{ url_for('delete_product', product_id=product._id) }}"
-                                    class="modal-close btn add-btn awarege-text">
+                                    class="modal-close btn delete-btn awarege-text">
                                     Delete</a>
                             </div>
                         </div>

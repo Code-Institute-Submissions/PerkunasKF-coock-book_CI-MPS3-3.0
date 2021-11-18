@@ -195,7 +195,7 @@
 
 
 ## User testing 
-Family members and friends, were asked to review the site and documentation to point out any bugs and/or user experience issues. 
+Family members, friends and mentor were asked to review the site and documentation to point out any bugs and/or user experience issues. 
 
 It was through this testing that the following changes were made:
 - Change the layout of the pages.

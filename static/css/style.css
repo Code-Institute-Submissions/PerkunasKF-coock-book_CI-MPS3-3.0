@@ -95,16 +95,6 @@
         margin-bottom: 25px;
     }
 
-    .my-btn {
-        background-color: #38B000;
-        border: 2px solid black;
-    }
-
-    .my-btn:hover {
-        background-color: black;
-        border: 2px solid #38B000;
-    }
-
     .display-card {
         border: 3px solid #38B000;
         min-height: 100px;
@@ -426,8 +416,26 @@
         background-color: black;
     }
 
+    .delete-btn {
+        width: 50%;
+        height: 50px;
+        border: 5px solid black;
+        border-radius: 20px;
+        background-color: red;
+        font-size: 18px;
+    }
+
+    .delete-btn:hover {
+        border-color: red;
+        background-color: black;
+    }
+
     @media (max-width: 600px) {
         .add-btn {
+            width: 100%;
+        }
+
+        .delete-btn {
             width: 100%;
         }
     }
