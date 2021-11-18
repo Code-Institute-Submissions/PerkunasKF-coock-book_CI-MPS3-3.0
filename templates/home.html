@@ -13,7 +13,7 @@
                 <!-- Carusel recipes -->
                 <a class="carousel-item center modal-trigger" href="#{{ recipe._id }}">
                     <h2 class="recipe-name-text">{{ recipe.recipe_name.capitalize() }}</h2>
-                    <img class="carusel-img valign-wrapper" src="{{ recipe.recipe_image }}">
+                    <img class="carusel-img valign-wrapper" src="{{ recipe.recipe_image }}" alt="Image of {{ recipe.recipe_name }}">
                 </a>
             {% endfor %}
         </div>
@@ -62,7 +62,7 @@
                 <!-- Carusel producs -->
                 <a class="carousel-item center modal-trigger" href="#{{ product._id }}">
                     <h2 class="recipe-name-text">{{ product.product_name.capitalize() }}</h2>
-                    <img class="carusel-img valign-wrapper" src="{{ product.product_image }}">
+                    <img class="carusel-img valign-wrapper" src="{{ product.product_image }}" alt="Image of {{ recipe.product.product_name }}">
                 </a>
             {% endfor %}
         </div>
