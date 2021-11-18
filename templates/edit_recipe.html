@@ -40,7 +40,7 @@
                         <li>
                             <!-- Recipe name input field -->
                             <div class="input-field col s12">
-                                <input id="recipe_name" name="recipe_name" type="text" class="validate awarege-title" maxlength="50"
+                                <input id="recipe_name-small" name="recipe_name" type="text" class="validate awarege-title" maxlength="50"
                                 value="{{ recipe.recipe_name.capitalize()  }}" required>
                             </div>
                         </li>
@@ -58,7 +58,7 @@
                         {% if recipe.recipe_name == recipe_select.recipe_name %}
                         {% set count = namespace(value=0) %}
                             {% for ingredient in recipe.recipe_ingredients %}
-                                <li class="edit-ing-input-field" id="edit-ingredient-list-item-{{ count.value }}" number="{{ count.value }}">
+                                <li class="edit-ing-input-field" id="edit-ingredient-list-item-{{ count.value }}" data-number="{{ count.value }}">
                                     <div class="row">
                                         <!-- Ingredient field -->
                                         <div class="col s9">
@@ -67,7 +67,7 @@
                                         </div>
                                         <!-- Remove button -->
                                         <div class="col s3 edit-item-remuve remuve-btn" id="edit-ingredient-list-item-remuve-{{ count.value }}"
-                                            number="{{ count.value }}">
+                                        data-number="{{ count.value }}">
                                             <p class="remuve-btn-text center awarege-text big-catalog">Remuve</p>
                                             <p class="remuve-btn-text center awarege-text small-catalog">X</p>
                                         </div>
@@ -85,17 +85,17 @@
             <!-- Recipe directions input field -->
             <div class="row">
                 <div id="direction-list" class="col s12 center">
+                    <h4 class="awarege-title add-title center">Directions</h4>
                     <ul id="edit-directions">
-                        <h4 class="awarege-title add-title center">Directions</h4>
                         {% for recipe in recipes_list %}
                             {% if recipe.recipe_name == recipe_select.recipe_name %}
                                 {% set count = namespace(value=0) %}
                                 {% for direction in recipe.recipe_directions %}
-                                    <li class="edit-dir-input-field" id="edit-directions-list-item-{{ count.value }}" number="{{ count.value }}">
+                                    <li class="edit-dir-input-field" id="edit-directions-list-item-{{ count.value }}" data-number="{{ count.value }}">
                                         <div class="row">
                                             <!-- recipe direction input -->
                                             <div class="col s9">
-                                                <textarea name="recipe_direction" type="text" class="recipe_dir"
+                                                <textarea name="recipe_direction" class="recipe_dir"
                                                 required="">
                                                 {{- direction -}}
                                             </textarea>
@@ -162,7 +162,7 @@
 
             <!-- Cloudinary button to opem widget for image upload -->
             <div class="row center">
-                <div id="upload_widget" class="cloudinary-button" recipe="recipe">Change image</div>
+                <div id="upload_widget" class="cloudinary-button">Change image</div>
             </div>
             <!-- Hidden class to store image data and upload to database -->
             <div class="row" style="display: none;">

@@ -29,7 +29,7 @@ function addIngredients() {
   // Creates clases and ids for li and host row
   ingredientItem.setAttribute("class", "ing-input-field");
   ingredientItem.setAttribute("id", `ingredient-list-item-${ingredient}`);
-  ingredientItem.setAttribute("number", `${ingredient}`);
+  ingredientItem.setAttribute("data-number", `${ingredient}`);
   ingredientItem.appendChild(ingredientRow);
 
   // Creats a row for input field and remuve button
@@ -50,7 +50,7 @@ function addIngredients() {
   // Creates remuve button
   remuveBtnCol.setAttribute("class", "col s3 remuve-btn");
   remuveBtnCol.setAttribute("id", `ingredient-list-item-remuve-${ingredient}`);
-  remuveBtnCol.setAttribute("number", `${ingredient}`);
+  remuveBtnCol.setAttribute("data-number", `${ingredient}`);
   
   // Moves text to remove button
   remuveBtnCol.appendChild(remuveBtnText);
@@ -86,7 +86,7 @@ function removeIngredient() {
   var num;
   var btns;
 
-  num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
+  num = parseInt(removeBtns[removeBtns.length-1].getAttribute("data-number")) + 1;
 
     for (var i = 0; i < num; ++i) {
       var parent = document.getElementById(`ingredient-list-item-${i}`);
@@ -118,7 +118,7 @@ function addDirections() {
   // Creates clases and ids for li and host row
   directionItem.setAttribute("class", "dir-input-field");
   directionItem.setAttribute("id", `directions-list-item-${direction}`);
-  directionItem.setAttribute("number", `${direction}`);
+  directionItem.setAttribute("data-number", `${direction}`);
   directionItem.appendChild(directiontRow);
 
   // Creats a row for input field and remuve button
@@ -173,7 +173,7 @@ function removeDirection() {
   var num;
   var btns;
 
-  var num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
+  var num = parseInt(removeBtns[removeBtns.length-1].getAttribute("data-number")) + 1;
 
     for (var i = 0; i < num; ++i) {
       var parent = document.getElementById(`directions-list-item-${i}`);

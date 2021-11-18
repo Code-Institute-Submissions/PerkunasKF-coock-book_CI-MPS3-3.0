@@ -164,8 +164,11 @@ Profile page
 Add Recipe page
 ![Add Recipe page HTML Validation Results](assets/testing/add-recipe-validation.png)
 
-Add Recipe page
-![Add Recipe page HTML Validation Results](assets/testing/add-recipe-validation.png)
+Edit Recipe page
+![Edit Recipe page HTML Validation Results](assets/testing/edit-recipe-validation.png)
+
+Edit Recipe page
+![Edit Recipe page HTML Validation Results](assets/testing/edit-recipe-validation.png)
 
 
 #### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/ "Link to W3C CSS Validator") was used to validate the `CSS` code used:
