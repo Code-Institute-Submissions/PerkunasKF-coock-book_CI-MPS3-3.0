@@ -25,9 +25,9 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <!-- End of: Big screen display for name and image--->
+            <!-- End of: Big screen display for name and image-->
 
-            <!-- Small screen display for name and image--->
+            <!-- Small screen display for name and image-->
             <div class="row small-catalog">
                 {% for product in product_list %}
                     {% if product.product_name == product_select.product_name %}
@@ -39,7 +39,7 @@
                         </li>
                         <li>
                             <div class="input-field col s12">
-                                <input id="product_name" name="product_name" type="text" class="validate awarege-title" maxlength="50"
+                                <input id="product_name-small" name="product_name" type="text" class="validate awarege-title" maxlength="50"
                                 value="{{ product.product_name.capitalize()  }}" required>
                             </div>
                         </li>
@@ -47,7 +47,7 @@
                     {% endif %}
                 {% endfor %}
             </div>
-            <!-- End of: Small screen display for name and image--->
+            <!-- End of: Small screen display for name and image -->
 
             <!-- input field for old infromation and to add new information -->
             <div class="row">
@@ -59,7 +59,7 @@
                                 {% set count = namespace(value=0) %}
                                 {% for description in product.product_description %}
                                     <li class="edit-des-input-field" id="edit-description-list-item-{{ count.value }}"
-                                        number="{{ count.value }}">
+                                        data-number="{{ count.value }}">
                                         <div class="row">
                                             <!-- Input field -->
                                             <div class="col s9">
@@ -68,7 +68,7 @@
                                             <!-- End of: Input field -->
                                             <!-- Remove btn -->
                                             <div class="col s3 edit-item-remuve remuve-btn"
-                                                id="edit-description-list-item-remuve-{{ count.value }}" number="{{ count.value }}">
+                                                id="edit-description-list-item-remuve-{{ count.value }}" data-number="{{ count.value }}">
                                                 <p class="remuve-btn-text center awarege-text big-catalog">Remuve</p>
                                                 <p class="remuve-btn-text center awarege-text small-catalog">X</p>
                                             </div>
@@ -117,7 +117,7 @@
 
             <!-- Cloudinary button to open widget for image input -->
             <div class="row center">
-                <div id="upload_widget" class="cloudinary-button" product="product">Change image</div>
+                <div id="upload_widget" class="cloudinary-button" data-product="product">Change image</div>
             </div>
             <!-- Hiden image info field to upload to database -->
             <div class="row" style="display: none;">

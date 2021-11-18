@@ -211,7 +211,7 @@ The developer ran into a number of issues during the development of the game, wi
 
 ## Testing
 
-Testing information can be found in a separate testing [file] Prideti testing fila
+Testing information can be found in a separate testing file [TESTING.md](TESTING.md) Prideti testing fila
 
 ## Deployment
 

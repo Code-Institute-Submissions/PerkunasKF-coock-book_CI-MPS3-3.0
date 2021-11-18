@@ -173,8 +173,8 @@ Edit Recipe page
 Add Product page
 ![Add Product page HTML Validation Results](assets/testing/add-product-validation.png)
 
-Add Product page
-![Add Product page HTML Validation Results](assets/testing/add-product-validation.png)
+Edit Product page
+![Edit Product page HTML Validation Results](assets/testing/edit-product-validation.png)
 
 
 #### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/ "Link to W3C CSS Validator") was used to validate the `CSS` code used:

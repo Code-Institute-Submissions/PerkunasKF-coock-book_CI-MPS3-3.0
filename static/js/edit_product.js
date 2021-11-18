@@ -49,7 +49,7 @@ function addProductsEdit() {
   // Creates clases and ids for li and host row
   productDes.setAttribute("class", "des-input-field");
   productDes.setAttribute("id", `product-list-item-${product}`);
-  productDes.setAttribute("number", `${product}`);
+  productDes.setAttribute("data-number", `${product}`);
   productDes.appendChild(productRow);
 
   // Creats a row for input field and remuve button
@@ -70,7 +70,7 @@ function addProductsEdit() {
   // Creates remuve button
   remuveBtnCol.setAttribute("class", "col s3 remuve-btn");
   remuveBtnCol.setAttribute("id", `product-list-item-remuve-${product}`);
-  remuveBtnCol.setAttribute("number", `${product}`);
+  remuveBtnCol.setAttribute("data-number", `${product}`);
   
   // Moves text to remove button
   remuveBtnCol.appendChild(remuveBtnText);
@@ -106,7 +106,7 @@ function removeProduct() {
   var num;
   var btns;
 
-  num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
+  num = parseInt(removeBtns[removeBtns.length-1].getAttribute("data-number")) + 1;
 
     for (var i = 0; i < num; ++i) {
       var parent = document.getElementById(`product-list-item-${i}`);
