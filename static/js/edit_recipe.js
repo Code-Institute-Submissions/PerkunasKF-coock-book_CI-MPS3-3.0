@@ -1,4 +1,5 @@
 var ingredient = 0;
+var direction = 0;
 
 document.addEventListener('DOMContentLoaded', function () {
   console.log("Pradzia");
@@ -25,7 +26,7 @@ function callForRemuveRecipe() {
     remuve(parent, btn);
   }
 
-  for (var i = 0; i < directionList.length; i++) {
+  for (i = 0; i < directionList.length; i++) {
     var parent02 = document.getElementById(`edit-directions-list-item-${i}`);
     var btn02 = document.getElementById(`edit-direction-list-item-remuve-${i}`);
     remuve02(parent02, btn02);
@@ -39,7 +40,7 @@ function remuve(parent, btn) {
       parent.remove(parent);
       console.log("Helo");
     });
-  return
+  return;
 }
 
 
@@ -49,7 +50,7 @@ function remuve02(parent, btn) {
     parent.remove(parent);
     console.log("Helo");
   });
-return
+return;
 }
 // ------------------------------------------------------
 
@@ -107,7 +108,7 @@ function addIngredientsEdit () {
   remuveBtnTextSmall.appendChild(document.createTextNode("X"));
 
   ingredient++;
-  return
+  return;
 }
 
 
@@ -126,18 +127,19 @@ function enterIngredientEdit () {
 function removeIngredient() {
   var removeBtns = document.querySelectorAll(".ing-input-field");
   var num;
+  var btns;
 
-  var num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
+  num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
 
     for (var i = 0; i < num; ++i) {
       var parent = document.getElementById(`ingredient-list-item-${i}`);
-      var btns = document.getElementById(`ingredient-list-item-remuve-${i}`);
+      btns = document.getElementById(`ingredient-list-item-remuve-${i}`);
     }
     btns.addEventListener("click", () => {
       parent.remove(parent);
     });
   
-  return
+  return;
 }
 // ------------------------------------------------------
 
@@ -194,7 +196,7 @@ function addDirectionsEdit () {
   remuveBtnTextSmall.appendChild(document.createTextNode("X"));
 
   direction++;
-  return
+  return;
 }
 
 
@@ -213,8 +215,9 @@ function enterDirectionsEdit () {
 function removeDirection() {
   var removeBtns = document.querySelectorAll(".dir-input-field");
   var num;
+  var btns;
 
-  var num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
+  num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
 
     for (var i = 0; i < num; ++i) {
       var parent = document.getElementById(`directions-list-item-${i}`);
@@ -224,6 +227,6 @@ function removeDirection() {
       parent.remove(parent);
     });
   
-  return
+  return;
 }
 // ------------------------------------------------------

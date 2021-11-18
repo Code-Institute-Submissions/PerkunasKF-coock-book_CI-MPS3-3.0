@@ -65,7 +65,7 @@ function addIngredients() {
   remuveBtnTextSmall.appendChild(document.createTextNode("X"));
 
   ingredient++;
-  return
+  return;
 }
 
 
@@ -84,18 +84,19 @@ function enterIngredient () {
 function removeIngredient() {
   var removeBtns = document.querySelectorAll(".ing-input-field");
   var num;
+  var btns;
 
-  var num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
+  num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
 
     for (var i = 0; i < num; ++i) {
       var parent = document.getElementById(`ingredient-list-item-${i}`);
-      var btns = document.getElementById(`ingredient-list-item-remuve-${i}`);
+      btns = document.getElementById(`ingredient-list-item-remuve-${i}`);
     }
     btns.addEventListener("click", () => {
       parent.remove(parent);
     });
   
-  return
+  return;
 }
 // ---
 
@@ -151,7 +152,7 @@ function addDirections() {
   remuveBtnTextSmall.appendChild(document.createTextNode("X"));
 
   direction++;
-  return
+  return;
 }
 
 
@@ -170,17 +171,18 @@ function enterDirections () {
 function removeDirection() {
   var removeBtns = document.querySelectorAll(".dir-input-field");
   var num;
+  var btns;
 
   var num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
 
     for (var i = 0; i < num; ++i) {
       var parent = document.getElementById(`directions-list-item-${i}`);
-      var btns = document.getElementById(`direction-list-item-remuve-${i}`);
+      btns = document.getElementById(`direction-list-item-remuve-${i}`);
     }
     btns.addEventListener("click", () => {
       parent.remove(parent);
     });
   
-  return
+  return;
 }
 // ---

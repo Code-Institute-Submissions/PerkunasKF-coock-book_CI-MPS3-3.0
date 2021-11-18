@@ -63,7 +63,7 @@ function addProducts() {
   remuveBtnTextSmall.appendChild(document.createTextNode("X"));
 
   product++;
-  return
+  return;
 }
 
 
@@ -82,17 +82,18 @@ function enterproduct () {
 function removeProduct() {
   var removeBtns = document.querySelectorAll(".des-input-field");
   var num;
+  var btns;
 
-  var num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
+  num = parseInt(removeBtns[removeBtns.length-1].getAttribute("number")) + 1;
 
     for (var i = 0; i < num; ++i) {
       var parent = document.getElementById(`product-list-item-${i}`);
-      var btns = document.getElementById(`product-list-item-remuve-${i}`);
+      btns = document.getElementById(`product-list-item-remuve-${i}`);
     }
     btns.addEventListener("click", () => {
       parent.remove(parent);
     });
   
-  return
+  return;
 }
 // ---

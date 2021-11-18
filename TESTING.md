@@ -14,7 +14,12 @@
 ## Table of contents
 1. [Testing User Stories](#Testing-User-Stories)
 2. [Manual Testing](#Manual-Testing)
-3. [User Testing](#User-Testing)
+3. [Automated Testing](#Automated-Testing) 
+     - [Code Validation](#Code-Validation)
+     - [Browser Validation](#Browser-Validation)
+     - [Python Validation](#ExtendsClass)
+     - [Lighthouse Auditing](#Lighthouse-Auditing)
+4. [User Testing](#User-Testing)
 
 ***
 
@@ -131,6 +136,65 @@
 - Clicking on footers social media icons will open a new window to that site:
 
     ![Clicking social media icon](assets/testing/social-media-icons.gif)
+
+
+![Page HTML Validation Results](assets/validation/HTML-validation.png)
+
+#### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/ "Link to W3C CSS Validator") was used to validate the `CSS` code used:
+
+**Result:**
+
+![CSS Validation Results](assets/testing/css-validation.png)
+
+#### [JSHint](https://jshint.com/ "Link to JSHint") was used to validate the `JavaScript` and `JQuery` code used:
+
+**Results:**
+
+- The warrning for `add_products.js` :
+
+    ![Warning declared in JSHint](assets/testing/add_products-js.png)
+    - Add file .jshintrc for the solution
+
+- The warrning for `add_recipe.js` :
+
+    ![Warning declared in JSHint](assets/testing/add_recipe-js.png)
+    - Add file .jshintrc for the solution
+
+- The warrning for `edit_product.js` :
+
+    ![Warning declared in JSHint](assets/testing/edit_product-js.png)
+    - Add file .jshintrc for the solution
+
+- The warrning for `edit_recipe.js` :
+
+    ![Warning declared in JSHint](assets/testing/edit_recipe-js.png)
+    - Add file .jshintrc for the solution
+
+- The warrning for `mat-script.js` :
+
+    ![Warning declared in JSHint](assets/testing/mat-scripts-js.png)
+
+- The warrning for `upload-img.js` :
+
+    ![Warning declared in JSHint](assets/testing/upload-img-js.png)
+    - Add file .jshintrc for the solution
+    - Cloudinary variable is from a cloudinary code template
+
+#### [ExtendsClass](https://extendsclass.com/python-tester.html "Link to ExtendsClass") was used to validate the `Python` code used:
+
+**Results:**
+
+- The were no warnings for `app.py` :
+
+    ![Results for app.py validation](assets/testing/python-validation-py.png)
+    
+### Lighthouse Auditing
+
+![Lighthous Validation](assets/testing/lighthouse-report.png)
+
+[Back to top ⇧](#table-of-contents)
+
+
 
 ## User testing 
 Family members and friends, were asked to review the site and documentation to point out any bugs and/or user experience issues. 

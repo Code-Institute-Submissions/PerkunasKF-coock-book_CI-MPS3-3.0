@@ -1,3 +1,5 @@
+/*jshint sub:true*/
+
 var profileImg = false;
 var productImg = false;
 
@@ -29,35 +31,20 @@ var myWidget = cloudinary.applyUploadWidget(
       }
     }
   }
-)
+);
 
 
   document.getElementById("upload_widget").addEventListener("click", function () {
-    // changeProfileImage();
-    // var profilePic = document.getElementsByClassName("profile-pic-edit");
     var check = document.getElementById("upload_widget");
       if (check.getAttribute("profile") == "profile") {
-        profileImg = true
+        profileImg = true;
         console.log(profileImg);
         console.log(check);
       }
       if (check.getAttribute("product") == "product") {
-        productImg = true
+        productImg = true;
         console.log(check);
       }
     myWidget.open();
   }, false);
-
-  
-
-function changeProfileImage () {
-  // var imageContainer = document.querySelector("profile-pic-edit");
-  var submitButton = document.createElement("button");
-  var cardContainer = document.getElementsByClassName("info-user");
-
-    cardContainer.appendChild(submitButton);
-    submitButton.setAttribute("class", "remuve-btn-text center awarege-text big-catalog");
-    submitButton.appendChild(document.createTextNode("Save Changes"));
-  return
-}
 
