@@ -158,8 +158,8 @@ LogIn page
 Register page
 ![Register page HTML Validation Results](assets/testing/register-validation.png)
 
-Register page
-![Register page HTML Validation Results](assets/testing/register-validation.png)
+Profile page
+![Profile page HTML Validation Results](assets/testing/profile-page-validation.png)
 
 #### [W3C CSS Validator](https://jigsaw.w3.org/css-validator/ "Link to W3C CSS Validator") was used to validate the `CSS` code used:
 
