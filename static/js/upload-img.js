@@ -15,18 +15,14 @@ var myWidget = cloudinary.applyUploadWidget(
         var userImg = document.getElementById("user_image");
         userImg.setAttribute("value", result.info['secure_url']);
         profileImg = false;
-        console.log("1");
       } else {
         if ( productImg == true ) {
           var productImage = document.getElementById("product_image");
           productImage.setAttribute("value", result.info['secure_url']);
           productImg = false;
-          console.log("2");
         } else {
             var recipeImg = document.getElementById("recipe_image");
             recipeImg.setAttribute("value", result.info['secure_url']);
-            console.log("3");
-
         }
       }
     }
@@ -38,12 +34,9 @@ var myWidget = cloudinary.applyUploadWidget(
     var check = document.getElementById("upload_widget");
       if (check.getAttribute("data-profile") == "profile") {
         profileImg = true;
-        console.log(profileImg);
-        console.log(check);
       }
       if (check.getAttribute("data-product") == "product") {
         productImg = true;
-        console.log(check);
       }
     myWidget.open();
   }, false);
